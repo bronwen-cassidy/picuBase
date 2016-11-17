@@ -1,0 +1,33 @@
+commands: NOTE: all commands must be run from the project root folder
+all commands executed only afer installing python, django, mysql and mysqlclient for python
+=========================================================================================
+
+#start a new django project
+django-admin startproject <project_name>
+
+# connect to mysql
+# modify the settings.py databases section to add your mysql connection details
+# for example
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'picubase',
+		'USER': 'picuadmin',
+		'PASSWORD': 'picuadmin',
+		'HOST': 'localhost',
+		'PORT': '3306',
+    }
+}
+
+# run migrate to get the connection going
+python manage.py migrate
+
+# start/create a new django app
+python manage.py startapp <your app name>
+
+# create your superuser so you can log in enter the command below and follow the prompts
+python manage.py createsuperuser
+
+
+# start the server running
+python manage.py runserver
