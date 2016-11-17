@@ -9,6 +9,9 @@ class Picu(models.Model):
 	street_address = models.CharField(max_length=1000)
 	city = models.CharField(max_length = 500)
 	
+	class Meta:
+		verbose_name_plural = 'Pediatric ICUS'
+	
 	def __str__(self):
 		return self.name + " in " + self.city
 	
@@ -18,11 +21,15 @@ class Child(models.Model):
 	date_of_birth = models.DateField()
 	gender = models.CharField(max_length=1)
 	
+	class Meta:
+		verbose_name_plural = 'Children'
+		
 	def get_age_in_months(self):
 		today = timezone.now()
 		return ((today.year - self.date_of_birth.year) *12 + today.month - self.date_of_birth.month)		
 	
 	def __str__(self):
-		return self.first_name + " " + self.second_name + " " + self.get_age_in_months()		
+		return self.first_name + " " + self.second_name + " " + self.get_age_in_months()	
+
 	
 	
