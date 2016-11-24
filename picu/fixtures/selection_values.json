@@ -1,0 +1,162 @@
+[
+  {
+    "model": "picu.SelectionValue",
+    "pk": "1",
+    "fields": {
+      "name": "Asthma",
+      "description": "Asthma is the main reason for ICU admission",
+	  "sort_order": "1",
+	  "type": "1"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "2",
+    "fields": {
+      "name": "Bronchiolitis",
+      "description": "Bronchiolitis is the main reason for ICU admission",
+	  "sort_order": "2",
+	  "type": "1"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "3",
+    "fields": {
+      "name": "Croup",
+      "description": "Croup is the main reason for ICU admission",
+	  "sort_order": "3",
+	  "type": "1"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "4",
+    "fields": {
+      "name": "Obstructive sleep apnea",
+      "description": "Obstructive sleep apnea is the main reason for ICU admission",
+	  "sort_order": "4",
+	  "type": "1"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "5",
+    "fields": {
+      "name": "Diabetic ketoacidosis",
+      "description": "Diabetic ketoacidosis is the main reason for ICU admission",
+	  "sort_order": "5",
+	  "type": "1"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "6",
+    "fields": {
+      "name": "Seizure disorder",
+      "description": "Seizure disorder is the main reason for ICU admission",
+	  "sort_order": "6",
+	  "type": "1"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "7",
+    "fields": {
+      "name": "Spontaneous cerebral hemorrhage",
+      "description": "Spontaneous cerebral hemorrhage",
+	  "sort_order": "1",
+	  "type": "2"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "8",
+    "fields": {
+      "name": "Cardiomyopathy or myocarditis",
+      "description": "Cardiomyopathy or myocarditis",
+	  "sort_order": "2",
+	  "type": "2"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "9",
+    "fields": {
+      "name": "Hypoplastic left heart syndrome",
+      "description": "Hypoplastic left heart syndrome",
+	  "sort_order": "3",
+	  "type": "2"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "10",
+    "fields": {
+      "name": "Neurodegenerative disorder",
+      "description": "Neurodegenerative disorder",
+	  "sort_order": "4",
+	  "type": "2"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "11",
+    "fields": {
+      "name": "Necrotizing enterocolitis",
+      "description": "Necrotizing enterocolitis is the main reason for ICU admission",
+	  "sort_order": "5",
+	  "type": "2"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "12",
+    "fields": {
+      "name": "Cardiac arrest",
+      "description": "Cardiac arrest preceding ICU admission",
+	  "sort_order": "1",
+	  "type": "3"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "13",
+    "fields": {
+      "name": "Severe combined immune deficiency",
+      "description": "Severe combined immune deficiency",
+	  "sort_order": "2",
+	  "type": "3"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "14",
+    "fields": {
+      "name": "Leukemia or lymphoma",
+      "description": "Leukemia or lymphoma after first induction",
+	  "sort_order": "3",
+	  "type": "3"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "15",
+    "fields": {
+      "name": "Bone marrow transplant recipient",
+      "description": "Bone marrow transplant recipient",
+	  "sort_order": "4",
+	  "type": "3"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "16",
+    "fields": {
+      "name": "Liver failure",
+      "description": "Liver failure is the main reason for ICU admission",
+	  "sort_order": "5",
+	  "type": "3"
+    }
+  }
+]

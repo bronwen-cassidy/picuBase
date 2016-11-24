@@ -1,0 +1,26 @@
+[
+  {
+    "model": "picu.SelectionType",
+    "pk": "1",
+    "fields": {
+      "name": "Low Risk Diagnosis",
+      "description": "Diagnosis considered low risk"
+    }
+  },
+  {
+    "model": "picu.SelectionType",
+    "pk": "2",
+    "fields": {
+      "name": "High Risk Diagnosis",
+      "description": "Diagnosis considered High risk"
+    }
+  },
+  {
+    "model": "picu.SelectionType",
+    "pk": "3",
+    "fields": {
+      "name": "Very High Risk Diagnosis",
+      "description": "Diagnosis considered very high risk"
+    }
+  }
+]
