@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+from datetime import date
+import math
 from decimal import Decimal
 
 # Create your models here.
@@ -9,9 +11,16 @@ class Picu(models.Model):
 	name = models.CharField(max_length=300)
 	street_address = models.CharField(max_length=1000)
 	city = models.CharField(max_length = 500)
+	hospital_number = models.CharField(max_length=200)	
+	unit_number = models.CharField(max_length=200)
+	case_number = models.CharField(max_length=200)
+	
 	
 	class Meta:
 		verbose_name_plural = 'Pediatric ICUS'
+	
+	def case_number_def(self):
+		return self.unit_number + self.case_number
 	
 	def __str__(self):
 		return self.name + " in " + self.city		
@@ -34,16 +43,12 @@ class Patient(models.Model):
 	first_name = models.CharField(max_length=300)
 	second_name = models.CharField(max_length=300)
 	gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default=None)
-	date_of_birth = models.DateField()
-	date_deceased = models.DateField(default=None, blank=True, null=True)	
+	date_of_birth = models.DateField()	
 	hiv = models.BooleanField(default=False)
 		
 	def age_in_months(self):
 		today = timezone.now()
-		return ((today.year - self.date_of_birth.year) * 12 + today.month - self.date_of_birth.month)	
-
-	def hiv_default():
-		return false
+		return ((today.year - self.date_of_birth.year) * 12 + today.month - self.date_of_birth.month)
 	
 	def __str__(self):
 		return self.first_name + " " + self.second_name
@@ -52,7 +57,14 @@ class Patient(models.Model):
 	
 class Diagnosis(models.Model):	
 	name = models.CharField(max_length=500)
+	#International Classification of Diseases code
+	icd_10_code = models.CharField(max_length=20)
+	#Australian and New Zealand Intensive Care diagnostic Code
+	anzics_code = models.CharField(max_length=30)
 	
+	class Meta:
+		verbose_name_plural = 'Diagnoses'
+		
 	def __str__(self):
 		return self.name
 	
@@ -69,8 +81,9 @@ class Admission(models.Model):
 	VERY_HIGH_RISK = '3'
 	DIAGNOSIS_RISK_CHOICES = ((LOW_RISK,'Low Risk'),(HIGH_RISK,'High Risk'),(VERY_HIGH_RISK,'Very High Risk'))
 	
-	admission_date = models.DateField()
-	admitted_from = models.CharField(max_length=300)
+	picu_admission_date = models.DateField()
+	admitted_from = models.CharField("Referred From", max_length=300)
+	hospital_admission_date = models.DateField(default = None)
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None)
 	risk_associated_with_diagnosis = models.CharField(max_length=1, choices=DIAGNOSIS_RISK_CHOICES, default=None)
@@ -94,16 +107,23 @@ class Admission(models.Model):
 	discharged_to = models.CharField(max_length=300, default=None, blank=True, null=True)
 	
 	def admission_month(self):
-		return self.admission_date.month
+		return self.picu_admission_date.month
 	
 	def length_of_stay(self):
 		current_date = self.discharged_date
 		if current_date is None:
-			current_date = timezone.now()
-		return datetime.strptime(current_date) - datetime.strptime(self.admission_date)
+			current_date = datetime.date.today()
+		delta = current_date - self.picu_admission_date		
+		return delta.days
 		
 	def patient_info(self):
 		return self.patient
+		
+	def hiv(self):
+		return self.patient.hiv
+		
+	def age_in_months(self):
+		return self.patient.age_in_months()
 	
 	def current_diagnosis(self):
 		return ', '.join([a.name for a in self.admission_diagnosis.all()])
@@ -117,7 +137,7 @@ class Admission(models.Model):
 		return self.discharged_date.month
 	
 	def mortality(self):
-		return 'Y' if self.discharged_to is not None or self.discharged_to.lower is "death" else 'N'
+		return 'Y' if self.discharged_to is not None and self.discharged_to.lower is "death" else 'N'
 						
 	def sys_blood_pressure_squared(self):
 		return (self.sbp * self.sbp) / 1000
@@ -125,40 +145,49 @@ class Admission(models.Model):
 	def ratio_of_fio2_over_pao2(self):
 		return 100 * self.fraction_inspired_oxygen / self.partial_oxygen_pressure if self.partial_oxygen_pressure > 0 and self.fraction_inspired_oxygen > 0  else 0.23
 	
-	def boolNumConversion(self, booleanArg):
+	def bool_to_number(self, booleanArg):
 		return 1 if booleanArg is True else 0
 	
-	def calcDiagnosicRisk(self, choice):
-		result = [1 for key, value in DIAGNOSIS_RISK_CHOICES if key is choice and key is self.risk_associated_with_diagnosis]
-		return 0 if result is None else 1  
-	
+	def calc_diagnostic_risk(self, choice):
+		for key,value in self.DIAGNOSIS_RISK_CHOICES:
+			if key is choice and key is self.risk_associated_with_diagnosis:
+				return 1
+		return 0
+		
 	def logit(self):
-		return (self.boolNumConversion(self.pupils_fixed) * 3.8233) + (self.boolNumConversion(self.elective_admission) * -0.5378) \
-		+ (self.boolNumConversion(self.mechanical_ventilation) * 0.9763) + (self.base_excess * 0.0671) \
-		+ (self.sys_blood_pressure_squared() * -0.0431) + ((0.1761 * self.sys_blood_pressure_squared() * self.sys_blood_pressure_squared()) / 1000.0) \
-		+ (self.fraction_inspired_oxygen * 0.4214) + (self.boolNumConversion(self.bypass_cardiac) * -1.2246) \
-		+ (self.boolNumConversion(self.non_bypass_cardiac) * -0.8762) + (self.boolNumConversion(self.non_cardiac_procedure) * -1.5164) \
-		+ (self.calcDiagnosicRisk(self.VERY_HIGH_RISK) * 1.6225) + (self.calcDiagnosicRisk(self.HIGH_RISK) * 1.0725) \
-		+ (self.calcDiagnosicRisk(self.LOW_RISK) * -2.1766) - 1.7928
-
+		return (self.bool_to_number(self.pupils_fixed) * 3.8233) + (self.bool_to_number(self.elective_admission) * -0.5378) \
+		+ (self.bool_to_number(self.mechanical_ventilation) * 0.9763) + (self.base_excess * 0.0671) \
+		+ (self.sbp * -0.0431) + (0.1716 * self.sys_blood_pressure_squared()) \
+		+ (self.ratio_of_fio2_over_pao2() * 0.4214) + (self.bool_to_number(self.bypass_cardiac) * -1.2246) \
+		+ (self.bool_to_number(self.non_bypass_cardiac) * -0.8762) + (self.bool_to_number(self.non_cardiac_procedure) * -1.5164) \
+		+ (self.calc_diagnostic_risk(self.VERY_HIGH_RISK) * 1.6225) + (self.calc_diagnostic_risk(self.HIGH_RISK) * 1.0725) \
+		+ (self.calc_diagnostic_risk(self.LOW_RISK) * -2.1766) + (-1.7928)
+	
+	def mortality_risk(self):
+		risk_factor = math.exp(self.logit())
+		return 0 if not self.age_in_months() > 0 else (risk_factor / (1 + risk_factor)) 
 		
 	def __str__(self):
 		return str(self.patient)
 		
-	admission_month.admin_order_field = "admission_date"
+	admission_month.admin_order_field = "admission_month"
 	admission_month.short_description = "Admission Month"
 	length_of_stay.admin_order_field = "length_of_stay"
-	length_of_stay.short_description = "Days"
+	length_of_stay.short_description = "LOS"
 	patient_info.admin_order_field = "patient_info"
 	patient_info.short_description = "Patient"
 	current_diagnosis.admin_order_field = "current_diagnosis"
 	current_diagnosis.short_description = "Diagnosis"
 	sys_blood_pressure_squared.short_description = "sbt*sbt/1000"
 	ratio_of_fio2_over_pao2.short_description = "100 × Fio2/Pao2 (mm Hg)"
+	mortality_risk.short_description="Mortality Risk"
 	
 class AdmissionDiagnosis(models.Model):
 	admission = models.ForeignKey(Admission)
 	diagnosis = models.ForeignKey(Diagnosis)
+	
+	class Meta:
+		verbose_name_plural = 'Admission Diagnoses'
 		
 class PositiveCulture(models.Model):
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)

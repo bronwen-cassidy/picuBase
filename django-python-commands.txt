@@ -31,3 +31,6 @@ python manage.py createsuperuser
 
 # start the server running
 python manage.py runserver
+
+# move static files to local
+python3 manage.py collectstatic
