@@ -29,6 +29,9 @@ class SelectionType(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField(max_length=400)
 	
+	def __str__(self):
+		return self.name
+	
 class SelectionValue(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField(max_length=400)
@@ -85,7 +88,7 @@ class Admission(models.Model):
 	admitted_from = models.CharField("Referred From", max_length=300)
 	hospital_admission_date = models.DateField(default = None)
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None)
+	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None, related_name="admission")
 	risk_associated_with_diagnosis = models.CharField(max_length=1, choices=DIAGNOSIS_RISK_CHOICES, default=None)
 	positive_cultures = models.ManyToManyField(Culture, default=None)
 	
@@ -170,31 +173,13 @@ class Admission(models.Model):
 	def __str__(self):
 		return str(self.patient)
 		
-	admission_month.admin_order_field = "admission_month"
+	admission_month.admin_order_field = "picu_admission_date"
 	admission_month.short_description = "Admission Month"
-	length_of_stay.admin_order_field = "length_of_stay"
 	length_of_stay.short_description = "LOS"
-	patient_info.admin_order_field = "patient_info"
 	patient_info.short_description = "Patient"
-	current_diagnosis.admin_order_field = "current_diagnosis"
 	current_diagnosis.short_description = "Diagnosis"
 	sys_blood_pressure_squared.short_description = "sbt*sbt/1000"
 	ratio_of_fio2_over_pao2.short_description = "100 × Fio2/Pao2 (mm Hg)"
 	mortality_risk.short_description="Mortality Risk"
-	
-class AdmissionDiagnosis(models.Model):
-	admission = models.ForeignKey(Admission)
-	diagnosis = models.ForeignKey(Diagnosis)
-	
-	class Meta:
-		verbose_name_plural = 'Admission Diagnoses'
-		
-class PositiveCulture(models.Model):
-	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-	culture = models.ForeignKey(Culture, on_delete=models.CASCADE)	
-	
-		
-	
-	
 	
 	

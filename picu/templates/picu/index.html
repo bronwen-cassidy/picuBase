@@ -1,0 +1,9 @@
+<!-- index page shows a searchable form and a link to anter a new admission via a number of routes-->
+
+{% if todays_admissions %}
+	{% for admission in todays_admissions %}
+		testing {{ admission.picu_admission_date }}
+	{% endfor%}
+{% else %}
+	<p>No admissions today!!</p>
+{% endif %}
