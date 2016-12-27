@@ -11,45 +11,55 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
-<div id="content-main">
+	<div id="content-main">
+		{% block object-tools %}
+        <ul class="object-tools">
+          {% block object-tools-items %}
+            <li>
+              {% url cl.opts|admin_urlname:'add' as add_url %}
+              <a href="{% url 'picu/admission/add/' %}" class="addlink">Add Admission</a>
+            </li>
+          {% endblock %}
+        </ul>
+        {% endblock %}
+		<form action="{% url 'picu:patient_search' %}" method="post">
+			{% csrf_token %}
+			<label for="first_name">First Name (wildcard* accepted): </label>
+			<input id="first_name" type="text" name="first_name" maxlength="300"/>
 
-we will provide a patient search ability here with the ability to ad in a new admission
+			<label for="second_name">Second Name (wildcard* accepted): </label>
+			<input id="second_name" type="text" name="second_name" maxlength="300"/>
 
-{% if app_list %}
-    {% for app in app_list %}
-        <div class="app-{{ app.app_label }} module">
-        <table>
-        <caption>
-            <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
-        </caption>
-        {% for model in app.models %}
-            <tr class="model-{{ model.object_name|lower }}">
-            {% if model.admin_url %}
-                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
-            {% else %}
-                <th scope="row">{{ model.name }}</th>
-            {% endif %}
+			<!-- date picker -->
+			<label for="dob">Date of Birth: </label>
+			<input id="dob" type="text" name="dob" maxlength="300"/>
 
-            {% if model.add_url %}
-                <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
+		</form>
 
-            {% if model.admin_url %}
-                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
-            </tr>
-        {% endfor %}
-        </table>
-        </div>
-    {% endfor %}
-{% else %}
-    <p>{% trans "You don't have permission to edit anything." %}</p>
-{% endif %}
-</div>
+
+		{% if patient_list %}
+			<div class="app-{{ app.app_label }} module">
+		        <table>
+			        <caption>
+			            <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.first_name }}</a>
+			        </caption>
+			        {% for app in patient_list %}
+		            <tr class="model-{{ model.object_name|lower }}">
+		                <!-- link to edit the patient -->
+		                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
+		                <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add Admission' %}</a></td>
+		                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Edit' %}</a></td>
+		            </tr>
+			        {% endfor %}
+			    </table>
+		    </div>
+		{% else %}
+		    <p>
+			    {% trans "No patients found for search criteria, perhaps a first admission in which case please fill in admission form and add the patient " %}
+			    <!-- to do provide a button to add addmission-->
+		    </p>
+		{% endif %}
+	</div>
 {% endblock %}
 
 {% block sidebar %}

@@ -1,4 +1,14 @@
 commands: NOTE: all commands must be run from the project root folder
+
+windows installation of mysqlclient (connector for python and mysql)
+1) download the wheel .whl from http://www.lfd.uci.edu/%7Egohlke/pythonlibs/#mysqlclient
+2) choose the version of windows and python you are running:
+
+mysqlclient‑1.3.9‑cp35‑cp35m‑win_amd64.whl = python 3.5 windows 64
+you may need to run: pip install wheel first
+then pip install mysqlclient‑1.3.9‑cp35‑cp35m‑win_amd64.whl
+
+
 all commands executed only afer installing python, django, mysql and mysqlclient for python
 =========================================================================================
 

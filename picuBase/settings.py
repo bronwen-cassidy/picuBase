@@ -75,14 +75,17 @@ WSGI_APPLICATION = 'picuBase.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'picubase',
+	'default': {
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'picubase',
 		'USER': 'picuadmin',
 		'PASSWORD': 'picuadmin',
 		'HOST': 'localhost',
 		'PORT': '3306',
-    }
+		'OPTIONS': {
+			'sql_mode': 'traditional',
+		}
+	}
 }
 
 

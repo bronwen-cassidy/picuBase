@@ -1,21 +1,32 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404
 
-from datetime import datetime, timedelta
-
-from .models import Admission
+from .models import Admission, Patient
 
 
 # Create your views here.
 
 def index(request):
-	#todays_admissions = Admission.objects.filter(picu_admission_date__gte=datetime.now()-timedelta(days=20))	
-	admissions = Admission.objects.all()
-	model = { "todays_admissions": admissions }
 	# render - request, view, model
-	return render(request, 'picu/index.html', model )
-	
-def admission(request, admission_id):
-	admission = get_object_or_404(Admission, pk=admission_id)
-	model = { "admission": admission }
+	return render(request, 'picu/index.html')
+
+
+def admission_details(request, admission_id):
+	admission_info = get_object_or_404(Admission, pk=admission_id)
+	model = {"admission": admission_info}
 	return render(request, 'picu/admission.html', model)
+
+
+def patient_search(request):
+	dob = request.POST['dob']
+	if dob is None:
+		patients = Patient.objects.all().filter(first_name__like=request.POST['first_name'], second_name__like=request.POST['second_name'])
+	else:
+		patients = Patient.objects.all().filter(first_name__like=request.POST['first_name'], second_name__like=request.POST['second_name'], date_of_birth=dob)
+
+	model = {"patient_list": patients}
+	return render(request, 'picu/index.html', model)
+
+
+def new_admission(request):
+
+	return render(request, 'picu/admission_form.html')
