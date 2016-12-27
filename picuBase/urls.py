@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-	url(r'^picu/', include('picu.urls')),
+	url(r'^picu/', include('picu.urls', namespace='picu')),
 ]
