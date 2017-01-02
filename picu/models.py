@@ -38,7 +38,8 @@ class SelectionValue(models.Model):
 	sort_order = models.IntegerField()
 	numeric_value = models.CharField(max_length=200, default=None, blank=True, null=True)
 	type = models.ForeignKey(SelectionType, on_delete=models.CASCADE)
-		
+
+
 class Patient(models.Model):
 	GENDER_CHOICES = (('M','Male'),('F','Female'))
 	STATUS_CHOICES = (('Y','Yes'),('N','No'))

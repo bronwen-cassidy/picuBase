@@ -44,3 +44,6 @@ python manage.py runserver
 
 # move static files to local
 python3 manage.py collectstatic
+
+# running tests in this case app_name is picu
+python manage.py test <app_name>
