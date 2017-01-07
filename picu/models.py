@@ -7,6 +7,7 @@ from decimal import Decimal
 
 # Create your models here.
 
+
 class Picu(models.Model):
 	name = models.CharField(max_length=300)
 	street_address = models.CharField(max_length=1000)
@@ -25,13 +26,15 @@ class Picu(models.Model):
 	def __str__(self):
 		return self.name + " in " + self.city		
 
+
 class SelectionType(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField(max_length=400)
 	
 	def __str__(self):
 		return self.name
-	
+
+
 class SelectionValue(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField(max_length=400)
@@ -58,12 +61,13 @@ class Patient(models.Model):
 		return self.first_name + " " + self.second_name
 
 	age_in_months.short_description = "Age in months"
-	
+
+
 class Diagnosis(models.Model):	
 	name = models.CharField(max_length=500)
-	#International Classification of Diseases code
+	# International Classification of Diseases code
 	icd_10_code = models.CharField(max_length=20)
-	#Australian and New Zealand Intensive Care diagnostic Code
+	# Australian and New Zealand Intensive Care diagnostic Code
 	anzics_code = models.CharField(max_length=30)
 	
 	class Meta:
@@ -78,6 +82,7 @@ class Culture(models.Model):
 	
 	def __str__(self):
 		return self.name
+
 
 class Admission(models.Model):
 	LOW_RISK = '1'
@@ -139,7 +144,8 @@ class Admission(models.Model):
 		if self.discharged_date is None:
 			return None
 		return self.discharged_date.month
-	
+
+	# todo change this into a selection type/value
 	def mortality(self):
 		return 'Y' if self.discharged_to is not None and self.discharged_to.lower is "death" else 'N'
 						

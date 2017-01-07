@@ -158,5 +158,35 @@
 	  "sort_order": "5",
 	  "type": "3"
     }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "17",
+    "fields": {
+      "name": "Death",
+      "description": "Discharged to death",
+	  "sort_order": "1",
+	  "type": "4"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "18",
+    "fields": {
+      "name": "Home",
+      "description": "Discharged to home",
+	  "sort_order": "0",
+	  "type": "4"
+    }
+  },
+  {
+    "model": "picu.SelectionValue",
+    "pk": "19",
+    "fields": {
+      "name": "Hospital",
+      "description": "Discharged to hospital",
+	  "sort_order": "1",
+	  "type": "4"
+    }
   }
 ]

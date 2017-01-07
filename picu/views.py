@@ -19,7 +19,7 @@ def patient_search(request):
 		my_form = PatientSearchForm(request.POST)
 
 		if my_form.is_valid():
-			dob = my_form.cleaned_data.get('dob') if not '' else None
+			dob = my_form.cleaned_data.get('date_of_birth') if not '' else None
 			first_name = '%' if my_form.cleaned_data.get('first_name') is None else my_form.cleaned_data.get('first_name')
 			second_name = '%' if my_form.cleaned_data.get('second_name') is None else my_form.cleaned_data.get('second_name')
 
@@ -34,4 +34,14 @@ def patient_search(request):
 			raise Exception("*********** form is not valid todo return page with the errors ************* ")
 	else:
 		return render(request, 'picu/index.html', {"patient_list": [], 'form': PatientSearchForm})
+
+
+def patient_view(request, id):
+
+	patient = get_object_or_404(Patient, id=id)
+	# - indicates descending order we want admissions listed most recent first
+	admission_list = Admission.objects.filter(patient_id=id).order_by('-picu_admission_date')
+	model = {'patient': patient, 'admission_list': admission_list }
+
+	return render(request, 'picu/patient_details.html', model)
 

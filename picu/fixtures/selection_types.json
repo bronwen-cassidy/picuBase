@@ -22,5 +22,13 @@
       "name": "Very High Risk Diagnosis",
       "description": "Diagnosis considered very high risk"
     }
+  },
+  {
+    "model": "picu.SelectionType",
+    "pk": "4",
+    "fields": {
+      "name": "Discharged To",
+      "description": "Various places a patient can be discharged to"
+    }
   }
 ]

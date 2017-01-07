@@ -1,0 +1,211 @@
+{% extends "picu/index.html" %}
+{% load i18n admin_urls static admin_list admin_modify %}
+{% block extrahead %}
+    {{ block.super }}
+
+	<script type="text/javascript">
+        django.jQuery(document).ready(function($) {
+            $('#admissions').DataTable();
+        });
+
+	</script>
+
+{% endblock %}
+
+{% block breadcrumbs %} <div class="breadcrumbs">&nbsp;Home</div> {% endblock %}
+
+{% block content %}
+	<div id="content-main">
+		{% block object-tools %}
+            <ul class="object-tools">
+                <li>
+                  <a href="{% url 'admin:picu_admission_add' %}" class="addlink">New Admission</a>
+                </li>
+            </ul>
+        {% endblock %}
+        <div id="patient-info" class="module filtered">
+            <div class="results">
+                <div>
+                    <table>
+                        <caption>
+                            <a href="#" class="section" title="Patient Info">{{ patient }}</a>
+                        </caption>
+                        <tr class="row1">
+                            <td><div class="text">{% trans 'First Name' %}:</div><div class="clear"></div></td>
+                            <td><div class="text">{{ patient.first_name }}</div><div class="clear"></div></td>
+                            <td><div class="text">{% trans 'Second Name' %}:</div><div class="clear"></div></td>
+                            <td><div class="text">{{ patient.second_name }}</div><div class="clear"></div></td>
+                        </tr>
+                        <tr class="row2">
+                            <td><div class="text">{% trans 'DOB' %}:</div><div class="clear"></div></td>
+                            <td><div class="text">{{ patient.date_of_birth }}</div><div class="clear"></div></td>
+                            <td><div class="text">{% trans 'Age in Months' %}:</div><div class="clear"></div></td>
+                            <td><div class="text">{{ patient.age_in_months }}</div><div class="clear"></div></td>
+                        </tr>
+                        <tr class="row1">
+                            <td><div class="text">{% trans 'Gender' %}:</div><div class="clear"></div></td>
+                            <td><div class="text">{{ patient.gender }}</div><div class="clear"></div></td>
+                            <td><div class="text">{% trans 'HIV' %}:</div><div class="clear"></div></td>
+                            <td><div class="text">{{ patient.hiv }}</div><div class="clear"></div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="clear"><br/><hr/></div>
+
+            {% if admission_list %}
+
+            <div id="changelist" class="results">
+                <table id="admissions">
+                    <caption>
+                        <a href="#" class="section" title="all admissions">Admissions</a>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="sortable column-picu_admission_date">
+                               <div class="text">Admission<br/>date</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-admission_month">
+                               <div class="text">Admission<br/>month</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-admitted_from">
+                               <div class="text">Admitted<br/>From</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-hospital_admission_date">
+                               <div class="text">Hospital<br/>Admission</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-current_diagnosis">
+                               <div class="text">Diagnoses</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-pos_cultures">
+                               <div class="text">Cultures</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-pupils_fixed">
+                               <div class="text">Pupils<br/>Fixed</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-elective_admission">
+                               <div class="text">Elective<br/>Admission</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-mechanical_ventilation">
+                               <div class="text">Mechanical<br/>Ventilation</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-bypass_cardiac">
+                               <div class="text">Bypass<br/>Cardiac</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-non_cardiac_procedure">
+                               <div class="text">Non Cardiac<br/>Procedure</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-base_excess">
+                               <div class="text">Base<br/>Excess</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-sbp">
+                               <div class="text">SBP</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-sys_blood_pressure_squared">
+                               <div class="text">SBP<sup>2</sup></div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-ratio_of_fio2_over_pao2">
+                               <div class="text">FIO<sup>2</sup>/pao<sup>2</sup></div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-fraction_inspired_oxygen">
+                               <div class="text">FIO</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-partial_oxygen_pressure">
+                               <div class="text">PO<sup>2</sup></div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-logit">
+                               <div class="text">Logit</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-discharged_date">
+                               <div class="text">Discharged<br/>Date</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-month_discharged">
+                               <div class="text">Discharged<br/>Month</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-discharge_diagnosis">
+                               <div class="text">Discharge<br/>Diagnoses</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-discharged_to">
+                               <div class="text">Discharged<br/>To</div>
+                               <div class="clear"></div>
+                            </th>
+                            <th scope="col" class="sortable column-length_of_stay">
+                               <div class="text">Length Of<br/>Stay</div>
+                               <div class="clear"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for admission in admission_list %}
+                            <tr class="{% cycle 'row1' 'row2' %}">
+                                <th class="field-picu_admission_date nowrap">
+                                    <!-- link to view the patient details + all admissions-->
+                                    <a href="{% url 'admin:picu_admission_change' admission.id  %}">{{ admission.picu_admission_date }}</a>
+                                </th>
+                                <td class="field-admission_month">{{ admission.admission_month }}</td>
+                                <td class="field-admitted_from">{{ admission.admitted_from }}</td>
+                                <td class="field-hospital_admission_date nowrap">{{ admission.hospital_admission_date }}</td>
+                                <td class="field-current_diagnosis">{{ admission.current_diagnosis }}</td>
+                                <td class="field-pos_cultures">{{ admission.pos_cultures }}</td>
+                                <td class="field-pupils_fixed">
+                                    <img src="/static/admin/img/icon-{% if admission.pupils_fixed %}yes.svg {% else %}no.svg {% endif %}" alt="True">
+                                </td>
+                                <td class="field-elective_admission">
+                                    <img src="/static/admin/img/icon-{% if admission.elective_admission %}yes.svg {% else %}no.svg {% endif %}" alt="True">
+                                </td>
+                                <td class="field-mechanical_ventilation">
+                                    <img src="/static/admin/img/icon-{% if admission.mechanical_ventilation %}yes.svg {% else %}no.svg {% endif %}" alt="True">
+                                </td>
+                                <td class="field-bypass_cardiac">
+                                    <img src="/static/admin/img/icon-{% if admission.bypass_cardiac %}yes.svg {% else %}no.svg {% endif %}" alt="True">
+                                </td>
+                                <td class="field-non_cardiac_procedure">
+                                    <img src="/static/admin/img/icon-{% if admission.non_cardiac_procedure %}yes.svg {% else %}no.svg {% endif %}" alt="True">
+                                </td>
+                                <td class="field-base_excess">{{ admission.base_excess }}</td>
+                                <td class="field-sbp">{{ admission.sbp }}</td>
+                                <td class="field-sys_blood_pressure_squared">{{ admission.sys_blood_pressure_squared }}</td>
+                                <td class="field-ratio_of_fio2_over_pao2">{{ admission.ratio_of_fio2_over_pao2 }}</td>
+                                <td class="field-fraction_inspired_oxygen">{{ admission.fraction_inspired_oxygen }}</td>
+                                <td class="field-partial_oxygen_pressure">{{ admission.partial_oxygen_pressure }}</td>
+                                <td class="field-logit">{{ admission.logit }}</td>
+                                <td class="field-discharged_date nowrap">{{ admission.discharged_date }}</td>
+                                <td class="field-month_discharged">{{ admission.month_discharged }}</td>
+                                <td class="field-discharge_diagnosis">{{ admission.discharge_diagnosis }}</td>
+                                <td class="field-discharged_to">{{ admission.discharged_to }}</td>
+                                <td class="field-length_of_stay">{{ admission.length_of_stay }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>
+                {% trans "No admissions available" %}
+            </p>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -7,7 +7,7 @@ from .models import Patient
 class PatientSearchForm(forms.Form):
 	first_name = forms.CharField(label='First Name (wildcard* accepted):', max_length=200, required=False)
 	second_name = forms.CharField(label='Second Name (wildcard* accepted):', max_length=200, required=False)
-	dob = forms.DateField(label='Date of Birth:', required=False, widget=AdminDateWidget)
+	date_of_birth = forms.DateField(label='Date of Birth:', required=False, widget=AdminDateWidget)
 
 	class Meta:
 		model = Patient

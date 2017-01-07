@@ -8,18 +8,20 @@ from .models import Picu,Patient,Admission,Culture,Diagnosis,SelectionType,Selec
 class AdmissionInline(admin.StackedInline):
 	extra = 1
 	model = Admission
-	
+
+
 class PatientInline(admin.StackedInline):
 	model = Patient
 	
-######################### ADMINS #################	
-
+######################### ADMINS #################
 class PicuAdmin(admin.ModelAdmin):
 	formfield_overrides = { models.ManyToManyField: {'widget': forms.SelectMultiple(attrs={'size':'3'})}, }
 
+
 class DiagnosisAdmin(admin.ModelAdmin):
 	list_display = ('name', 'icd_10_code', 'anzics_code')	
-	
+
+
 class AdmissionAdmin(admin.ModelAdmin):
 	
 	fieldsets = [
@@ -35,16 +37,16 @@ class AdmissionAdmin(admin.ModelAdmin):
 		     'fields': ['discharge_diagnosis', 'discharged_date', 'discharged_to']})
     ]
 	
-	#inlines = [DiagnosisInline]
-	
 	list_display = ('picu_admission_date', 'patient_info', 'current_diagnosis', 'pos_cultures','admission_month','mortality','pupils_fixed',
 					'elective_admission', 'hiv', 'mechanical_ventilation', 'base_excess', 'sbp','sys_blood_pressure_squared',
 				    'fraction_inspired_oxygen','partial_oxygen_pressure', 'ratio_of_fio2_over_pao2', 'bypass_cardiac',
 					'non_bypass_cardiac', 'non_cardiac_procedure','risk_associated_with_diagnosis', 'logit', 'length_of_stay', 'mortality_risk')
-					
+	ordering = ['picu_admission_date']
 	list_filter = ['picu_admission_date','risk_associated_with_diagnosis']
 	search_fields = ['picu_admission_date', 'risk_associated_with_diagnosis', 'elective_admission']
-	
+	raw_id_fields = ('admission_diagnosis',)
+
+
 class PatientAdmin(admin.ModelAdmin):
 
 	list_display = ('first_name', 'second_name', 'gender', 'date_of_birth', 'hiv', 'age_in_months')	

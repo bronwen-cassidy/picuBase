@@ -1,13 +1,47 @@
 <!-- index page shows a searchable form and a link to anter a new admission via a number of routes-->
 {% extends "admin/change_list.html" %}
 {% load i18n admin_urls static admin_list admin_modify %}
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="/static/picu/css/vendor/datatables/datatables.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/widgets.css"/>
+{% endblock %}
+{% block extrahead %}
 
+    <script type="text/javascript" src="/admin/jsi18n/"></script>
+    <script type="text/javascript" src="/static/admin/js/core.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>-->
+    <script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+
+    <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+    <script type="text/javascript" src="/static/admin/js/actions.js"></script>
+    <script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+    <script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+    <script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+    <script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+    <script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+    <script type="text/javascript" src="/static/admin/js/collapse.js"></script>
+
+
+
+	<script type="text/javascript">
+        django.jQuery(document).ready(function($) {
+            $('#patient-search-results').DataTable();
+        });
+
+	</script>
+
+{% endblock %}
 {% block bodyclass %}{{ block.super }} app-picu change-list {% endblock %}
 
-{% block breadcrumbs %} <div class="breadcrumbs">&nbsp;</div> {% endblock %}
+{% block breadcrumbs %} <div class="breadcrumbs">&nbsp;Home</div> {% endblock %}
 
 {% block content %}
-	<div id="content-main" style="width=100%;">
+	<div id="content-main">
 		{% block object-tools %}
             <ul class="object-tools">
                 <li>
@@ -24,7 +58,6 @@
                             {{form}}
                         </table>
                          <input type="submit" value="Search">
-                        {% prepopulated_fields_js %}
                     </div>
                 </form>
             </div>
@@ -34,7 +67,7 @@
             {% if patient_list %}
 
             <div id="changelist" class="results">
-                <table>
+                <table id="patient-search-results">
                     <caption>
                         <a href="#" class="section" title="patients">Patients matched</a>
                     </caption>
@@ -49,39 +82,27 @@
                                <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-first_name">
-                               <div class="text">
-                                    <a href="?o=1">First name</a>
-                               </div>
+                               <div class="text">First name</div>
                                <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-second_name">
-                               <div class="text">
-                                    <a href="?o=2">Second name</a>
-                               </div>
+                               <div class="text">Second name</div>
                                <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-gender">
-                               <div class="text">
-                                    <a href="?o=3">Gender</a>
-                               </div>
+                               <div class="text">Gender</div>
                                <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-date_of_birth">
-                               <div class="text">
-                                    <a href="?o=4">Date of Birth</a>
-                               </div>
+                               <div class="text">Date of Birth</div>
                                <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-hiv">
-                               <div class="text">
-                                    <a href="?o=5">Hiv</a>
-                               </div>
+                               <div class="text">Hiv</div>
                                <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-age_in_months">
-                               <div class="text">
-                                    <a href="?o=6">Age in Months</a>
-                               </div>
+                               <div class="text">Age in Months</div>
                                <div class="clear"></div>
                             </th>
                         </tr>
@@ -94,7 +115,7 @@
                                 </td>
                                 <th class="field-first_name">
                                     <!-- link to view the patient details + all admissions-->
-                                    <a href="#">{{ patient.first_name }}</a>
+                                    <a href="{% url 'picu:patient_view' patient.id  %}">{{ patient.first_name }}</a>
                                 </th>
                                 <td class="field-second_name">{{ patient.second_name }}</td>
                                 <td class="field-gender">{{ patient.gender }}</td>
@@ -111,9 +132,8 @@
         {% else %}
             <p>
                 {% trans "No patients available" %}
-                <!-- to do provide a button to add addmission-->
             </p>
         {% endif %}
-             </div>
+        </div>
     </div>
 {% endblock %}
