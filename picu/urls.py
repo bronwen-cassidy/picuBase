@@ -11,6 +11,7 @@ urlpatterns = [
 	url(r'^logout/$', auth_views.logout, {'next_page': 'login/'}, name='logout'),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^home/$', views.index, name='home'),
+	url(r'^data/import/', views.data_import, name='data_import'),
 	url(r'^patient/search/', views.patient_search, name='patient_search'),
 	url(r'^patient/(?P<id>\w+)/view/$', views.patient_view, name='patient_view'),
 ]

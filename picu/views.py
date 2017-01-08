@@ -1,3 +1,4 @@
+from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, get_object_or_404
 
 from .models import Admission, Patient
@@ -45,3 +46,14 @@ def patient_view(request, id):
 
 	return render(request, 'picu/patient_details.html', model)
 
+
+def data_import(request):
+	if request.method == 'POST' and request.FILES['datafile']:
+		datafile = request.FILES['datafile']
+		fs = FileSystemStorage()
+		filename = fs.save(datafile.name, datafile)
+		uploaded_file_url = fs.url(filename)
+
+		return render(request, 'admin/index.html', {'uploaded_file_url': uploaded_file_url})
+
+	return render(request, 'admin/index.html')
