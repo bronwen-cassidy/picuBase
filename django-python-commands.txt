@@ -47,3 +47,9 @@ python3 manage.py collectstatic
 
 # running tests in this case app_name is picu
 python manage.py test <app_name>
+
+# show all migrations
+python manage.py showmigrations picu
+
+# autorun a population script
+python manage.py loaddata selection_types.json

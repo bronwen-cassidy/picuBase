@@ -32,7 +32,7 @@
             {% endblock %}
             {% block userlinks %}
                 {% if site_url %}
-                    <a href="/picu">{% trans 'View site' %}</a> /
+                    <a href="{% url 'picu:home' %}">{% trans 'View site' %}</a> /
                 {% endif %}
                 {% if user.is_active and user.is_staff %}
                     {% url 'django-admindocs-docroot' as docsroot %}
@@ -53,7 +53,7 @@
     <!-- END Header -->
     {% block breadcrumbs %}
     <div class="breadcrumbs">
-    <a href="{% url 'picu:index' %}">{% trans 'Home' %}</a>
+    <a href="{% url 'picu:home' %}">{% trans 'Home' %}</a>
     &rsaquo;&rsaquo;<a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
     {% if title %} &rsaquo;&rsaquo; {{ title }}{% endif %}
     </div>

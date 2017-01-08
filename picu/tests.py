@@ -32,7 +32,7 @@ class AdmissionMethodTests(TestCase):
 
 class PatientViewTests(TestCase):
 	def test_index_no_search(self):
-		response = self.client.get(reverse('picu:index'))
+		response = self.client.get(reverse('picu:home'))
 		self.assertEqual(response.status_code, 200)
 		self.assertContains(response, "No patients available")
 		self.assertContains(response, "First Name (wildcard* accepted):")
