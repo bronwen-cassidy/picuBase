@@ -69,10 +69,11 @@ class Diagnosis(models.Model):
 	icd_10_code = models.CharField(max_length=20)
 	# Australian and New Zealand Intensive Care diagnostic Code
 	anzics_code = models.CharField(max_length=30)
+	risk_category = models.ForeignKey(SelectionType, default=1, limit_choices_to={1, 2, 3})
 	
 	class Meta:
 		verbose_name_plural = 'Diagnoses'
-		
+
 	def __str__(self):
 		return self.name
 	

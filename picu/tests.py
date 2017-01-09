@@ -1,11 +1,13 @@
+import os
+
 from django.test import TestCase
 
 from datetime import date
 from django.core.urlresolvers import reverse
-from django.core.files.uploadedfile import SimpleUploadedFile
 
 from picu.models import Admission, Patient
 from picu.forms import PatientSearchForm
+
 
 
 def create_addmission(addmission_date, patient, risk, pos_cultures, pupils_fixed, ventilation, bypass_cardiac, base_excess, sbp, fio):
@@ -17,20 +19,6 @@ def create_addmission(addmission_date, patient, risk, pos_cultures, pupils_fixed
 
 def create_patient(first_name, second_name, dob, hiv, gender):
 	return Patient.objects.create(first_name=first_name, second_name=second_name, date_of_birth=dob, hiv=hiv, gender=gender)
-
-
-def generate_file(self):
-	try:
-		myfile = open('test.csv', 'wb')
-	# wr = csv.writer(myfile)
-	# wr.writerow(('Paper ID', 'Paper Title', 'Authors'))
-	# wr.writerow(('1', 'Title1', 'Author1'))
-	# wr.writerow(('2', 'Title2', 'Author2'))
-	# wr.writerow(('3', 'Title3', 'Author3'))
-	finally:
-		myfile.close()
-
-	return myfile
 
 
 # Create your tests here.
@@ -101,6 +89,7 @@ class PatientViewTests(TestCase):
 class DataUploadViewTests(TestCase):
 
 	def test_data_import(self):
-		file_data = SimpleUploadedFile("data.csv", "file_content", content_type="text/csv")
-		response = self.client.post(reverse('picu:data_import'), {'datafile': file_data})
-		self.assertEqual(response.status_code, 200)
+
+		with open(os.path.join(os.path.dirname(__file__)) + '/test_data/data.csv', 'r') as file_data:
+			response = self.client.post(reverse('picu:data_import'), {'datafile': file_data})
+			self.assertEqual(response.status_code, 200)

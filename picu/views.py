@@ -1,5 +1,6 @@
 from django.core.files.storage import FileSystemStorage
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Admission, Patient
 from .forms import PatientSearchForm
@@ -48,12 +49,15 @@ def patient_view(request, id):
 
 
 def data_import(request):
+
 	if request.method == 'POST' and request.FILES['datafile']:
 		datafile = request.FILES['datafile']
+		contents = datafile.read()
 		fs = FileSystemStorage()
 		filename = fs.save(datafile.name, datafile)
 		uploaded_file_url = fs.url(filename)
+		# todo process the contents
 
-		return render(request, 'admin/index.html', {'uploaded_file_url': uploaded_file_url})
+		return render(request, redirect('admin:index'), {'uploaded_file_url': uploaded_file_url})
 
-	return render(request, 'admin/index.html')
+	return HttpResponse(status=500)
