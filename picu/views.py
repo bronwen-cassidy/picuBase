@@ -1,13 +1,16 @@
+import re
+
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import Admission, Patient
 from .forms import PatientSearchForm
+from .models import Admission, Patient
+
+
+data_headers = ('hospital number', 'Unit Number', 'Case number')
 
 # Create your views here.
-
-
 def index(request):
 	# render - request, view, model
 	form = PatientSearchForm(request.POST)
@@ -51,13 +54,20 @@ def patient_view(request, id):
 def data_import(request):
 
 	if request.method == 'POST' and request.FILES['datafile']:
-		datafile = request.FILES['datafile']
-		contents = datafile.read()
-		fs = FileSystemStorage()
-		filename = fs.save(datafile.name, datafile)
-		uploaded_file_url = fs.url(filename)
-		# todo process the contents
+		csvfile = request.FILES['datafile']
+		contents = csvfile.read().decode('utf-8')
+		rows = re.split('\n', contents)
 
-		return render(request, redirect('admin:index'), {'uploaded_file_url': uploaded_file_url})
+		for i, row in enumerate(rows):
+			print('>>> ' + str(i) + ': ' + row)
+			cells = row.split(',')
+			print('<<<<< : ' + str(cells[0]))
+
+		fs = FileSystemStorage()
+		filename = fs.save(csvfile.name, csvfile)
+		uploaded_file_url = fs.url(filename)
+
+		# return HttpResponseRedirect('admin:index')
+		return HttpResponse("Success!")
 
 	return HttpResponse(status=500)

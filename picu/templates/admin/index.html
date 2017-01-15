@@ -1,7 +1,60 @@
 {% extends "admin/base_site.html" %}
 {% load i18n static %}
+{% block extrahead %}
+{{ block.super }}
 
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>-->
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/picu/js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/static/picu/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+
+<script>
+
+django.jQuery(document).ready(function($) {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = '{% url 'picu:data_import' %}';
+    var headerVal = $("input[name=csrfmiddlewaretoken]").val();
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'csv',
+        singleFileUploads: true,
+        beforeSend: function (xhr, data) {
+            xhr.setRequestHeader('X-CSRFToken', headerVal);
+        },
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+            alert("yes");
+                //$('<p/>').text(file.name).appendTo('#files');
+            });
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+        }
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
+
+{% endblock %}
+{% block extrastyle %}
+{{ block.super }}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="/static/picu/css/jquery.fileupload.css"/>
+<link rel="stylesheet" href="/static/picu/css/jquery.fileupload-ui.css"/>
+
+
+{% endblock %}
 
 {% block coltype %}colMS{% endblock %}
 
@@ -48,11 +101,22 @@
 {% endif %}
 
 <!-- adding a data upload -->
-<form method="post" enctype="multipart/form-data" action="{% url 'picu:data_import' %}" >
-    {% csrf_token %}
-    <input type="file" name="datafile">
-    <button type="submit">Upload</button>
-</form>
+<div class="module">
+    <h2>Data file upload (Note only csv files currently supported) </h2>
+    <br/>
+    <span class="btn btn-success fileinput-button">
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>Select file</span>
+        {% csrf_token %}
+        <input id="fileupload" type="file" name="datafile" >
+    </span>
+
+    <div id="progress" class="progress">
+        <div class="progress-bar progress-bar-success"></div>
+    </div>
+    <!-- The container for the uploaded files -->
+    <div id="files" class="files"></div>
+</div>
 
 {% if uploaded_file_url %}
 <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>

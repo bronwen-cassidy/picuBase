@@ -1,9 +1,10 @@
-from django.db import models
-from django.utils import timezone
 import datetime
-from datetime import date
 import math
-from decimal import Decimal
+
+from django.db import models
+from django.db.models import Q
+from django.utils import timezone
+
 
 # Create your models here.
 
@@ -69,7 +70,7 @@ class Diagnosis(models.Model):
 	icd_10_code = models.CharField(max_length=20)
 	# Australian and New Zealand Intensive Care diagnostic Code
 	anzics_code = models.CharField(max_length=30)
-	risk_category = models.ForeignKey(SelectionType, default=1, limit_choices_to={1, 2, 3})
+	risk_category = models.ForeignKey(SelectionType, default=1, limit_choices_to={1, 2, 3}, related_name='+',)
 	
 	class Meta:
 		verbose_name_plural = 'Diagnoses'
@@ -96,9 +97,10 @@ class Admission(models.Model):
 	hospital_admission_date = models.DateField(default = None)
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None, related_name="admission")
-	risk_associated_with_diagnosis = models.CharField(max_length=1, choices=DIAGNOSIS_RISK_CHOICES, default=None)
+	risk_associated_with_diagnosis = models.ForeignKey(SelectionType, default=None, limit_choices_to=Q(id=1) | Q(id=2)| Q(id=3))
 	positive_cultures = models.ManyToManyField(Culture, default=None)
-	
+	main_admission_reason = models.ForeignKey(SelectionValue, default=None, limit_choices_to={"type": "5"}, related_name='+',)
+
 	pupils_fixed = models.BooleanField("Pupils Fixed To Light?", default=False)
 	elective_admission = models.BooleanField(default=False)
 	mechanical_ventilation = models.BooleanField("Mechanical ventilation in the first hour?", default=False)
@@ -110,12 +112,15 @@ class Admission(models.Model):
 	base_excess = models.FloatField("Absolute value of base excess (mmol/L)", default=0.0)
 	sbp = models.IntegerField("SBP at admission (mm Hg)", default=0)
 	fraction_inspired_oxygen = models.FloatField("FiO2 as Decimal", default=0.0)
-	partial_oxygen_pressure = models.FloatField("PaO2 mmHg", default=0.0)
+	partial_oxygen_pressure = models.FloatField("PaO2 KPa", default=0.0)
 	
 	discharged_date = models.DateField(default=None, blank=True, null=True)
 	discharge_diagnosis = models.TextField(max_length=400, default=None, blank=True, null=True)
-	discharged_to = models.CharField(max_length=300, default=None, blank=True, null=True)
-	
+	discharged_to = models.ForeignKey(SelectionValue, default=None, limit_choices_to={"type": "4"}, related_name='+',)
+	death_in_picu = models.BooleanField(default=False)
+	death_in_hospital = models.BooleanField(default=False)
+	survival_post_icu_discharge = models.BooleanField(default=False)
+
 	def admission_month(self):
 		return self.picu_admission_date.month
 	
@@ -131,9 +136,10 @@ class Admission(models.Model):
 		
 	def hiv(self):
 		return self.patient.hiv
-		
+
 	def age_in_months(self):
-		return self.patient.age_in_months()
+		delta = self.picu_admission_date - self.patient.date_of_birth
+		return delta.months
 	
 	def current_diagnosis(self):
 		return ', '.join([a.name for a in self.admission_diagnosis.all()])
@@ -164,7 +170,10 @@ class Admission(models.Model):
 			if key is choice and key is self.risk_associated_with_diagnosis:
 				return 1
 		return 0
-		
+
+	def paop_in_mmhg(self):
+		return self.partial_oxygen_pressure * 7.5
+
 	def logit(self):
 		return (self.bool_to_number(self.pupils_fixed) * 3.8233) + (self.bool_to_number(self.elective_admission) * -0.5378) \
 		+ (self.bool_to_number(self.mechanical_ventilation) * 0.9763) + (self.base_excess * 0.0671) \
@@ -188,6 +197,10 @@ class Admission(models.Model):
 	current_diagnosis.short_description = "Diagnosis"
 	sys_blood_pressure_squared.short_description = "sbt*sbt/1000"
 	ratio_of_fio2_over_pao2.short_description = "100 × Fio2/Pao2 (mm Hg)"
-	mortality_risk.short_description="Mortality Risk"
-	
-	
+	mortality_risk.short_description = "Mortality Risk"
+	paop_in_mmhg.short_description = "PaO2 (mmHg)"
+	main_admission_reason.short_description = "Main reason for PICU admission"
+	death_in_picu.short_description = "Death In PICU"
+	death_in_hospital.short_description = "Death In Hospital"
+	survival_post_icu_discharge.short_description = "Survival 28 Days Post Discharge"
+	age_in_months.short_description = "Age in Months at PICU Admission"

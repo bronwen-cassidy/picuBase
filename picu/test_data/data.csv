@@ -1,2 +1,4 @@
-hospital number,Unit Number,Case number
-100,12,12100
+hospital number,Unit Number,Case number,PICU Admission Date,Hospital Admission Date,DOB,Gender,Admission Diagnosis,ICD 10 Code, Anzics Code,
+Injury or Accident, Category,PICU Discharge Date, Hospital Discharge Date,Death in Picu, Death in Hospital, Death before 28 days after discharge,
+Pupils fixed to light, Elective Admission, Mechanical Ventilation in First Hour, Bypass Cardiac,Non-bypass Cardiac,Non Cardiac,Very High Risk, Very
+ High Risk Condition, High Risk, High Risk Condition,Low Risk, Low Risk Condition,Absolute Value of Base Excess,SBP at Admission,FIO2,PAO2(KPa)
