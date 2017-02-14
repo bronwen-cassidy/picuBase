@@ -38,7 +38,6 @@ python manage.py startapp <your app name>
 # create your superuser so you can log in enter the command below and follow the prompts
 python manage.py createsuperuser
 
-
 # start the server running
 python manage.py runserver
 
@@ -51,5 +50,21 @@ python manage.py test <app_name>
 # show all migrations
 python manage.py showmigrations picu
 
-# autorun a population script
+# autorun a population script - import data
 python manage.py loaddata selection_types.json
+
+# run all tests
+python manage.py test picu
+
+# run a single test
+python manage.py test picu.tests.DataUploadViewTests.test_data_import
+
+### update db schema
+python manage.py makemigrations
+python manage.py migrate
+
+##### reset the db
+- delete all migrations except __init__.py
+- delete all entries in the db from table django_migrations where app name = 'your_app'
+- run makemigrations
+- run migrate

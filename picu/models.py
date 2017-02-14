@@ -43,20 +43,34 @@ class SelectionValue(models.Model):
 	numeric_value = models.CharField(max_length=200, default=None, blank=True, null=True)
 	type = models.ForeignKey(SelectionType, on_delete=models.CASCADE)
 
+	def __str__(self):
+		return self.name
+
+
+class DiagnosticCode(models.Model):
+	description = models.CharField(max_length=4000)
+	short_description = models.CharField(max_length=4000)
+	icd10_code = models.CharField(max_length=20, default=None, null=True)
+	anszic_code = models.CharField(max_length=20, default=None, null=True)
+
+	def __str__(self):
+		return self.short_description
+
 
 class Patient(models.Model):
-	GENDER_CHOICES = (('M','Male'),('F','Female'))
-	STATUS_CHOICES = (('Y','Yes'),('N','No'))
+	GENDER_CHOICES = (('M','Male'),('F','Female'),)
+	HIV_CHOICES = (('0','Unknown'),('1','Positive'),('2','Negative'),('3','Pending'),)
+	STATUS_CHOICES = (('Y','Yes'),('N','No'),)
 	
 	first_name = models.CharField(max_length=300)
 	second_name = models.CharField(max_length=300)
 	gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default=None)
 	date_of_birth = models.DateField()	
-	hiv = models.BooleanField(default=False)
+	hiv = models.CharField(max_length=50, choices=HIV_CHOICES, default=None)
 		
 	def age_in_months(self):
 		today = timezone.now()
-		return ((today.year - self.date_of_birth.year) * 12 + today.month - self.date_of_birth.month)
+		return ((today.year - self.date_of_birth.year) * 12 + (today.month - self.date_of_birth.month))
 	
 	def __str__(self):
 		return self.first_name + " " + self.second_name
@@ -67,10 +81,10 @@ class Patient(models.Model):
 class Diagnosis(models.Model):	
 	name = models.CharField(max_length=500)
 	# International Classification of Diseases code
-	icd_10_code = models.CharField(max_length=20)
+	icd_10_code = models.CharField(max_length=20, default=None)
 	# Australian and New Zealand Intensive Care diagnostic Code
-	anzics_code = models.CharField(max_length=30)
-	risk_category = models.ForeignKey(SelectionType, default=1, limit_choices_to={1, 2, 3}, related_name='+',)
+	anszic_code = models.CharField(max_length=30, default=None)
+	risk_category = models.ForeignKey(SelectionType, default=1, null=True, limit_choices_to={'id__in': [1, 2, 3]}, related_name='+',)
 	
 	class Meta:
 		verbose_name_plural = 'Diagnoses'
@@ -97,9 +111,9 @@ class Admission(models.Model):
 	hospital_admission_date = models.DateField(default = None)
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None, related_name="admission")
-	risk_associated_with_diagnosis = models.ForeignKey(SelectionType, default=None, limit_choices_to=Q(id=1) | Q(id=2)| Q(id=3))
+	risk_associated_with_diagnosis = models.ForeignKey(SelectionType, default=None, null=True, limit_choices_to=Q(id=1) | Q(id=2)| Q(id=3))
 	positive_cultures = models.ManyToManyField(Culture, default=None)
-	main_admission_reason = models.ForeignKey(SelectionValue, default=None, limit_choices_to={"type": "5"}, related_name='+',)
+	main_admission_reason = models.ForeignKey(SelectionValue, default=None, null=True, limit_choices_to={"type": "5"}, related_name='+',)
 
 	pupils_fixed = models.BooleanField("Pupils Fixed To Light?", default=False)
 	elective_admission = models.BooleanField(default=False)
@@ -115,8 +129,9 @@ class Admission(models.Model):
 	partial_oxygen_pressure = models.FloatField("PaO2 KPa", default=0.0)
 	
 	discharged_date = models.DateField(default=None, blank=True, null=True)
+	hosp_discharged_date = models.DateField(default=None, blank=True, null=True)
 	discharge_diagnosis = models.TextField(max_length=400, default=None, blank=True, null=True)
-	discharged_to = models.ForeignKey(SelectionValue, default=None, limit_choices_to={"type": "4"}, related_name='+',)
+	discharged_to = models.TextField(max_length=4000, default=None, blank=True, null=True)
 	death_in_picu = models.BooleanField(default=False)
 	death_in_hospital = models.BooleanField(default=False)
 	survival_post_icu_discharge = models.BooleanField(default=False)

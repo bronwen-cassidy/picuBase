@@ -1,4 +1,141 @@
-hospital number,Unit Number,Case number,PICU Admission Date,Hospital Admission Date,DOB,Gender,Admission Diagnosis,ICD 10 Code, Anzics Code,
-Injury or Accident, Category,PICU Discharge Date, Hospital Discharge Date,Death in Picu, Death in Hospital, Death before 28 days after discharge,
-Pupils fixed to light, Elective Admission, Mechanical Ventilation in First Hour, Bypass Cardiac,Non-bypass Cardiac,Non Cardiac,Very High Risk, Very
- High Risk Condition, High Risk, High Risk Condition,Low Risk, Low Risk Condition,Absolute Value of Base Excess,SBP at Admission,FIO2,PAO2(KPa)
+hospital number,Unit Number,Case number (unit numer + other),referred from,PICU Admission Date,Hospital Admission Date,firstname, surname, DOB,Gender (M=1: F=0),Admission Diagnosis,Pos Cultures,hiv,Main Admission Reason (ANZICS code),ICD 10 code,PICU Discharge Date, Hospital Discharge Date,Discharged To,Death in Picu, Death in Hospital, Death before 28 days after discharge,Pupils fixed to light,elective admission,mechanical ventilation in the first hour,Bypass Cardiac,Non-bypass cardiac,non-cardiac,"Risk(low = 1, high = 2, very high=3)",Condition associated with risk,Absolute value of base excess,sbp,fio2,pao2
+1,un1,un11,Neurosurgery,01-Jan-16,01-Jan-16,a1,b1,12-Sep-15,1,Ventriculitis# Cardiorespiratory arrest,Stenotrephomonas# Klebsiella Pneumo,Negative,,G04.9,07-Jan-16,07-Jan-16,Death,1,1,1,1,0,1,0,0,0,3,,17.3,87,0.35,56.2
+2,un2,un22,PICU,01-Jan-16,01-Jan-16,a2,b2,16-Sep-15,1,Staph pericardial effusion,Staph aureus,Negative,,I31.3,17-Jan-16,17-Jan-16,10A,0,0,0,0,0,0,0,1,0,0,,17,108,0.8,69
+3,un3,un33,PICU,01-Jan-16,01-Jan-16,a3,b3,07-Nov-15,0,Rhabdomyosarcoma# Pleural TB# Septic shock,None,Negative,,C49.9,12-Jan-16,12-Jan-16,Death,1,1,1,0,0,0,0,0,0,0,,1,73,0.21,151
+4,un4,un44,Dihlabeng,01-Jan-16,01-Jan-16,a4,b4,31-Dec-15,1,Acute gastroenteritis# Hyperchloremic metabolic acidosis,None,Negative,,A02.0,31-Dec-15,31-Dec-15,PICU,0,0,0,0,0,1,0,0,0,0,,7,97,0.4,92.6
+5,un5,un55,Pelonomi,01-Jan-16,01-Jan-16,a5,b5,29-Dec-15,1,Gastro-enteritis with severe dehydration,None,Negative,,A02.0,02-Jan-16,02-Jan-16,Pelonomi,0,0,0,0,0,0,0,0,0,0,,24.9,105,0.21,130
+6,un6,un66,Neurosurgery,01-Jan-16,01-Jan-16,a6,b6,13-Dec-15,1,Penetrating brain injury with secondary CVA,None,Unknown,,S09.9,02-Jan-16,02-Jan-16,Ward 10B,0,0,0,0,1,0,0,0,0,0,,3.7,107,0.21,37.6
+7,un7,un77,Pelonomi Trauma,02-Jan-16,02-Jan-16,a7,b7,04-Sep-15,1,PVA with Gr 4 liver injury,None,Negative,,V03.9,04-Jan-16,04-Jan-16,Paeds Surgery,0,0,0,0,0,0,0,0,0,0,,4.8,118,0.21,76.5
+8,un8,un88,Ward 10A,03-Jan-16,03-Jan-16,a8,b8,09-Oct-15,0,Staph aureus Septicaemia# Osteomyelitis# Pericardial effusion,Staph Aureus,Negative,,A49.0,11-Jan-16,11-Jan-16,10A,0,0,0,0,0,0,0,0,1,0,,1,126,0.3,72.2
+9,un9,un99,Pelonomi,06-Jan-16,06-Jan-16,a9,b9,05-Jan-16,0,Acute gastroenteritis# Septic shock# Anaemia,None,Positive,,A02.0,08-Jan-16,08-Jan-16,Pelonomi,0,0,0,0,0,1,0,0,0,0,,6.8,84,0.5,200
+10,un10,un1010,Neurosurgery,08-Jan-16,08-Jan-16,a10,b10,07-Jan-16,1,Chiari Malformation# Ventriculitis# Hypoplastic post circulation,None,Negative,,G04.9,13-Jan-16,13-Jan-16,10A,0,0,0,0,1,0,0,0,1,0,,3.5,79,1,68
+11,un11,un1111,Pelonomi Trauma,13-Jan-16,13-Jan-16,a11,b11,27-Jul-15,1,Traumatic brain injury,Coagulase Negative Staph,Negative,,S09.9,27-Jan-16,27-Jan-16,10B,0,0,0,0,0,1,0,0,0,0,,8.5,96,0.3,295
+12,un12,un1212,Paediatric Surgery,14-Jan-16,14-Jan-16,a12,b12,01-Jan-16,0,Post operative PSARP for anorectal malformation,None,Negative,,Q42.3,15-Jan-16,15-Jan-16,Paeds Surgery,0,0,0,0,1,0,0,0,1,0,,5.7,115,0.21,39
+13,un13,un1313,Orthopaedics,15-Jan-16,15-Jan-16,a13,b13,04-Sep-15,0,Post operative for Scoliosis repair,None,Negative,,M41.9,16-Jan-16,16-Jan-16,3B,0,0,0,0,1,0,0,0,1,0,,5.6,106,0.21,63.6
+14,un14,un1414,Virginia,15-Jan-16,15-Jan-16,a14,b14,13-Nov-15,1,Organophosphate poisoning# Upper airway obstruction,None,Negative,,T60.0,27-Jan-16,27-Jan-16,Pelonomi,0,0,0,0,0,1,0,0,0,0,,8.4,91,0.5,117
+15,un15,un1515,10A,17-Jan-16,17-Jan-16,a15,b15,12-Jan-16,0,Hydrocephalus (Spinal tumor)# Hyponatremia,None,Negative,,G91.9,03-Feb-16,03-Feb-16,Death,1,1,1,0,0,0,0,0,0,0,,8.5,106,0.21,67
+16,un16,un1616,Neurosurgery,18-Jan-16,18-Jan-16,a16,b16,13-Jan-16,1,Hydrocephalus# Hypernatremia,None,Exposed,,G91.9,19-Jan-16,19-Jan-16,10B,0,0,0,0,0,0,0,0,0,0,,1.1,135,0.21,75.5
+17,un17,un1717,Oncology /Orthopaedics,19-Jan-16,19-Jan-16,a17,b17,26-Dec-15,0,Rhabdomyosarcoma right Thigh,None,Negative,,C49.9,20-Jan-16,20-Jan-16,10B,0,0,0,0,1,0,0,0,0,0,,5.6,86,0.21,31.4
+18,un18,un1818,Paediatric Surgery,19-Jan-16,19-Jan-16,a18,b18,16-Jan-16,1,Malrotation with midgut volvulus,Pseudamonas UTI# Yeast#cns,Negative,,Q43.3,,,,,,,0,0,0,0,0,0,0,,8.5,116,1,88.9
+19,un19,un1919,Botshabelo,22-Jan-16,22-Jan-16,a19,b19,21-Jan-16,0,Severe Pneumonia/?PCP/CMV/RVD Exposed,CMV pos. VL 186#000 copies,Negative,,J18.9,04-Feb-16,04-Feb-16,Pelonomi,0,0,0,0,0,1,0,0,0,0,,3.3,63,1,90.9
+20,un20,un2020,Pelonomi,23-Jan-16,23-Jan-16,a20,b20,30-Dec-15,1,RVD on HAART/ Severe Pneumonia?PCP/?CMV,Candida Albicans UTI,Positive,,J18.9,26-Jan-16,26-Jan-16,Pelonomi,0,0,0,0,0,1,0,0,0,0,,16.6,109,1,157
+21,un21,un2121,Pelonomi,24-Jan-16,24-Jan-16,a21,b21,05-May-15,0,Near Drowning,None,Negative,,T75.1,25-Jan-16,25-Jan-16,Pelonomi,0,0,0,0,0,0,0,0,0,0,,7.2,102,1,39.3
+22,un22,un2222,10A,27-Jan-16,27-Jan-16,a22,b22,29-Oct-15,1,Retinopathy of prematurity(photocoagulation),None,Negative,,H35.1,27-Jan-16,27-Jan-16,10A,0,0,0,0,1,0,0,0,0,0,,4.4,0,0.21,82.1
+23,un23,un2323, 10B,27-Jan-16,27-Jan-16,a23,b23,02-Jan-16,1,Hydrocephalus(Repaired)/Meningocoele( Repaired),None,PCR taken,,G91.1,28-Jan-16,28-Jan-16,10B,0,0,0,0,1,0,0,0,0,0,,11.1,90,0.21,83.6
+24,un24,un2424,Bongani,26-Jan-16,26-Jan-16,a24,b24,27-Dec-15,1,Pyloric Stenosis,Staph Epiderdimis,Negative,,Q40.0,01-Feb-16,01-Feb-16,Paeds Surgery,0,0,0,0,0,0,0,0,0,0,,7.1,106,1,158
+25,un25,un2525,Pelonomi,26-Jan-16,26-Jan-16,a25,b25,27-Dec-15,1,RVd exposed/Acute diarrhoea/Metabollic acidosis,Staph Epiderdimis,Negative,,A02.0,01-Feb-16,01-Feb-16,Pelonomi,0,0,0,0,0,0,0,0,0,0,,0,114,2,128
+26,un26,un2626,National,28-Jan-16,28-Jan-16,a26,b26,01-Aug-15,1,Congenital Rubella/PDA/Trabeculectomy,None,Negative,,P35.0,29-Jan-16,29-Jan-16,National,0,0,0,0,0,0,0,0,1,0,,8,141,0.21,67.1
+27,un27,un2727,Manapo,02-Feb-16,02-Feb-16,a27,b27,28-Dec-15,1,Congenital cyanotic heart disease - Tetralogy of Fallot,None,Negative,,Q21.3,02-Feb-16,02-Feb-16,Paeds cardio,0,0,0,0,0,0,0,0,0,0,,3.8,120,0.21,41
+28,un28,un2828,Plastic surgery,02-Feb-16,02-Feb-16,a28,b28,04-Dec-15,0,Pharyngeal flap. Prev repair of Cleft palate,None,Unknown,,Q35.9,03-Feb-16,03-Feb-16,Paeds surgey,0,0,0,0,1,1,0,0,1,0,,0,120,0.21,65
+29,un29,un2929,Pelonomi,02-Feb-16,02-Feb-16,a29,b29,30-Jan-16,0,Severe Pneumonia with ARDS# Sepsis# Cardiogenic shock,None,Negative,,J18.9,08-Feb-16,08-Feb-16,Death,1,1,1,0,0,1,0,0,0,3,,17,70,1,49
+30,un30,un3030,Pelonomi,03-Feb-16,03-Feb-16,a30,b30,14-Jan-16,1,Paraffin ingestion# Chemical pneumonitis,None,Negative,,T52.0X1A,15-Feb-16,15-Feb-16,Pelonomi,0,0,0,0,0,0,0,0,0,0,,6,73,0.8,59
+31,un31,un3131,Neurosurgery,03-Feb-16,03-Feb-16,a31,b31,08-Jan-16,0,Re-insertion of EVD,none,Unknown,,Z98.2,04-Feb-16,04-Feb-16,10 B,0,0,0,0,1,0,0,0,1,0,,0,100,0.21,60
+32,un32,un3232,Upington,04-Feb-16,04-Feb-16,a32,b32,17-Jan-16,1,Muscle Biopsy,None,Unknown,,G72.41,05-Feb-16,05-Feb-16,Upingtion,0,0,0,0,1,0,0,0,1,0,,0,100,0.21,60
+33,un33,un3333,Neurosurgery,05-Feb-16,05-Feb-16,a33,b33,31-Dec-15,0,Anaplastic Ependyoma,S.Epidermidis,Negative,,C71.9,15-Feb-16,15-Feb-16,Thebe ,0,0,0,0,1,1,0,0,1,0,,2.7,124,0.25,101
+34,un34,un3434,Oncology /Orthopaedics,06-Feb-16,06-Feb-16,a34,b34,29-Jan-16,1,Renal Carcinoma# Hypertensive Urgency,S.Aureus,Negative,,C64.9,22-Feb-16,22-Feb-16,10B,0,0,0,0,0,0,0,0,1,0,,2.4,140,0.21,92
+35,un35,un3535,Pelonomi,07-Feb-16,07-Feb-16,a35,b35,03-Jan-16,1,Diesel Ingestion,None,Negative,,T52.0X1A,08-Feb-16,08-Feb-16,Pelonomi,0,0,0,0,0,0,0,0,0,0,,0,109,0.21,60
+36,un36,un3636,Paediatric Surgery,07-Feb-16,07-Feb-16,a36,b36,16-Sep-15,1,Appendicitis# Acute Abdomen# Renal failure# Shock,None,Negative,,K35.1,17-Feb-16,17-Feb-16,Death,1,1,1,0,0,1,0,0,1,3,,11,73,0.6,91
+37,un37,un3737,Cardiology,16-Feb-16,16-Feb-16,a37,b37,08-Feb-16,1,Complex cardiac lesion-PAVD# co-arc. PHPT crisis,None,Negative,,Q24.9,17-Feb-16,17-Feb-16,Death,1,1,1,0,0,1,0,1,0,0,,9.2,50,0.7,86
+38,un38,un3838,Paediatric Surgery,15-Feb-16,15-Feb-16,a38,b38,10-Feb-16,1,Trisomy 21# AVSD# GORD,None,Negative,,Q90.9,22-Feb-16,22-Feb-16,10A,0,0,0,0,1,1,0,0,1,0,,1.8,73,0.5,83
+39,un39,un3939,Neurosurgery,15-Feb-16,15-Feb-16,a39,b39,12-Jan-16,0,Tethered Cord# Previous Anorectal Malformation,None,Negative,,Q42.3,18-Feb-16,18-Feb-16,10B,0,0,0,0,1,0,0,0,1,0,,8.6,103,0.21,57
+40,un40,un4040,Netcare,15-Feb-16,15-Feb-16,a40,b40,19-Sep-15,1,DKA# newly diagnosed DM type1,None,Negative,,E10.10,19-Feb-16,19-Feb-16,10A,0,0,0,0,0,0,0,0,0,1,,17,113,0.21,93
+41,un41,un4141,ENT,18-Feb-16,18-Feb-16,a41,b41,06-Feb-16,1,Post tonsilloadenectomy,None,Negative,,J03.1,21-Feb-16,21-Feb-16,8B,0,0,0,0,1,0,0,0,1,1,,3.4,131,0.6,53
+42,un42,un4242,Paediatric oncology,22-Feb-16,22-Feb-16,a42,b42,06-Nov-15,1,ALL,None,Negative,,C91.01,29-Feb-16,29-Feb-16,10B,0,0,0,0,1,0,0,0,0,3,,1.3,103,0.21,47
+43,un43,un4343,BDH,23-Feb-16,23-Feb-16,a43,b43,06-Jan-16,1,Tegretol Ingestion,None,Negative,,T42..1X1A,25-Feb-16,25-Feb-16,Pelonomi,0,0,0,0,0,0,0,0,0,0,,6.2,130,0.21,51
+44,un44,un4444,BDH,23-Feb-16,23-Feb-16,a44,b44,06-Jan-16,1,Tegretol Ingestion,None,Negative,,T42..1X1A,25-Feb-16,25-Feb-16,Pelonomi,0,0,0,0,0,0,0,0,0,0,,7.1,108,0.21,116
+45,un45,un4545,Paediatric Surgery,24-Feb-16,24-Feb-16,a45,b45,22-Feb-16,1,Pyloric Stenosis,None,Negative,,Q40.0,27-Feb-16,27-Feb-16,Paeds Surgery,0,0,0,0,0,0,0,0,1,0,,11,99,0.21,74
+46,un46,un4646,pelonomi,25-Feb-16,25-Feb-16,a46,b46,24-Feb-16,1,septic shock# apnoea,None,Negative,,R 65.21,03-Mar-16,03-Mar-16,Pelonomi,0,0,0,0,0,1,0,0,0,0,,11.4,86,0.6,60
+47,un47,un4747,Neurosurgery,25-Feb-16,25-Feb-16,a47,b47,19-Dec-15,1,Craniopharyngioma - Ventriculoscopy and shunt# biopsy,None,Negative,,D44.5,26-Feb-16,26-Feb-16,10 B,0,0,0,0,1,0,0,0,1,0,,4.3,104,0.21,73
+48,un48,un4848,Neurosugery,25-Feb-16,25-Feb-16,a48,b48,27-Dec-15,1,Arachnoid cyst#biopsy,None,Negative,,G93.0,26-Feb-16,26-Feb-16,10 B,0,0,0,0,1,0,0,0,1,0,,5.7,96,0.21,82
+49,un49,un4949,Kroonstad,27-Feb-16,27-Feb-16,a49,b49,10-Feb-16,1,Organophosphate poisoning ,None,Negative,,T60.0,01-Mar-16,01-Mar-16,Kroonstad,0,0,0,1,0,1,0,0,0,0,,8.1,102,0.21,83.4
+50,un50,un5050,Paediatric surgery,01-Mar-16,01-Mar-16,a50,b50,28-Feb-16,1,Biliary atresia - Post op Kasai + Ladds procedure; Liver cirrhosis#Polysplenia & Malrotation ,None,Negative,,Q44.2,07-Mar-16,07-Mar-16,10A,0,0,0,0,1,0,0,0,1,0,,0.3,93,0.21,66
+51,un51,un5151,Pelonomi,01-Mar-16,01-Mar-16,a51,b51,03-Feb-16,1,Dilated cardiomycopathy# complicated by CCF; defaulted treatment,None,Negative,,I42.9,08-Mar-16,08-Mar-16,Pelonomi,0,0,0,0,0,0,0,0,0,2,,3.4,101,0.5,148
+52,un52,un5252,10A,02-Mar-16,02-Mar-16,a52,b52,13-Jan-16,1,Epilepsy# Neurological Regression# Status epilepticus,None,Negative,,G40.0,09-Mar-16,09-Mar-16,10A,0,0,0,0,0,0,0,0,0,1,,7.2,96,0.4,111
+53,un53,un5353,Plastic surgery,03-Mar-16,03-Mar-16,a53,b53,25-Jan-16,1,Prune Belly Post Abdominal Reconstruction,None,Negative,,Q79.4,07-Mar-16,07-Mar-16,Paeds Surgery,0,0,0,0,1,0,0,0,1,0,,7.7,144,0.4,76
+54,un54,un5454,10A,04-Mar-16,04-Mar-16,a54,b54,25-Oct-15,1,Clonidine Toxicity,None,Negative,,T39.1X1A,07-Mar-16,07-Mar-16,10A,0,0,0,0,0,0,0,0,0,0,,0.3,91,1,195
+55,un55,un5555,Monapo,04-Mar-16,04-Mar-16,a55,b55,27-Feb-16,0,TB Meningitis# Non Accidental Injujy# Femur Fracture,None,Negtive,,A17.0,,,,,,,,,1,0,0,1,0,,12.3,132,0.69,286
+56,un56,un5656,Neurosurgery,08-Mar-16,08-Mar-16,a56,b56,18-Nov-15,0,Glioblastoma,None,Negative,,C71.9,,,,0,0,0,0,1,0,0,0,1,0,,3.2,112,0.21,76
+57,un57,un5757,Neurosurgery,10-Mar-16,10-Mar-16,a57,b57,02-Mar-16,1,Chiari Malformation# Hydrocephalus# Epilepsy,None,Negative,,G91.9,,,,0,0,0,0,1,0,0,0,1,0,,6.7,106,0.21,83
+58,un58,un5858,Neurosurgery,10-Mar-16,10-Mar-16,a58,b58,29-Feb-16,1,Hydrocephalus# CP# TBM,None,Negative,,G91.9,,,,0,0,0,0,1,0,0,0,1,0,,17.5,81,0.21,66
+59,un59,un5959,Neurosurgery,11-Mar-16,11-Mar-16,a59,b59,01-Nov-15,1,Hydrocephalus# Retinoblastoma,None,Negative,,C69.2,,,,0,0,0,0,1,0,0,0,1,0,,0,120,0.21,60
+60,un60,un6060,Neurosurgey,12-Mar-16,12-Mar-16,a60,b60,02-Dec-15,0,Spinal Cord Tumour# C2 - T3,None,Negative,,C72.0,,,,0,0,0,0,1,0,0,0,1,0,,0,120,,60
+61,un61,un6161,Paediatric Surgery,13-Mar-16,13-Mar-16,a61,b61,10-Mar-16,0,Intussusception,None,Exposed,,K56.1,,,,0,0,0,0,0,1,0,0,1,0,,2.9,82,1,144
+62,un62,un6262,Neurosurgery,15-Mar-16,15-Mar-16,a62,b62,05-Mar-16,0,Spinal Cord Tumour T6 - T10,None,Negative,,C720,,,,0,0,0,0,1,0,0,0,1,0,,10.7,115,0.35,95.4
+63,un63,un6363,Neurosurgery,17-Mar-16,17-Mar-16,a63,b63,18-Feb-16,0,Hydrocephalus# Septic VPS# Meningitis,CSF: Acinetobacter,Negative,,G91.9,,,,1,1,1,1,0,1,0,0,1,0,,9.6,128,0.3,60
+64,un64,un6464,Paeds Surgery,17-Mar-16,17-Mar-16,a64,b64,12-Jan-16,1,Tracheo-oesophageal fistula,None,Negative,,J95.0,,,,,,,,1,1,0,0,1,0,,6.4,113,0.5,106
+65,un65,un6565,ENT,22-Mar-16,22-Mar-16,a65,b65,22-Feb-16,0,Post Op Tonsillo-Adenoidectomy,None,Negative,,J35.3,,,,0,0,0,0,1,0,0,0,1,0,,5.1,86,0.21,117
+66,un66,un6666,10A,23-Mar-16,23-Mar-16,a66,b66,04-Mar-16,0,CCF# Pericardial effusion# ?Takayasu's,None,Negative,,I50.9,,,,0,0,0,0,0,0,0,0,0,0,,3,113,0.7,143
+67,un67,un6767,Pelonomi PICU,26-Mar-16,26-Mar-16,a67,b67,07-Mar-16,1,Status Epilepticus# SIADH# Sepsis# Hydrocephalus,Klebsiella Pneumonia# Acinetobacter Baumani,Negative,,G91.9,,,,0,0,0,0,1,1,0,0,0,0,,3.1,105,0.21,77
+68,un68,un6868,Cardiology,28-Mar-16,28-Mar-16,a68,b68,28-Feb-16,1,Tetralogy of Fallot,None,Negative,,Q21.3,,,,0,0,0,0,0,0,0,0,0,0,,6.5,104,1,47
+69,un69,un6969,Neurosurgery,29-Mar-16,29-Mar-16,a69,b69,06-Mar-16,1,Congenital Hydrocephalus# Sepsis,None,Negative,,G91.9,,,,0,0,0,0,0,0,0,0,0,0,,1,126,0.21,72
+70,un70,un7070,Medi Clinic,01-Apr-16,01-Apr-16,a70,b70,31-Mar-16,1,UTI# Hypovolaemic shock# Rt Hydronephrosis,None,Negative,,N39.0,,,,0,0,0,0,0,0,0,0,0,0,,7.9,90,0.5,52.8
+71,un71,un7171,Paediatric Surgery,05-Apr-16,05-Apr-16,a71,b71,01-Apr-16,0,Bowel Obstruction,None,Negative,,K56.69,,,,0,0,0,0,0,1,0,0,1,0,,7.6,77,0.5,60
+72,un72,un7272,ENT,05-Apr-16,05-Apr-16,a72,b72,07-Mar-16,1,Obstructive Sleep Apnoea,None,Negative,,G47.33,,,,0,0,0,0,1,0,0,0,1,1,,4.4,91,0.21,58
+73,un73,un7373,Paediatric Surgery,05-Apr-16,05-Apr-16,a73,b73,28-Mar-16,0,Septic Shock ,Candida Species,Negative,,R 65.21,,,,0,0,0,0,0,0,0,0,0,0,,7,118,1,60
+74,un74,un7474,Pelonomi PICU,09-Apr-16,09-Apr-16,a74,b74,09-Mar-16,0,Rasmussen Encephalitis,Enterococcus Faecium,Negative,,G05.8,,,,0,0,0,0,0,0,0,0,0,1,,0.3,112,1,98
+75,un75,un7575,Dihlabeng,12-Apr-16,12-Apr-16,a75,b75,25-Jan-16,0,Nephrotic Syndrome,None,Negative,,N04.9,,,,0,0,0,0,1,0,0,0,0,0,,3.9,123,0.21,67
+76,un76,un7676,Neurosurgery,12-Apr-16,12-Apr-16,a76,b76,18-Feb-16,1,?Hydatid Disease ?Malignancy,Coagulase Negative Staph,Negative,,B67.8,,,,0,0,0,0,0,0,0,0,1,0,,2.8,105,0.21,83
+77,un77,un7777,ENT,12-Apr-16,12-Apr-16,a77,b77,04-Jan-16,1,Maxillary Sinus Abscess,None,Negative,,J01.0,,,,0,0,0,0,1,0,0,0,1,0,,0.2,130,0.21,113
+78,un78,un7878,Neurosurgery,13-Apr-16,13-Apr-16,a78,b78,13-Mar-16,1,Pineal Tumour# Obstructive Hydrocephalus,None,Negative,,G91.9,,,,0,0,0,0,1,0,0,0,1,0,,1.5,127,1,132
+79,un79,un7979,Kroonstad,13-Apr-16,13-Apr-16,a79,b79,29-Feb-16,1,Guillain Barre Syndrome,None,Negative,,G61.0,,,,0,0,0,0,0,0,0,0,0,0,,7.4,115,0.21,61
+80,un80,un8080,Oncology  ,18-Apr-16,18-Apr-16,a80,b80,09-Mar-16,1,Rhabdomyosarcoma,None,Negative,,C49.M50,,,,0,0,0,0,1,0,0,0,1,0,,1.2,96,1,150
+81,un81,un8181,Urology,19-Apr-16,19-Apr-16,a81,b81,12-Apr-16,1,Left Renal Mass# Post nephrectomy,None,Negative,,N28.89,,,,0,0,0,0,1,0,0,0,1,0,,8,98,0.21,63
+82,un82,un8282,Cardiology,21-Apr-16,21-Apr-16,a82,b82,16-Apr-16,0,Cyanotic Heart Lesion# Pneumonia,None,Negative,,Q24.9,,,,0,0,0,0,0,0,0,0,0,0,,4.4,122,1,42
+83,un83,un8383,Oncology,22-Apr-16,22-Apr-16,a83,b83,03-Jan-16,1,T-cell ALL# Acute Abdomen# Septic Shock,Klebsiella Pneumonia ,Negative,,C91.01,,,,0,0,0,0,0,0,0,0,1,3,,11,115,0.21,58
+84,un84,un8484,Neurosurgery,25-Apr-16,25-Apr-16,a84,b84,12-Apr-16,1,Post op VP Shunt,None,Negative,,G9.9,,,,0,0,0,0,1,0,0,0,1,0,,10,160,1,90
+85,un85,un8585,Cardiology,25-Apr-16,25-Apr-16,a85,b85,06-Apr-16,1,Infective Endocarditis,None,Positive,,I33.9,,,,0,0,0,0,0,0,0,0,0,0,,8.4,104,1,60
+86,un86,un8686,Neurosurgery,27-Apr-16,27-Apr-16,a86,b86,08-Jan-16,0,Occipital Lobe tumour,,Negative,,C71.9,,,,0,0,0,0,0,0,0,0,1,0,,4.1,114,1,178
+87,un87,un8787,Oncology,28-Apr-16,28-Apr-16,a87,b87,29-Jan-16,0,ALL# Septic Shock,E Coli,Negative,,G91.01,,,,0,0,0,0,0,0,0,0,0,0,,2.2,75,1,108
+88,un88,un8888,Neurosurgery,28-Apr-16,28-Apr-16,a88,b88,01-Mar-16,0,Pontine tumour# post partial resection,None,Negative,,C71.9,,,,0,0,0,0,1,0,0,0,0,0,,9,119,0.21,78
+89,un89,un8989,Paediatric Surgery,30-Apr-16,30-Apr-16,a89,b89,29-Apr-16,0,Bowel Obstruction,None,Negative,,K56.69,,,,0,0,0,0,0,0,0,0,1,0,,0.5,78,1,137
+90,un90,un9090,Neurosurgery,03-May-16,03-May-16,a90,b90,02-Apr-16,1,Pineoblastoma# post debulking,None,Negative,,C71.9,,,,0,0,0,0,1,0,0,0,0,0,,5.4,177,0.21,87.3
+91,un91,un9191,Neurosurgery,05-May-16,05-May-16,a91,b91,27-Aug-15,0,Aqeduct stenosis# post ventriculostomy,None,Negative,,Q03.0,,,,0,0,0,0,1,0,0,0,0,0,,4.6,103,0.4,58.5
+92,un92,un9292,Oncology,06-May-16,06-May-16,a92,b92,14-Mar-16,1,Retinoblastoma# Intracranial metastases,None,Negative,,C69.21,,,,1,1,1,1,0,1,0,0,0,0,,12.7,115,0.6,135
+93,un93,un9393,Oncology,08-May-16,08-May-16,a93,b93,09-Mar-16,0,Burkitt lymphoma,Candid Albicans,Negative,,C83.7,,,,,,,0,0,1,0,0,0,3,,7,127,0.5,105
+94,un94,un9494,Neurosurgery,12-May-16,12-May-16,a94,b94,07-May-16,0,Choroid plexus papilloma # hydrocephalus,CNS,Negative,,G91.1,,,,0,0,0,0,0,1,0,0,1,2,,9,114,0.4,138
+95,un95,un9595,Neurosurgery,13-May-16,13-May-16,a95,b95,14-Jan-16,0,Traumatic brain injury,None,Negative,,S06.2,,,,0,0,0,1,0,1,0,0,1,2,,10,156,0.4,110
+96,un96,un9696,Pediatric Surgery,14-May-16,14-May-16,a96,b96,12-May-16,0,Duodenal web,None,Negative,,K3.5,,,,0,0,0,0,1,0,0,0,1,1,,6,96,0.21,79
+97,un97,un9797,Botshabelo,19-May-16,19-May-16,a97,b97,18-May-16,1,Meningitis # AKI,None,Negative,,G03.9,,,,0,0,0,0,0,1,0,0,0,2,,25,74,0.6,80
+98,un98,un9898,Neurosurgery,23-May-16,23-May-16,a98,b98,10-Apr-16,0,Arachnoid cyst# hydrocephalus,None,Negative,,G91.1,,,,0,0,0,0,1,0,0,0,1,1,,3,98,0.21,78
+99,un99,un9999,Neurosurgery,24-May-16,24-May-16,a99,b99,18-Feb-16,1,Medullablastoma,K . Pneumoniae,Negative,,C71.6,,,,0,0,0,0,1,1,0,0,1,0,,4,132,0.3,85
+100,un100,un100100,Boitumelo,24-May-16,24-May-16,a100,b100,04-May-16,1,Tetralogy of Fallot,Candida,Negative,,Q21.3,,,,0,0,0,0,0,1,0,0,0,0,,11,100,1,33
+101,un101,un101101,Manapo,27-May-16,27-May-16,a101,b101,26-May-16,0,VSD : LRTI# PHT# FTT# Cfailure,None,Negative,,Q21.0,,,,0,0,0,0,0,1,0,0,0,0,,5.8,97,0.9,49
+102,un102,un102102,10B Neurosurgery,02-Jun-16,02-Jun-16,a102,b102,29-May-16,1,Hydrocephalus,None,Negative,,G91.1,,,,0,0,0,0,1,0,0,0,1,0,,3.2,85,0.3,72
+103,un103,un103103,Botshabelo,03-Jun-16,03-Jun-16,a103,b103,01-May-16,0,Status epilepsy / encephalopathy,None,Negative,,G40.501,,,,0,0,0,0,0,1,0,0,0,2,,4.9,106,0.6,67
+104,un104,un104104,Pelonomi,06-Jun-16,06-Jun-16,a104,b104,09-May-16,0,Organophosphate Poisoning,None,Negative,,T60.0,,,,0,0,0,0,0,1,0,0,0,0,,8.2,96,0.6,71
+105,un105,un105105,10A,09-Jun-16,09-Jun-16,a105,b105,08-Jun-16,0,Billiary atresia/postop Kasai,none,Negative,,Q44.2,,,,0,0,0,0,0,0,0,0,1,0,,7.1,119,0.21,71
+106,un106,un106106,10B Neurosurgery,13-Jun-16,13-Jun-16,a106,b106,21-Mar-16,1,Craniopharyngioma - Ventriculoscopy and shunt# biopsy,None,Negative,,D44.4,,,,0,0,0,0,1,0,0,0,1,0,,5.7,115,0.21,78.7
+107,un107,un107107,Botshabelo,13-Jun-16,13-Jun-16,a107,b107,12-Jun-16,0,LRTI,None,Negative,,J18.9,,,,0,0,0,0,0,1,0,0,0,1,,8.3,88,0.85,44
+108,un108,un108108,10A,18-Jun-16,18-Jun-16,a108,b108,14-Jun-16,1,Hiatus Hernia/ILD,None,Negative,,K44.9,,,,0,0,0,0,0,0,0,0,0,1,,5.2,76,0.6,89
+109,un109,un109109,Dihlabeng,18-Jun-16,18-Jun-16,a109,b109,17-Jun-16,1,LRTI,None,Negative,,J18.9,,,,0,0,0,0,0,1,0,0,0,0,,3.6,65,0.9,40
+110,un110,un110110,Pelonomi,19-Jun-16,19-Jun-16,a110,b110,02-May-16,1,Burns 60%,None ,Negative,,T30.0,,,,0,0,0,0,0,0,0,0,0,0,,4.1,69,0.21,63
+111,un111,un111111,Sasolburg,19-Jun-16,19-Jun-16,a111,b111,31-May-16,1,Organophosphate Poisoning,None,Negative,,T60.0,,,,0,0,0,0,0,0,0,0,0,0,,8.9,95,0.21,69
+112,un112,un112112,10B#ONCOLOGY ,20-Jun-16,20-Jun-16,a112,b112,09-Feb-16,1,septic shock#ALL,Pseudomonas # K.Pneumonia,Negative,,R 65.10,,,,0,0,0,0,0,1,0,0,0,3,,12.8,58,0.5,42
+113,un113,un113113,10A,22-Jun-16,22-Jun-16,a113,b113,12-Jun-16,0,AVSD # SEVERE PNEUMONIA,None,Negative,,J18.9,,,,0,0,0,0,0,1,0,0,0,0,,4,106,1,45
+114,un114,un114114,10B,23-Jun-16,23-Jun-16,a114,b114,25-Jan-16,0,Pneumonia # ALL,None,Negative,,J18.9,,,,1,1,1,0,0,1,0,0,0,3,,0.4,85,0.6,41
+115,un115,un115115,10A,28-Jun-16,28-Jun-16,a115,b115,22-Jun-16,0,Hydrocephalus,None,Negative,,G91.9,,,,0,0,0,0,1,0,0,0,1,0,,4.4,102,0.3,135
+116,un116,un116116,Pelonomi,28-Jun-16,28-Jun-16,a116,b116,27-Jun-16,1,Septic shock,None,Negative,,R 65.10,,,,0,0,0,0,0,1,0,0,0,3,,18.2,37,0.9,73
+117,un117,un117117,Pelonomi,05-Jul-16,05-Jul-16,a117,b117,04-Jul-16,1,Severe pneumonia# sepssis# AKI,K.Pneumonia; RSV A ,Negative,,J18.9,,,,0,0,0,0,0,1,0,0,0,0,,5.9,48,1,63.3
+118,un118,un118118,Paeds cardiology,05-Jul-16,05-Jul-16,a118,b118,01-Jul-16,1,cardiac arrest# pulmonary valve atresia,None,Pending,,Q22.0,,,,1,1,1,0,0,1,0,1,0,3,,13.3,68,1,13.1
+119,un119,un119119,ENT,11-Jul-16,11-Jul-16,a119,b119,17-Jun-16,1,Upper Airway obstruction,None,Negative,,J98.8,,,,0,0,0,0,0,0,0,0,0,2,,3.4,135,0.7,36.4
+120,un120,un120120,Paediatric surgery,15-Jul-16,15-Jul-16,a120,b120,04-May-16,0,Poly trauma,none,Negative,,T14.9,,,,0,0,0,0,0,0,0,0,0,0,,5.7,117,0.21,52
+121,un121,un121121,10B Onco,07-Jul-16,07-Jul-16,a121,b121,25-Jun-16,0,Bilateral Neprhoblastoma,CNS :,Negative,,C64.9,,,,1,1,1,0,0,0,0,0,0,0,,12.6,117,1,67.9
+122,un122,un122122,Pelonomi,18-Jul-16,18-Jul-16,a122,b122,16-Jul-16,0,Hyperchloremic metabolic acidosis secondary to AD,none,Negative,,A02.0,,,,0,0,0,0,0,0,0,0,0,0,,17.3,104,0.21,93.7
+123,un123,un123123,Pelonomi,19-Jul-16,19-Jul-16,a123,b123,01-Jun-16,0,Status Epilepticus; Hypernatremia,A.Baumannii,Negative,,G40.501,,,,1,1,1,0,0,1,0,0,0,1,,5,116,0.35,63.4
+124,un124,un124124,10A,21-Jul-16,21-Jul-16,a124,b124,03-Jun-16,0,Pneumonia ,H. Parainfluenza ; Aspergillus,Negative,,J18.9,,,,1,1,1,0,0,1,0,0,0,0,,1.4,98,0.7,60.6
+125,un125,un125125,10B,26-Jul-16,26-Jul-16,a125,b125,23-Jul-16,1,Hydrocephalus; Post Ventriculoscpoy,none,Negative,,G91.1,,,,0,0,0,0,0,0,0,0,1,0,,5.6,108,0.21,134
+126,un126,un126126,8B,26-Jul-16,26-Jul-16,a126,b126,09-Jul-16,1,Sub Glotic Stenosis  ; Post Cricoid split,Yeast ,Negative,,Q31.1,,,,0,0,0,0,0,0,0,0,1,0,,7.7,82,0.25,173
+127,un127,un127127,10B,21-Jul-16,21-Jul-16,a127,b127,28-Apr-16,1,Cerebellar Pontine Tumour,none,Negative,,C71.9,,,,0,0,0,0,0,1,0,0,1,0,,2.5,104,0.3,86.2
+128,un128,un128128,10b,28-Jul-16,28-Jul-16,a128,b128,30-Jun-16,0,Nephroblastoma #Post Op,None,Negative,,C64.9,,,,0,0,0,0,1,0,0,0,1,0,,6.2,79,0.28,104
+129,un129,un129129,10A,02-Aug-16,02-Aug-16,a129,b129,27-Jun-16,1,Durall Sinus #Post Lumbar Laminectomy #?TB Spine,None,Negative,,M49.08,,,,0,0,0,0,0,0,0,0,1,0,,3.4,78,0.21,39.5
+130,un130,un130130,10A,03-Aug-16,03-Aug-16,a130,b130,01-Aug-16,0,Hypertrophic Pyloric Stenosis,None,Negative,,Q40.0,,,,0,0,0,0,0,0,0,0,1,0,,20.5,123,0.21,93
+131,un131,un131131,National,04-Aug-16,04-Aug-16,a131,b131,13-Mar-16,0,DKA# Known  DM type1,None,Negative,,E10.10,,,,0,0,0,0,0,0,0,0,0,1,,1.3,126,0.21,80.3
+132,un132,un132132,Pelonomi,05-Aug-16,05-Aug-16,a132,b132,03-Aug-16,1,Hypernatraemic dehydration#Transeverse Sinus Thrombi,None,Negative,,A02.0,,,,0,0,0,0,0,0,0,0,0,0,,26.3,110,0.35,22.7
+133,un133,un133133, Dihlabeng,05-Aug-16,05-Aug-16,a133,b133,04-Aug-16,0,Perforated   NEC #Abondoned Baby,?,Unknown,,P77.9,,,,1,1,1,0,0,1,0,0,0,2,,21,30,0.9,89.3
+134,un134,un134134,Upington,06-Aug-16,06-Aug-16,a134,b134,27-Jul-16,1,Tetralogy of Fallot,A.Baumanni,Negative,,Q21.3,,,,0,0,0,0,0,1,0,0,0,0,,4.8,87,0.95,40
+135,un135,un135135,Paeds onco,08-Aug-16,08-Aug-16,a135,b135,17-Mar-16,1,Ventriculitis,A. Baumannii,Negative,,G04.9,,,,0,0,0,0,0,0,0,0,1,3,,4.1,126,0.21,80.3
+136,un136,un136136,10A,12-Aug-16,12-Aug-16,a136,b136,08-May-16,1,Lupus Nephritis,,Neative,,M32.9,,,,,,,0,0,1,0,0,1,0,,3.4,112,1,43.1
+137,un137,un137137,Pelonomi,08-Aug-16,08-Aug-16,a137,b137,06-Aug-16,0,Severe Pneumonia,Candida Albicans UTI,Negative,,J18.9,,,,0,0,0,0,0,1,0,0,0,0,,2.5,121,0.65,104
+138,un138,un138138,Pelonomi,12-Aug-16,12-Aug-16,a138,b138,11-Aug-16,1,Severe Pneumonia,None,Negative,,J18.9,,,,0,0,0,0,0,1,0,0,0,0,,0.6,88,0.95,57
+139,un139,un139139,10A,16-Aug-16,16-Aug-16,a139,b139,06-Apr-16,0,DKA,,,,E10.10,,,,0,0,0,0,0,0,0,0,0,1,,21,116,0.21,93.5
+140,un140,un140140,10A,17-Aug-16,17-Aug-16,a140,b140,01-Aug-16,0,Post Ventriculoscope,None,Negative,,G91.9,,,,0,0,0,0,1,0,0,0,0,0,,5.7,100,0.21,89.5

@@ -84,6 +84,11 @@ DATABASES = {
 		'PORT': '3306',
 		'OPTIONS': {
 			'sql_mode': 'traditional',
+		},
+		'TEST': {
+			'NAME': 'test_picubase',
+			'USER': 'root',
+			'PASSWORD': 'Ta13ntman',
 		}
 	}
 }

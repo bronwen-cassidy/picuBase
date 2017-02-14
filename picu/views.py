@@ -4,11 +4,10 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
+from picu import dataParser
 from .forms import PatientSearchForm
 from .models import Admission, Patient
 
-
-data_headers = ('hospital number', 'Unit Number', 'Case number')
 
 # Create your views here.
 def index(request):
@@ -59,15 +58,17 @@ def data_import(request):
 		rows = re.split('\n', contents)
 
 		for i, row in enumerate(rows):
-			print('>>> ' + str(i) + ': ' + row)
+			if i is 0:
+				continue
+
 			cells = row.split(',')
-			print('<<<<< : ' + str(cells[0]))
+			if len(cells) > 0:
+				dataParser.create_admission(cells)
 
 		fs = FileSystemStorage()
 		filename = fs.save(csvfile.name, csvfile)
 		uploaded_file_url = fs.url(filename)
 
-		# return HttpResponseRedirect('admin:index')
-		return HttpResponse("Success!")
+		return HttpResponse("Success! " + str(uploaded_file_url))
 
 	return HttpResponse(status=500)

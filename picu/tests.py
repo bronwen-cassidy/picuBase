@@ -5,6 +5,7 @@ from django.test import TestCase
 from datetime import date
 from django.core.urlresolvers import reverse
 
+from picu import formatter
 from picu.models import Admission, Patient
 from picu.forms import PatientSearchForm
 
@@ -20,9 +21,25 @@ def create_addmission(addmission_date, patient, risk, pos_cultures, pupils_fixed
 def create_patient(first_name, second_name, dob, hiv, gender):
 	return Patient.objects.create(first_name=first_name, second_name=second_name, date_of_birth=dob, hiv=hiv, gender=gender)
 
+class GenericMethodTests(TestCase):
+
+	def test_parse_date(self):
+		result = formatter.format_date("12-Feb-15")
+		self.assertEquals("2015-02-12", str(result))
+
+	def test_format_hiv(self):
+		expected = "0"
+		actual = formatter.format_hiv("Unknown")
+		self.assertEquals(expected, actual)
+
+	def test_format_hiv_no_val(self):
+		actual = formatter.format_hiv("r")
+		self.assertEquals("0", actual)
 
 # Create your tests here.
 class AdmissionMethodTests(TestCase):
+
+
 	def test_admission_month(self):
 		admin_date = date(year=2016, month=4, day=12)
 		my_admission = Admission()
@@ -87,6 +104,8 @@ class PatientViewTests(TestCase):
 
 
 class DataUploadViewTests(TestCase):
+
+	fixtures = ['selection_types', 'selection_values']
 
 	def test_data_import(self):
 

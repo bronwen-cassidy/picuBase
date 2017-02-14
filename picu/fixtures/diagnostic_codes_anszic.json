@@ -1,0 +1,3332 @@
+[
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12132",
+    "fields": {
+      "short_description": "Injury, other",
+      "description": "Injury, other",
+      "anszic_code": "100"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12133",
+    "fields": {
+      "short_description": "Anaphylaxis",
+      "description": "Anaphylaxis",
+      "anszic_code": "101"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12134",
+    "fields": {
+      "short_description": "Burns",
+      "description": "Burns",
+      "anszic_code": "102"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12135",
+    "fields": {
+      "short_description": "Carbon monoxide poisoning",
+      "description": "Carbon monoxide poisoning",
+      "anszic_code": "103"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12136",
+    "fields": {
+      "short_description": "Drug toxicity, iatrogenic",
+      "description": "Drug toxicity, iatrogenic",
+      "anszic_code": "104"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12137",
+    "fields": {
+      "short_description": "Electrocution",
+      "description": "Electrocution",
+      "anszic_code": "105"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12138",
+    "fields": {
+      "short_description": "Envenomation",
+      "description": "Envenomation",
+      "anszic_code": "106"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12139",
+    "fields": {
+      "short_description": "Hanging or strangulation",
+      "description": "Hanging or strangulation",
+      "anszic_code": "107"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12140",
+    "fields": {
+      "short_description": "Hyperthermia",
+      "description": "Hyperthermia",
+      "anszic_code": "108"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12141",
+    "fields": {
+      "short_description": "Hypothermia",
+      "description": "Hypothermia",
+      "anszic_code": "109"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12142",
+    "fields": {
+      "short_description": "Immersion (near drowning)",
+      "description": "Immersion (near drowning)",
+      "anszic_code": "110"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12143",
+    "fields": {
+      "short_description": "Ingestion",
+      "description": "Ingestion",
+      "anszic_code": "111"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12144",
+    "fields": {
+      "short_description": "Smoke inhalation",
+      "description": "Smoke inhalation",
+      "anszic_code": "112"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12145",
+    "fields": {
+      "short_description": "Trauma, other",
+      "description": "Trauma, other",
+      "anszic_code": "113"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12146",
+    "fields": {
+      "short_description": "Trauma, abdominal",
+      "description": "Trauma, abdominal",
+      "anszic_code": "114"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12147",
+    "fields": {
+      "short_description": "Trauma, chest",
+      "description": "Trauma, chest",
+      "anszic_code": "115"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12148",
+    "fields": {
+      "short_description": "Trauma, facial",
+      "description": "Trauma, facial",
+      "anszic_code": "116"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12149",
+    "fields": {
+      "short_description": "Trauma, head",
+      "description": "Trauma, head",
+      "anszic_code": "117"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12150",
+    "fields": {
+      "short_description": "Trauma, skeletal",
+      "description": "Trauma, skeletal",
+      "anszic_code": "118"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12151",
+    "fields": {
+      "short_description": "Trauma, spinal",
+      "description": "Trauma, spinal",
+      "anszic_code": "119"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12152",
+    "fields": {
+      "short_description": "Injury mechanism, other",
+      "description": "Injury mechanism, other",
+      "anszic_code": "150"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12153",
+    "fields": {
+      "short_description": "Crush injury",
+      "description": "Crush injury",
+      "anszic_code": "162"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12154",
+    "fields": {
+      "short_description": "Cyclist",
+      "description": "Cyclist",
+      "anszic_code": "151"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12155",
+    "fields": {
+      "short_description": "Fall",
+      "description": "Fall",
+      "anszic_code": "152"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12156",
+    "fields": {
+      "short_description": "Farm equipment",
+      "description": "Farm equipment",
+      "anszic_code": "153"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12157",
+    "fields": {
+      "short_description": "Firearm injury",
+      "description": "Firearm injury",
+      "anszic_code": "154"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12158",
+    "fields": {
+      "short_description": "Motor bike rider/passenger",
+      "description": "Motor bike rider/passenger",
+      "anszic_code": "161"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12159",
+    "fields": {
+      "short_description": "MVA passenger",
+      "description": "MVA passenger",
+      "anszic_code": "155"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12160",
+    "fields": {
+      "short_description": "MVA pedestrian",
+      "description": "MVA pedestrian",
+      "anszic_code": "156"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12161",
+    "fields": {
+      "short_description": "Non-accidental Injury",
+      "description": "Non-accidental Injury",
+      "anszic_code": "157"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12162",
+    "fields": {
+      "short_description": "Self injury",
+      "description": "Self injury",
+      "anszic_code": "158"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12163",
+    "fields": {
+      "short_description": "Sports injury",
+      "description": "Sports injury",
+      "anszic_code": "159"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12164",
+    "fields": {
+      "short_description": "Stab injury",
+      "description": "Stab injury",
+      "anszic_code": "160"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12165",
+    "fields": {
+      "short_description": "Cardiovascular, congenital, other",
+      "description": "Cardiovascular, congenital, other",
+      "anszic_code": "200"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12166",
+    "fields": {
+      "short_description": "Absent pulmonary valve",
+      "description": "Absent pulmonary valve",
+      "anszic_code": "201"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12167",
+    "fields": {
+      "short_description": "Anomalous coronary artery",
+      "description": "Anomalous coronary artery",
+      "anszic_code": "202"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12168",
+    "fields": {
+      "short_description": "Aortic insufficiency",
+      "description": "Aortic insufficiency",
+      "anszic_code": "203"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12169",
+    "fields": {
+      "short_description": "Aortic stenosis",
+      "description": "Aortic stenosis",
+      "anszic_code": "204"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12170",
+    "fields": {
+      "short_description": "AP window",
+      "description": "AP window",
+      "anszic_code": "224"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12171",
+    "fields": {
+      "short_description": "Atrial septal defect",
+      "description": "Atrial septal defect",
+      "anszic_code": "205"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12172",
+    "fields": {
+      "short_description": "Arteriovenous malformation",
+      "description": "Arteriovenous malformation",
+      "anszic_code": "225"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12173",
+    "fields": {
+      "short_description": "AVSD (atrioventricular canal)",
+      "description": "AVSD (atrioventricular canal)",
+      "anszic_code": "206"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12174",
+    "fields": {
+      "short_description": "Coarctation",
+      "description": "Coarctation",
+      "anszic_code": "207"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12175",
+    "fields": {
+      "short_description": "Cortriatriatum",
+      "description": "Cortriatriatum",
+      "anszic_code": "208"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12176",
+    "fields": {
+      "short_description": "Double-outlet right ventricle",
+      "description": "Double-outlet right ventricle",
+      "anszic_code": "226"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12177",
+    "fields": {
+      "short_description": "Ebstein?s anomaly",
+      "description": "Ebstein?s anomaly",
+      "anszic_code": "209"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12178",
+    "fields": {
+      "short_description": "Hypoplastic left heart syndrome",
+      "description": "Hypoplastic left heart syndrome",
+      "anszic_code": "210"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12179",
+    "fields": {
+      "short_description": "Interrupted or hypoplastic aortic arch",
+      "description": "Interrupted or hypoplastic aortic arch",
+      "anszic_code": "211"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12180",
+    "fields": {
+      "short_description": "Left ventricular outflow obstruction",
+      "description": "Left ventricular outflow obstruction",
+      "anszic_code": "227"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12181",
+    "fields": {
+      "short_description": "Mitral insufficiency",
+      "description": "Mitral insufficiency",
+      "anszic_code": "212"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12182",
+    "fields": {
+      "short_description": "Mitral stenosis",
+      "description": "Mitral stenosis",
+      "anszic_code": "213"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12183",
+    "fields": {
+      "short_description": "Patent ductus arteriosus",
+      "description": "Patent ductus arteriosus",
+      "anszic_code": "214"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12184",
+    "fields": {
+      "short_description": "Pulmonary atresia or stenosis",
+      "description": "Pulmonary atresia or stenosis",
+      "anszic_code": "215"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12185",
+    "fields": {
+      "short_description": "Pulmonary insufficiency",
+      "description": "Pulmonary insufficiency",
+      "anszic_code": "228"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12186",
+    "fields": {
+      "short_description": "Right ventricular outflow obstruction",
+      "description": "Right ventricular outflow obstruction",
+      "anszic_code": "229"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12187",
+    "fields": {
+      "short_description": "Single ventricle",
+      "description": "Single ventricle",
+      "anszic_code": "216"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12188",
+    "fields": {
+      "short_description": "TAPVD",
+      "description": "TAPVD",
+      "anszic_code": "217"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12189",
+    "fields": {
+      "short_description": "Tetralogy of Fallot",
+      "description": "Tetralogy of Fallot",
+      "anszic_code": "218"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12190",
+    "fields": {
+      "short_description": "Transposition of great arteries (dTGA)",
+      "description": "Transposition of great arteries (dTGA)",
+      "anszic_code": "219"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12191",
+    "fields": {
+      "short_description": "Tricuspid atresia or stenosis",
+      "description": "Tricuspid atresia or stenosis",
+      "anszic_code": "220"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12192",
+    "fields": {
+      "short_description": "Tricuspid insufficiency",
+      "description": "Tricuspid insufficiency",
+      "anszic_code": "221"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12193",
+    "fields": {
+      "short_description": "Truncus arteriosis",
+      "description": "Truncus arteriosis",
+      "anszic_code": "222"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12194",
+    "fields": {
+      "short_description": "Ventricular septal defect",
+      "description": "Ventricular septal defect",
+      "anszic_code": "223"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12195",
+    "fields": {
+      "short_description": "Cardiovascular, acquired, other",
+      "description": "Cardiovascular, acquired, other",
+      "anszic_code": "250"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12196",
+    "fields": {
+      "short_description": "Cardiac failure",
+      "description": "Cardiac failure",
+      "anszic_code": "251"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12197",
+    "fields": {
+      "short_description": "Cardiac tumour",
+      "description": "Cardiac tumour",
+      "anszic_code": "252"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12198",
+    "fields": {
+      "short_description": "Cardiomyopathy",
+      "description": "Cardiomyopathy",
+      "anszic_code": "253"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12199",
+    "fields": {
+      "short_description": "Dysrhythmia, supraventricular",
+      "description": "Dysrhythmia, supraventricular",
+      "anszic_code": "254"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12200",
+    "fields": {
+      "short_description": "Dysrhythmia, ventricular",
+      "description": "Dysrhythmia, ventricular",
+      "anszic_code": "255"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12201",
+    "fields": {
+      "short_description": "Endocarditis",
+      "description": "Endocarditis",
+      "anszic_code": "256"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12202",
+    "fields": {
+      "short_description": "Hypertension, pulmonary",
+      "description": "Hypertension, pulmonary",
+      "anszic_code": "257"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12203",
+    "fields": {
+      "short_description": "Hypertension, systemic",
+      "description": "Hypertension, systemic",
+      "anszic_code": "258"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12204",
+    "fields": {
+      "short_description": "Kawasaki?s disease",
+      "description": "Kawasaki?s disease",
+      "anszic_code": "259"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12205",
+    "fields": {
+      "short_description": "Pericardial effusion or tamponade",
+      "description": "Pericardial effusion or tamponade",
+      "anszic_code": "260"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12206",
+    "fields": {
+      "short_description": "Previous heart lung transplant",
+      "description": "Previous heart lung transplant",
+      "anszic_code": "263"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12207",
+    "fields": {
+      "short_description": "Previous heart transplant",
+      "description": "Previous heart transplant",
+      "anszic_code": "264"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12208",
+    "fields": {
+      "short_description": "Vascular thrombosis",
+      "description": "Vascular thrombosis",
+      "anszic_code": "261"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12209",
+    "fields": {
+      "short_description": "Vasculitis",
+      "description": "Vasculitis",
+      "anszic_code": "262"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12210",
+    "fields": {
+      "short_description": "Neurological, other",
+      "description": "Neurological, other",
+      "anszic_code": "300"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12211",
+    "fields": {
+      "short_description": "Botulism",
+      "description": "Botulism",
+      "anszic_code": "301"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12212",
+    "fields": {
+      "short_description": "Brain abscess",
+      "description": "Brain abscess",
+      "anszic_code": "302"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12213",
+    "fields": {
+      "short_description": "Brain arteriovenous malformation",
+      "description": "Brain arteriovenous malformation",
+      "anszic_code": "303"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12214",
+    "fields": {
+      "short_description": "Brain death",
+      "description": "Brain death",
+      "anszic_code": "304"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12215",
+    "fields": {
+      "short_description": "Brain infarction or stroke",
+      "description": "Brain infarction or stroke",
+      "anszic_code": "305"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12216",
+    "fields": {
+      "short_description": "Brain tumour",
+      "description": "Brain tumour",
+      "anszic_code": "306"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12217",
+    "fields": {
+      "short_description": "Cerebral aneurysm",
+      "description": "Cerebral aneurysm",
+      "anszic_code": "324"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12218",
+    "fields": {
+      "short_description": "CSF shunt malfunction or infection",
+      "description": "CSF shunt malfunction or infection",
+      "anszic_code": "307"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12219",
+    "fields": {
+      "short_description": "Encephalitis",
+      "description": "Encephalitis",
+      "anszic_code": "308"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12220",
+    "fields": {
+      "short_description": "Encephalopathy, acute, hypoxic ischaemic",
+      "description": "Encephalopathy, acute, hypoxic ischaemic",
+      "anszic_code": "309"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12221",
+    "fields": {
+      "short_description": "Encephalopathy, acute, other",
+      "description": "Encephalopathy, acute, other",
+      "anszic_code": "310"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12222",
+    "fields": {
+      "short_description": "Encephalopathy, chronic degenerative (e.g. Leigh?s syndrome)",
+      "description": "Encephalopathy, chronic degenerative (e.g. Leigh?s syndrome)",
+      "anszic_code": "311"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12223",
+    "fields": {
+      "short_description": "Encephalopathy, chronic static (e.g. cerebral palsy)",
+      "description": "Encephalopathy, chronic static (e.g. cerebral palsy)",
+      "anszic_code": "312"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12224",
+    "fields": {
+      "short_description": "Guillain-Barr‚ syndrome",
+      "description": "Guillain-Barr‚ syndrome",
+      "anszic_code": "313"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12225",
+    "fields": {
+      "short_description": "Hydrocephalus",
+      "description": "Hydrocephalus",
+      "anszic_code": "314"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12226",
+    "fields": {
+      "short_description": "Intracranial haemorrhage, spontaneous",
+      "description": "Intracranial haemorrhage, spontaneous",
+      "anszic_code": "315"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12227",
+    "fields": {
+      "short_description": "Intracranial hypertension (raised intracranial pressure)",
+      "description": "Intracranial hypertension (raised intracranial pressure)",
+      "anszic_code": "316"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12228",
+    "fields": {
+      "short_description": "Meningitis",
+      "description": "Meningitis",
+      "anszic_code": "317"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12229",
+    "fields": {
+      "short_description": "Meningomyelocoele or spina bifida",
+      "description": "Meningomyelocoele or spina bifida",
+      "anszic_code": "318"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12230",
+    "fields": {
+      "short_description": "Muscular dystrophy",
+      "description": "Muscular dystrophy",
+      "anszic_code": "325"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12231",
+    "fields": {
+      "short_description": "Myasthenia gravis",
+      "description": "Myasthenia gravis",
+      "anszic_code": "326"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12232",
+    "fields": {
+      "short_description": "Myopathy",
+      "description": "Myopathy",
+      "anszic_code": "319"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12233",
+    "fields": {
+      "short_description": "Neuropathy",
+      "description": "Neuropathy",
+      "anszic_code": "320"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12234",
+    "fields": {
+      "short_description": "Seizures",
+      "description": "Seizures",
+      "anszic_code": "321"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12235",
+    "fields": {
+      "short_description": "Spinal cord lesion",
+      "description": "Spinal cord lesion",
+      "anszic_code": "322"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12236",
+    "fields": {
+      "short_description": "Tetanus",
+      "description": "Tetanus",
+      "anszic_code": "327"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12237",
+    "fields": {
+      "short_description": "Venous sinus thrombosis",
+      "description": "Venous sinus thrombosis",
+      "anszic_code": "323"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12238",
+    "fields": {
+      "short_description": "Upper airway, other",
+      "description": "Upper airway, other",
+      "anszic_code": "400"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12239",
+    "fields": {
+      "short_description": "Choanal atresia or stenosis",
+      "description": "Choanal atresia or stenosis",
+      "anszic_code": "401"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12240",
+    "fields": {
+      "short_description": "Epiglottitis",
+      "description": "Epiglottitis",
+      "anszic_code": "402"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12241",
+    "fields": {
+      "short_description": "Foreign body, inhaled",
+      "description": "Foreign body, inhaled",
+      "anszic_code": "403"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12242",
+    "fields": {
+      "short_description": "Laryngotracheobronchitis (croup)",
+      "description": "Laryngotracheobronchitis (croup)",
+      "anszic_code": "404"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12243",
+    "fields": {
+      "short_description": "Obstructive sleep apnoea",
+      "description": "Obstructive sleep apnoea",
+      "anszic_code": "405"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12244",
+    "fields": {
+      "short_description": "Pierre Robin syndrome",
+      "description": "Pierre Robin syndrome",
+      "anszic_code": "406"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12245",
+    "fields": {
+      "short_description": "Retropharyngeal abscess",
+      "description": "Retropharyngeal abscess",
+      "anszic_code": "407"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12246",
+    "fields": {
+      "short_description": "Subglottic haemangioma",
+      "description": "Subglottic haemangioma",
+      "anszic_code": "413"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12247",
+    "fields": {
+      "short_description": "Subglottic stenosis",
+      "description": "Subglottic stenosis",
+      "anszic_code": "408"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12248",
+    "fields": {
+      "short_description": "Tracheitis",
+      "description": "Tracheitis",
+      "anszic_code": "409"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12249",
+    "fields": {
+      "short_description": "Upper airway obstruction, other",
+      "description": "Upper airway obstruction, other",
+      "anszic_code": "410"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12250",
+    "fields": {
+      "short_description": "Upper respiratory infection, other",
+      "description": "Upper respiratory infection, other",
+      "anszic_code": "411"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12251",
+    "fields": {
+      "short_description": "Vocal cord paresis",
+      "description": "Vocal cord paresis",
+      "anszic_code": "412"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12252",
+    "fields": {
+      "short_description": "Lower airway, other",
+      "description": "Lower airway, other",
+      "anszic_code": "430"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12253",
+    "fields": {
+      "short_description": "Asthma",
+      "description": "Asthma",
+      "anszic_code": "431"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12254",
+    "fields": {
+      "short_description": "Bronchiolitis",
+      "description": "Bronchiolitis",
+      "anszic_code": "432"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12255",
+    "fields": {
+      "short_description": "Chronic lung disease (including bronchopulmonary dysplasia)",
+      "description": "Chronic lung disease (including bronchopulmonary dysplasia)",
+      "anszic_code": "433"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12256",
+    "fields": {
+      "short_description": "Malacia, trachea and/or bronchi",
+      "description": "Malacia, trachea and/or bronchi",
+      "anszic_code": "434"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12257",
+    "fields": {
+      "short_description": "Mediastinal mass",
+      "description": "Mediastinal mass",
+      "anszic_code": "435"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12258",
+    "fields": {
+      "short_description": "Stenosis, trachea and/or bronchi",
+      "description": "Stenosis, trachea and/or bronchi",
+      "anszic_code": "436"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12259",
+    "fields": {
+      "short_description": "Tracheo-oesophageal fistula",
+      "description": "Tracheo-oesophageal fistula",
+      "anszic_code": "437"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12260",
+    "fields": {
+      "short_description": "Vascular ring",
+      "description": "Vascular ring",
+      "anszic_code": "438"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12261",
+    "fields": {
+      "short_description": "Respiratory, other",
+      "description": "Respiratory, other",
+      "anszic_code": "450"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12262",
+    "fields": {
+      "short_description": "Air leak syndrome",
+      "description": "Air leak syndrome",
+      "anszic_code": "451"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12263",
+    "fields": {
+      "short_description": "Apnoea, central",
+      "description": "Apnoea, central",
+      "anszic_code": "452"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12264",
+    "fields": {
+      "short_description": "Acute respiratory distress syndrome",
+      "description": "Acute respiratory distress syndrome",
+      "anszic_code": "453"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12265",
+    "fields": {
+      "short_description": "Aspiration",
+      "description": "Aspiration",
+      "anszic_code": "454"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12266",
+    "fields": {
+      "short_description": "Chylothorax",
+      "description": "Chylothorax",
+      "anszic_code": "455"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12267",
+    "fields": {
+      "short_description": "Congenital diaphragmatic hernia",
+      "description": "Congenital diaphragmatic hernia",
+      "anszic_code": "456"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12268",
+    "fields": {
+      "short_description": "Congenital lung anomaly",
+      "description": "Congenital lung anomaly",
+      "anszic_code": "457"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12269",
+    "fields": {
+      "short_description": "Cystic fibrosis",
+      "description": "Cystic fibrosis",
+      "anszic_code": "458"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12270",
+    "fields": {
+      "short_description": "Empyema",
+      "description": "Empyema",
+      "anszic_code": "459"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12271",
+    "fields": {
+      "short_description": "Hyaline membrane disease",
+      "description": "Hyaline membrane disease",
+      "anszic_code": "460"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12272",
+    "fields": {
+      "short_description": "Hypoventilation, central",
+      "description": "Hypoventilation, central",
+      "anszic_code": "461"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12273",
+    "fields": {
+      "short_description": "Lower respiratory infection, other",
+      "description": "Lower respiratory infection, other",
+      "anszic_code": "469"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12274",
+    "fields": {
+      "short_description": "Lung abscess",
+      "description": "Lung abscess",
+      "anszic_code": "462"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12275",
+    "fields": {
+      "short_description": "Meconium aspiration syndrome",
+      "description": "Meconium aspiration syndrome",
+      "anszic_code": "463"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12276",
+    "fields": {
+      "short_description": "Pertussis syndrome",
+      "description": "Pertussis syndrome",
+      "anszic_code": "470"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12277",
+    "fields": {
+      "short_description": "Pleural effusion",
+      "description": "Pleural effusion",
+      "anszic_code": "464"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12278",
+    "fields": {
+      "short_description": "Pneumonia or pneumonitis",
+      "description": "Pneumonia or pneumonitis",
+      "anszic_code": "465"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12279",
+    "fields": {
+      "short_description": "Previous lung transplant",
+      "description": "Previous lung transplant",
+      "anszic_code": "471"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12280",
+    "fields": {
+      "short_description": "Pulmonary hypoplasia",
+      "description": "Pulmonary hypoplasia",
+      "anszic_code": "466"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12281",
+    "fields": {
+      "short_description": "Pulmonary oedema",
+      "description": "Pulmonary oedema",
+      "anszic_code": "467"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12282",
+    "fields": {
+      "short_description": "Respiratory failure",
+      "description": "Respiratory failure",
+      "anszic_code": "468"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12283",
+    "fields": {
+      "short_description": "Transient tachypnoea of the newborn",
+      "description": "Transient tachypnoea of the newborn",
+      "anszic_code": "472"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12284",
+    "fields": {
+      "short_description": "Renal, other",
+      "description": "Renal, other",
+      "anszic_code": "500"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12285",
+    "fields": {
+      "short_description": "Haemolytic uraemic syndrome",
+      "description": "Haemolytic uraemic syndrome",
+      "anszic_code": "501"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12286",
+    "fields": {
+      "short_description": "Nephrotic and/or nephritic syndrome",
+      "description": "Nephrotic and/or nephritic syndrome",
+      "anszic_code": "502"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12287",
+    "fields": {
+      "short_description": "Previous renal transplant",
+      "description": "Previous renal transplant",
+      "anszic_code": "505"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12288",
+    "fields": {
+      "short_description": "Renal failure, acute",
+      "description": "Renal failure, acute",
+      "anszic_code": "503"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12289",
+    "fields": {
+      "short_description": "Renal failure, chronic",
+      "description": "Renal failure, chronic",
+      "anszic_code": "504"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12290",
+    "fields": {
+      "short_description": "Urinary tract infection",
+      "description": "Urinary tract infection",
+      "anszic_code": "506"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12291",
+    "fields": {
+      "short_description": "Gastrointestinal, other",
+      "description": "Gastrointestinal, other",
+      "anszic_code": "600"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12292",
+    "fields": {
+      "short_description": "Biliary atresia",
+      "description": "Biliary atresia",
+      "anszic_code": "620"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12293",
+    "fields": {
+      "short_description": "Bowel obstruction",
+      "description": "Bowel obstruction",
+      "anszic_code": "601"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12294",
+    "fields": {
+      "short_description": "Bowel perforation",
+      "description": "Bowel perforation",
+      "anszic_code": "621"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12295",
+    "fields": {
+      "short_description": "Colitis",
+      "description": "Colitis",
+      "anszic_code": "602"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12296",
+    "fields": {
+      "short_description": "Gastroenteritis",
+      "description": "Gastroenteritis",
+      "anszic_code": "603"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12297",
+    "fields": {
+      "short_description": "Gastrointestinal haemorrhage",
+      "description": "Gastrointestinal haemorrhage",
+      "anszic_code": "604"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12298",
+    "fields": {
+      "short_description": "Gastroschisis or exomphalos",
+      "description": "Gastroschisis or exomphalos",
+      "anszic_code": "605"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12299",
+    "fields": {
+      "short_description": "Hepatitis",
+      "description": "Hepatitis",
+      "anszic_code": "606"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12300",
+    "fields": {
+      "short_description": "Hirschsprung?s disease",
+      "description": "Hirschsprung?s disease",
+      "anszic_code": "622"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12301",
+    "fields": {
+      "short_description": "Intussusception",
+      "description": "Intussusception",
+      "anszic_code": "607"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12302",
+    "fields": {
+      "short_description": "Liver disorder, other",
+      "description": "Liver disorder, other",
+      "anszic_code": "608"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12303",
+    "fields": {
+      "short_description": "Liver failure, acute",
+      "description": "Liver failure, acute",
+      "anszic_code": "609"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12304",
+    "fields": {
+      "short_description": "Liver failure, chronic",
+      "description": "Liver failure, chronic",
+      "anszic_code": "610"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12305",
+    "fields": {
+      "short_description": "Necrotising enterocolitis",
+      "description": "Necrotising enterocolitis",
+      "anszic_code": "611"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12306",
+    "fields": {
+      "short_description": "Neonatal jaundice",
+      "description": "Neonatal jaundice",
+      "anszic_code": "623"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12307",
+    "fields": {
+      "short_description": "Oesophageal atresia",
+      "description": "Oesophageal atresia",
+      "anszic_code": "612"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12308",
+    "fields": {
+      "short_description": "Oesophageal foreign body",
+      "description": "Oesophageal foreign body",
+      "anszic_code": "624"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12309",
+    "fields": {
+      "short_description": "Pancreatitis",
+      "description": "Pancreatitis",
+      "anszic_code": "613"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12310",
+    "fields": {
+      "short_description": "Peritonitis",
+      "description": "Peritonitis",
+      "anszic_code": "614"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12311",
+    "fields": {
+      "short_description": "Portal hypertension",
+      "description": "Portal hypertension",
+      "anszic_code": "625"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12312",
+    "fields": {
+      "short_description": "Previous liver transplant",
+      "description": "Previous liver transplant",
+      "anszic_code": "626"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12313",
+    "fields": {
+      "short_description": "Pyloric stenosis",
+      "description": "Pyloric stenosis",
+      "anszic_code": "615"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12314",
+    "fields": {
+      "short_description": "Short gut syndrome",
+      "description": "Short gut syndrome",
+      "anszic_code": "616"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12315",
+    "fields": {
+      "short_description": "Ulcer duodenal",
+      "description": "Ulcer duodenal",
+      "anszic_code": "617"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12316",
+    "fields": {
+      "short_description": "Ulcer gastric or gastritis",
+      "description": "Ulcer gastric or gastritis",
+      "anszic_code": "618"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12317",
+    "fields": {
+      "short_description": "Varices oesophageal or gastric",
+      "description": "Varices oesophageal or gastric",
+      "anszic_code": "619"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12318",
+    "fields": {
+      "short_description": "Volvulus",
+      "description": "Volvulus",
+      "anszic_code": "627"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12319",
+    "fields": {
+      "short_description": "Infection, other",
+      "description": "Infection, other",
+      "anszic_code": "700"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12320",
+    "fields": {
+      "short_description": "Adenovirus",
+      "description": "Adenovirus",
+      "anszic_code": "701"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12321",
+    "fields": {
+      "short_description": "Bacterium, other",
+      "description": "Bacterium, other",
+      "anszic_code": "702"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12322",
+    "fields": {
+      "short_description": "Bacterium, gram negative, other",
+      "description": "Bacterium, gram negative, other",
+      "anszic_code": "703"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12323",
+    "fields": {
+      "short_description": "Bacterium, gram positive, other",
+      "description": "Bacterium, gram positive, other",
+      "anszic_code": "704"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12324",
+    "fields": {
+      "short_description": "Candida",
+      "description": "Candida",
+      "anszic_code": "705"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12325",
+    "fields": {
+      "short_description": "Clostridium",
+      "description": "Clostridium",
+      "anszic_code": "706"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12326",
+    "fields": {
+      "short_description": "Cytomegalovirus",
+      "description": "Cytomegalovirus",
+      "anszic_code": "707"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12327",
+    "fields": {
+      "short_description": "Epstein-Barr virus",
+      "description": "Epstein-Barr virus",
+      "anszic_code": "708"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12328",
+    "fields": {
+      "short_description": "Escherichia coli",
+      "description": "Escherichia coli",
+      "anszic_code": "730"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12329",
+    "fields": {
+      "short_description": "Enterovirus",
+      "description": "Enterovirus",
+      "anszic_code": "709"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12330",
+    "fields": {
+      "short_description": "Fungus, other",
+      "description": "Fungus, other",
+      "anszic_code": "710"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12331",
+    "fields": {
+      "short_description": "Haemophilus influenzae type b",
+      "description": "Haemophilus influenzae type b",
+      "anszic_code": "711"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12332",
+    "fields": {
+      "short_description": "Hepatitis, viral",
+      "description": "Hepatitis, viral",
+      "anszic_code": "712"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12333",
+    "fields": {
+      "short_description": "Herpes simplex virus",
+      "description": "Herpes simplex virus",
+      "anszic_code": "713"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12334",
+    "fields": {
+      "short_description": "Human immunodeficiency virus",
+      "description": "Human immunodeficiency virus",
+      "anszic_code": "714"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12335",
+    "fields": {
+      "short_description": "Influenza virus",
+      "description": "Influenza virus",
+      "anszic_code": "715"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12336",
+    "fields": {
+      "short_description": "Klebsiella",
+      "description": "Klebsiella",
+      "anszic_code": "731"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12337",
+    "fields": {
+      "short_description": "Legionella",
+      "description": "Legionella",
+      "anszic_code": "716"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12338",
+    "fields": {
+      "short_description": "Malaria",
+      "description": "Malaria",
+      "anszic_code": "732"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12339",
+    "fields": {
+      "short_description": "Measles virus",
+      "description": "Measles virus",
+      "anszic_code": "735"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12340",
+    "fields": {
+      "short_description": "Meningococcus",
+      "description": "Meningococcus",
+      "anszic_code": "717"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12341",
+    "fields": {
+      "short_description": "Mycoplasma",
+      "description": "Mycoplasma",
+      "anszic_code": "718"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12342",
+    "fields": {
+      "short_description": "Parainfluenzae virus",
+      "description": "Parainfluenzae virus",
+      "anszic_code": "719"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12343",
+    "fields": {
+      "short_description": "Pertussis",
+      "description": "Pertussis",
+      "anszic_code": "720"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12344",
+    "fields": {
+      "short_description": "Pneumococcus",
+      "description": "Pneumococcus",
+      "anszic_code": "721"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12345",
+    "fields": {
+      "short_description": "Pneumocystis carinii",
+      "description": "Pneumocystis carinii",
+      "anszic_code": "722"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12346",
+    "fields": {
+      "short_description": "Pseudomonas",
+      "description": "Pseudomonas",
+      "anszic_code": "733"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12347",
+    "fields": {
+      "short_description": "Rotavirus",
+      "description": "Rotavirus",
+      "anszic_code": "723"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12348",
+    "fields": {
+      "short_description": "Respiratory syncytial virus",
+      "description": "Respiratory syncytial virus",
+      "anszic_code": "724"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12349",
+    "fields": {
+      "short_description": "Salmonella",
+      "description": "Salmonella",
+      "anszic_code": "725"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12350",
+    "fields": {
+      "short_description": "Staphylococcus",
+      "description": "Staphylococcus",
+      "anszic_code": "726"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12351",
+    "fields": {
+      "short_description": "Streptococcus group b",
+      "description": "Streptococcus group b",
+      "anszic_code": "734"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12352",
+    "fields": {
+      "short_description": "Streptococcus, other",
+      "description": "Streptococcus, other",
+      "anszic_code": "727"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12353",
+    "fields": {
+      "short_description": "Varicella",
+      "description": "Varicella",
+      "anszic_code": "728"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12354",
+    "fields": {
+      "short_description": "Virus, other",
+      "description": "Virus, other",
+      "anszic_code": "729"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12355",
+    "fields": {
+      "short_description": "No organism identified",
+      "description": "No organism identified",
+      "anszic_code": "799"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12356",
+    "fields": {
+      "short_description": "Miscellaneous, other",
+      "description": "Miscellaneous, other",
+      "anszic_code": "800"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12357",
+    "fields": {
+      "short_description": "Acute life threatening event (near miss SIDS)",
+      "description": "Acute life threatening event (near miss SIDS)",
+      "anszic_code": "801"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12358",
+    "fields": {
+      "short_description": "Cardiac arrest, in hospital",
+      "description": "Cardiac arrest, in hospital",
+      "anszic_code": "802"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12359",
+    "fields": {
+      "short_description": "Cardiac arrest, out of hospital",
+      "description": "Cardiac arrest, out of hospital",
+      "anszic_code": "803"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12360",
+    "fields": {
+      "short_description": "Chromosomal anomaly",
+      "description": "Chromosomal anomaly",
+      "anszic_code": "804"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12361",
+    "fields": {
+      "short_description": "Coagulopathy",
+      "description": "Coagulopathy",
+      "anszic_code": "805"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12362",
+    "fields": {
+      "short_description": "Craniosynostosis",
+      "description": "Craniosynostosis",
+      "anszic_code": "839"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12363",
+    "fields": {
+      "short_description": "Dehydration",
+      "description": "Dehydration",
+      "anszic_code": "806"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12364",
+    "fields": {
+      "short_description": "Dermatological disorder",
+      "description": "Dermatological disorder",
+      "anszic_code": "807"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12365",
+    "fields": {
+      "short_description": "Diabetes insipidus",
+      "description": "Diabetes insipidus",
+      "anszic_code": "808"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12366",
+    "fields": {
+      "short_description": "Diabetes mellitus with ketoacidosis",
+      "description": "Diabetes mellitus with ketoacidosis",
+      "anszic_code": "809"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12367",
+    "fields": {
+      "short_description": "Diabetes mellitus without ketoacidosis",
+      "description": "Diabetes mellitus without ketoacidosis",
+      "anszic_code": "810"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12368",
+    "fields": {
+      "short_description": "Electrolyte disorder",
+      "description": "Electrolyte disorder",
+      "anszic_code": "811"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12369",
+    "fields": {
+      "short_description": "Endocrine disorder",
+      "description": "Endocrine disorder",
+      "anszic_code": "812"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12370",
+    "fields": {
+      "short_description": "Gas gangrene",
+      "description": "Gas gangrene",
+      "anszic_code": "813"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12371",
+    "fields": {
+      "short_description": "Haematological disorder",
+      "description": "Haematological disorder",
+      "anszic_code": "847"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12372",
+    "fields": {
+      "short_description": "Home ventilation patient",
+      "description": "Home ventilation patient",
+      "anszic_code": "814"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12373",
+    "fields": {
+      "short_description": "Hypoglycaemia",
+      "description": "Hypoglycaemia",
+      "anszic_code": "815"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12374",
+    "fields": {
+      "short_description": "ICU diagnostic monitoring, elective",
+      "description": "ICU diagnostic monitoring, elective",
+      "anszic_code": "816"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12375",
+    "fields": {
+      "short_description": "ICU procedure (eg CVC insertion)",
+      "description": "ICU procedure (eg CVC insertion)",
+      "anszic_code": "817"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12376",
+    "fields": {
+      "short_description": "Immunodeficiency, congenital",
+      "description": "Immunodeficiency, congenital",
+      "anszic_code": "818"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12377",
+    "fields": {
+      "short_description": "Immunosuppression, acquired",
+      "description": "Immunosuppression, acquired",
+      "anszic_code": "819"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12378",
+    "fields": {
+      "short_description": "Inborn error of metabolism",
+      "description": "Inborn error of metabolism",
+      "anszic_code": "820"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12379",
+    "fields": {
+      "short_description": "Leukaemia or lymphoma",
+      "description": "Leukaemia or lymphoma",
+      "anszic_code": "821"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12380",
+    "fields": {
+      "short_description": "Necrotising fasciitis",
+      "description": "Necrotising fasciitis",
+      "anszic_code": "822"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12381",
+    "fields": {
+      "short_description": "Neonate, hydrops fetalis",
+      "description": "Neonate, hydrops fetalis",
+      "anszic_code": "840"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12382",
+    "fields": {
+      "short_description": "Neonate, infant of diabetic mother",
+      "description": "Neonate, infant of diabetic mother",
+      "anszic_code": "841"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12383",
+    "fields": {
+      "short_description": "Neonate, intra-uterine growth retardation",
+      "description": "Neonate, intra-uterine growth retardation",
+      "anszic_code": "842"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12384",
+    "fields": {
+      "short_description": "Neutropenia",
+      "description": "Neutropenia",
+      "anszic_code": "823"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12385",
+    "fields": {
+      "short_description": "Organ donor",
+      "description": "Organ donor",
+      "anszic_code": "848"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12386",
+    "fields": {
+      "short_description": "Pancytopenia",
+      "description": "Pancytopenia",
+      "anszic_code": "824"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12387",
+    "fields": {
+      "short_description": "Phaeochromocytoma",
+      "description": "Phaeochromocytoma",
+      "anszic_code": "825"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12388",
+    "fields": {
+      "short_description": "Prematurity",
+      "description": "Prematurity",
+      "anszic_code": "826"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12389",
+    "fields": {
+      "short_description": "Previous bone marrow transplant",
+      "description": "Previous bone marrow transplant",
+      "anszic_code": "843"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12390",
+    "fields": {
+      "short_description": "Respiratory arrest, in hospital",
+      "description": "Respiratory arrest, in hospital",
+      "anszic_code": "827"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12391",
+    "fields": {
+      "short_description": "Respiratory arrest, out of hospital",
+      "description": "Respiratory arrest, out of hospital",
+      "anszic_code": "828"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12392",
+    "fields": {
+      "short_description": "Scoliosis",
+      "description": "Scoliosis",
+      "anszic_code": "844"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12393",
+    "fields": {
+      "short_description": "Sepsis",
+      "description": "Sepsis",
+      "anszic_code": "829"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12394",
+    "fields": {
+      "short_description": "Shock, cardiogenic",
+      "description": "Shock, cardiogenic",
+      "anszic_code": "830"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12395",
+    "fields": {
+      "short_description": "Shock, hypovolaemic",
+      "description": "Shock, hypovolaemic",
+      "anszic_code": "831"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12396",
+    "fields": {
+      "short_description": "Shock, septic",
+      "description": "Shock, septic",
+      "anszic_code": "832"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12397",
+    "fields": {
+      "short_description": "Systemic inflammatory response syndrome",
+      "description": "Systemic inflammatory response syndrome",
+      "anszic_code": "833"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12398",
+    "fields": {
+      "short_description": "Solid neoplasm, malignant (not lymphoma)",
+      "description": "Solid neoplasm, malignant (not lymphoma)",
+      "anszic_code": "834"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12399",
+    "fields": {
+      "short_description": "Solid neoplasm, non malignant",
+      "description": "Solid neoplasm, non malignant",
+      "anszic_code": "835"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12400",
+    "fields": {
+      "short_description": "Syndrome or malformation (not chromosomal)",
+      "description": "Syndrome or malformation (not chromosomal)",
+      "anszic_code": "836"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12401",
+    "fields": {
+      "short_description": "Toxic shock syndrome",
+      "description": "Toxic shock syndrome",
+      "anszic_code": "837"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12402",
+    "fields": {
+      "short_description": "Transplant, bone marrow",
+      "description": "Transplant, bone marrow",
+      "anszic_code": "838"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12403",
+    "fields": {
+      "short_description": "Tumor lysis syndrome",
+      "description": "Tumor lysis syndrome",
+      "anszic_code": "845"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12404",
+    "fields": {
+      "short_description": "Wound infection",
+      "description": "Wound infection",
+      "anszic_code": "846"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12405",
+    "fields": {
+      "short_description": "Post-procedure, other",
+      "description": "Post-procedure, other",
+      "anszic_code": "1100"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12406",
+    "fields": {
+      "short_description": "Anaesthetic complication",
+      "description": "Anaesthetic complication",
+      "anszic_code": "1101"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12407",
+    "fields": {
+      "short_description": "Cardiac catheter, balloon septostomy",
+      "description": "Cardiac catheter, balloon septostomy",
+      "anszic_code": "1106"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12408",
+    "fields": {
+      "short_description": "Cardiac catheter, diagnostic",
+      "description": "Cardiac catheter, diagnostic",
+      "anszic_code": "1102"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12409",
+    "fields": {
+      "short_description": "Cardiac catheter, interventional",
+      "description": "Cardiac catheter, interventional",
+      "anszic_code": "1107"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12410",
+    "fields": {
+      "short_description": "Ex-prem, after general aenesthetic",
+      "description": "Ex-prem, after general aenesthetic",
+      "anszic_code": "1103"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12411",
+    "fields": {
+      "short_description": "Invasive radiology procedure",
+      "description": "Invasive radiology procedure",
+      "anszic_code": "1104"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12412",
+    "fields": {
+      "short_description": "Massive intraoperative transfusion (>1 blood vol)",
+      "description": "Massive intraoperative transfusion (>1 blood vol)",
+      "anszic_code": "1105"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12413",
+    "fields": {
+      "short_description": "Cardiac surgery, closed, other",
+      "description": "Cardiac surgery, closed, other",
+      "anszic_code": "1200"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12414",
+    "fields": {
+      "short_description": "Coarctation repair",
+      "description": "Coarctation repair",
+      "anszic_code": "1201"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12415",
+    "fields": {
+      "short_description": "PA band",
+      "description": "PA band",
+      "anszic_code": "1202"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12416",
+    "fields": {
+      "short_description": "Pacemaker insertion or revision",
+      "description": "Pacemaker insertion or revision",
+      "anszic_code": "1203"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12417",
+    "fields": {
+      "short_description": "Patent ductus arteriosus ligation",
+      "description": "Patent ductus arteriosus ligation",
+      "anszic_code": "1204"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12418",
+    "fields": {
+      "short_description": "Systemic-pulmonary shunt",
+      "description": "Systemic-pulmonary shunt",
+      "anszic_code": "1205"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12419",
+    "fields": {
+      "short_description": "Valvotomy, closed",
+      "description": "Valvotomy, closed",
+      "anszic_code": "1206"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12420",
+    "fields": {
+      "short_description": "Cardiac surgery, open, other",
+      "description": "Cardiac surgery, open, other",
+      "anszic_code": "1230"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12421",
+    "fields": {
+      "short_description": "Aortic arch reconstruction",
+      "description": "Aortic arch reconstruction",
+      "anszic_code": "1231"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12422",
+    "fields": {
+      "short_description": "Arterial switch",
+      "description": "Arterial switch",
+      "anszic_code": "1232"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12423",
+    "fields": {
+      "short_description": "Atrial septal defect repair",
+      "description": "Atrial septal defect repair",
+      "anszic_code": "1233"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12424",
+    "fields": {
+      "short_description": "AVSD repair (atrioventricular canal)",
+      "description": "AVSD repair (atrioventricular canal)",
+      "anszic_code": "1234"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12425",
+    "fields": {
+      "short_description": "Cardiac tumour resection",
+      "description": "Cardiac tumour resection",
+      "anszic_code": "1235"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12426",
+    "fields": {
+      "short_description": "Cavo-pulmonary shunt",
+      "description": "Cavo-pulmonary shunt",
+      "anszic_code": "1236"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12427",
+    "fields": {
+      "short_description": "Conduit repair or replacement",
+      "description": "Conduit repair or replacement",
+      "anszic_code": "1252"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12428",
+    "fields": {
+      "short_description": "Coronary artery repair",
+      "description": "Coronary artery repair",
+      "anszic_code": "1253"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12429",
+    "fields": {
+      "short_description": "Fontan",
+      "description": "Fontan",
+      "anszic_code": "1237"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12430",
+    "fields": {
+      "short_description": "Left ventricular outflow reconstruction",
+      "description": "Left ventricular outflow reconstruction",
+      "anszic_code": "1238"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12431",
+    "fields": {
+      "short_description": "MAPCA?s surgery",
+      "description": "MAPCA?s surgery",
+      "anszic_code": "1254"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12432",
+    "fields": {
+      "short_description": "Norwood stage I",
+      "description": "Norwood stage I",
+      "anszic_code": "1239"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12433",
+    "fields": {
+      "short_description": "PA plasty or repair",
+      "description": "PA plasty or repair",
+      "anszic_code": "1240"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12434",
+    "fields": {
+      "short_description": "Right ventricular outflow reconstruction",
+      "description": "Right ventricular outflow reconstruction",
+      "anszic_code": "1241"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12435",
+    "fields": {
+      "short_description": "Senning",
+      "description": "Senning",
+      "anszic_code": "1242"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12436",
+    "fields": {
+      "short_description": "TAPVD repair",
+      "description": "TAPVD repair",
+      "anszic_code": "1243"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12437",
+    "fields": {
+      "short_description": "Tetralogy of Fallot repair",
+      "description": "Tetralogy of Fallot repair",
+      "anszic_code": "1244"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12438",
+    "fields": {
+      "short_description": "Transplant, heart",
+      "description": "Transplant, heart",
+      "anszic_code": "1245"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12439",
+    "fields": {
+      "short_description": "Transplant, heart lung",
+      "description": "Transplant, heart lung",
+      "anszic_code": "1246"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12440",
+    "fields": {
+      "short_description": "Transplant, lung",
+      "description": "Transplant, lung",
+      "anszic_code": "1247"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12441",
+    "fields": {
+      "short_description": "Truncus repair",
+      "description": "Truncus repair",
+      "anszic_code": "1248"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12442",
+    "fields": {
+      "short_description": "Valve repair or replacement",
+      "description": "Valve repair or replacement",
+      "anszic_code": "1249"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12443",
+    "fields": {
+      "short_description": "Valvotomy, open",
+      "description": "Valvotomy, open",
+      "anszic_code": "1250"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12444",
+    "fields": {
+      "short_description": "Ventricular septal defect repair",
+      "description": "Ventricular septal defect repair",
+      "anszic_code": "1251"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12445",
+    "fields": {
+      "short_description": "Neurosurgery, other",
+      "description": "Neurosurgery, other",
+      "anszic_code": "1300"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12446",
+    "fields": {
+      "short_description": "Craniotomy, anterior fossa",
+      "description": "Craniotomy, anterior fossa",
+      "anszic_code": "1301"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12447",
+    "fields": {
+      "short_description": "Craniotomy, posterior fossa",
+      "description": "Craniotomy, posterior fossa",
+      "anszic_code": "1302"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12448",
+    "fields": {
+      "short_description": "CSF shunt insertion or revision",
+      "description": "CSF shunt insertion or revision",
+      "anszic_code": "1303"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12449",
+    "fields": {
+      "short_description": "Decompression, cranial",
+      "description": "Decompression, cranial",
+      "anszic_code": "1304"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12450",
+    "fields": {
+      "short_description": "Decompression, spinal cord",
+      "description": "Decompression, spinal cord",
+      "anszic_code": "1305"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12451",
+    "fields": {
+      "short_description": "Hemispherectomy or lobectomy",
+      "description": "Hemispherectomy or lobectomy",
+      "anszic_code": "1306"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12452",
+    "fields": {
+      "short_description": "ICP monitor or ventricular drain insertion",
+      "description": "ICP monitor or ventricular drain insertion",
+      "anszic_code": "1307"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12453",
+    "fields": {
+      "short_description": "Intracranial haematoma evacuation",
+      "description": "Intracranial haematoma evacuation",
+      "anszic_code": "1308"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12454",
+    "fields": {
+      "short_description": "Thoracic surgery, other",
+      "description": "Thoracic surgery, other",
+      "anszic_code": "1400"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12455",
+    "fields": {
+      "short_description": "Diaphragm plication",
+      "description": "Diaphragm plication",
+      "anszic_code": "1401"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12456",
+    "fields": {
+      "short_description": "Diaphragm repair",
+      "description": "Diaphragm repair",
+      "anszic_code": "1402"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12457",
+    "fields": {
+      "short_description": "Lung biopsy",
+      "description": "Lung biopsy",
+      "anszic_code": "1403"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12458",
+    "fields": {
+      "short_description": "Lung decortication",
+      "description": "Lung decortication",
+      "anszic_code": "1404"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12459",
+    "fields": {
+      "short_description": "Oesophageal atresia repair",
+      "description": "Oesophageal atresia repair",
+      "anszic_code": "1405"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12460",
+    "fields": {
+      "short_description": "Pneumonectomy or lobectomy",
+      "description": "Pneumonectomy or lobectomy",
+      "anszic_code": "1406"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12461",
+    "fields": {
+      "short_description": "Thoracic tumour resection",
+      "description": "Thoracic tumour resection",
+      "anszic_code": "1407"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12462",
+    "fields": {
+      "short_description": "Tracheo-oesophageal fistula repair",
+      "description": "Tracheo-oesophageal fistula repair",
+      "anszic_code": "1408"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12463",
+    "fields": {
+      "short_description": "Tracheopexy",
+      "description": "Tracheopexy",
+      "anszic_code": "1409"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12464",
+    "fields": {
+      "short_description": "Ears, nose, throat surgery, other",
+      "description": "Ears, nose, throat surgery, other",
+      "anszic_code": "1500"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12465",
+    "fields": {
+      "short_description": "Adenoidectomy and/or tonsillectomy",
+      "description": "Adenoidectomy and/or tonsillectomy",
+      "anszic_code": "1501"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12466",
+    "fields": {
+      "short_description": "Choanal atresia repair",
+      "description": "Choanal atresia repair",
+      "anszic_code": "1502"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12467",
+    "fields": {
+      "short_description": "Cricoid split",
+      "description": "Cricoid split",
+      "anszic_code": "1503"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12468",
+    "fields": {
+      "short_description": "Laryngeal reconstruction",
+      "description": "Laryngeal reconstruction",
+      "anszic_code": "1504"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12469",
+    "fields": {
+      "short_description": "Laryngobronchoscopy",
+      "description": "Laryngobronchoscopy",
+      "anszic_code": "1505"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12470",
+    "fields": {
+      "short_description": "Tracheostomy",
+      "description": "Tracheostomy",
+      "anszic_code": "1506"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12471",
+    "fields": {
+      "short_description": "General surgery, other",
+      "description": "General surgery, other",
+      "anszic_code": "1600"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12472",
+    "fields": {
+      "short_description": "Abdominal tumour resection",
+      "description": "Abdominal tumour resection",
+      "anszic_code": "1601"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12473",
+    "fields": {
+      "short_description": "Appendicectomy",
+      "description": "Appendicectomy",
+      "anszic_code": "1602"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12474",
+    "fields": {
+      "short_description": "Bladder extrophy repair",
+      "description": "Bladder extrophy repair",
+      "anszic_code": "1603"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12475",
+    "fields": {
+      "short_description": "Burns surgery",
+      "description": "Burns surgery",
+      "anszic_code": "1604"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12476",
+    "fields": {
+      "short_description": "Fundoplication",
+      "description": "Fundoplication",
+      "anszic_code": "1605"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12477",
+    "fields": {
+      "short_description": "Gastroschisis or exomphalos repair",
+      "description": "Gastroschisis or exomphalos repair",
+      "anszic_code": "1606"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12478",
+    "fields": {
+      "short_description": "Gastrointestinal endoscopy and/or sclerotherapy",
+      "description": "Gastrointestinal endoscopy and/or sclerotherapy",
+      "anszic_code": "1607"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12479",
+    "fields": {
+      "short_description": "Intussusception repair",
+      "description": "Intussusception repair",
+      "anszic_code": "1608"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12480",
+    "fields": {
+      "short_description": "Kasai",
+      "description": "Kasai",
+      "anszic_code": "1609"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12481",
+    "fields": {
+      "short_description": "Laparotomy",
+      "description": "Laparotomy",
+      "anszic_code": "1610"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12482",
+    "fields": {
+      "short_description": "Laparotomy, bowel obstruction",
+      "description": "Laparotomy, bowel obstruction",
+      "anszic_code": "1615"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12483",
+    "fields": {
+      "short_description": "Laparotomy, bowel perforation",
+      "description": "Laparotomy, bowel perforation",
+      "anszic_code": "1616"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12484",
+    "fields": {
+      "short_description": "Laparotomy, gastrointestinal haemorrhage",
+      "description": "Laparotomy, gastrointestinal haemorrhage",
+      "anszic_code": "1617"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12485",
+    "fields": {
+      "short_description": "Laparotomy, necrotising entercolitis",
+      "description": "Laparotomy, necrotising entercolitis",
+      "anszic_code": "1618"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12486",
+    "fields": {
+      "short_description": "Laparotomy, peritonitis",
+      "description": "Laparotomy, peritonitis",
+      "anszic_code": "1619"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12487",
+    "fields": {
+      "short_description": "Laparotomy, trauma",
+      "description": "Laparotomy, trauma",
+      "anszic_code": "1620"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12488",
+    "fields": {
+      "short_description": "Transplant, kidney",
+      "description": "Transplant, kidney",
+      "anszic_code": "1611"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12489",
+    "fields": {
+      "short_description": "Transplant, liver",
+      "description": "Transplant, liver",
+      "anszic_code": "1612"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12490",
+    "fields": {
+      "short_description": "Transplant, small bowel",
+      "description": "Transplant, small bowel",
+      "anszic_code": "1613"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12491",
+    "fields": {
+      "short_description": "Urogenital surgery, other",
+      "description": "Urogenital surgery, other",
+      "anszic_code": "1614"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12492",
+    "fields": {
+      "short_description": "Craniofacial surgery, other",
+      "description": "Craniofacial surgery, other",
+      "anszic_code": "1700"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12493",
+    "fields": {
+      "short_description": "Cleft palate repair",
+      "description": "Cleft palate repair",
+      "anszic_code": "1706"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12494",
+    "fields": {
+      "short_description": "Cranial vault reshaping",
+      "description": "Cranial vault reshaping",
+      "anszic_code": "1701"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12495",
+    "fields": {
+      "short_description": "Dental surgery",
+      "description": "Dental surgery",
+      "anszic_code": "1702"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12496",
+    "fields": {
+      "short_description": "Facial cleft repair",
+      "description": "Facial cleft repair",
+      "anszic_code": "1703"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12497",
+    "fields": {
+      "short_description": "Mandibular mobilisation",
+      "description": "Mandibular mobilisation",
+      "anszic_code": "1704"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12498",
+    "fields": {
+      "short_description": "Midface mobilisation",
+      "description": "Midface mobilisation",
+      "anszic_code": "1705"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12499",
+    "fields": {
+      "short_description": "Orthopaedic surgery, other",
+      "description": "Orthopaedic surgery, other",
+      "anszic_code": "1800"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12500",
+    "fields": {
+      "short_description": "Fracture fixation",
+      "description": "Fracture fixation",
+      "anszic_code": "1801"
+    }
+  },
+  {
+    "model": "picu.DiagnosticCode",
+    "pk": "12501",
+    "fields": {
+      "short_description": "Spinal instrumentation",
+      "description": "Spinal instrumentation",
+      "anszic_code": "1802"
+    }
+  }
+]
