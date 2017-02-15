@@ -23,30 +23,31 @@
                 </li>
             </ul>
         {% endblock %}
+
         <div id="patient-info" class="module filtered">
             <div class="results">
                 <div>
-                    <table>
+                    <table style="width: 100%; border: 1px solid black;">
                         <caption>
                             <a href="#" class="section" title="Patient Info">{{ patient }}</a>
                         </caption>
                         <tr class="row1">
                             <td><div class="text">{% trans 'First Name' %}:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.first_name }}</div><div class="clear"></div></td>
-                            <td><div class="text">{% trans 'Second Name' %}:</div><div class="clear"></div></td>
+                            <td><div class="text bordered">{% trans 'Second Name' %}&nbsp;:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.second_name }}</div><div class="clear"></div></td>
                         </tr>
                         <tr class="row2">
                             <td><div class="text">{% trans 'DOB' %}:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.date_of_birth }}</div><div class="clear"></div></td>
-                            <td><div class="text">{% trans 'Age in Months' %}:</div><div class="clear"></div></td>
+                            <td><div class="text bordered">{% trans 'Age in Months' %}&nbsp;:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.age_in_months }}</div><div class="clear"></div></td>
                         </tr>
                         <tr class="row1">
-                            <td><div class="text">{% trans 'Gender' %}:</div><div class="clear"></div></td>
-                            <td><div class="text">{{ patient.gender }}</div><div class="clear"></div></td>
-                            <td><div class="text">{% trans 'HIV' %}:</div><div class="clear"></div></td>
-                            <td><div class="text">{{ patient.hiv }}</div><div class="clear"></div></td>
+                            <td><div class="text">{% trans 'Gender' %}&nbsp;:</div><div class="clear"></div></td>
+                            <td><div class="text">{{ patient.get_gender_display }}</div><div class="clear"></div></td>
+                            <td><div class="text bordered">{% trans 'HIV' %}&nbsp;:</div><div class="clear"></div></td>
+                            <td><div class="text">{{ patient.get_hiv_display }}</div><div class="clear"></div></td>
                         </tr>
                     </table>
                 </div>
