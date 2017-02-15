@@ -37,7 +37,7 @@ class AdmissionAdmin(admin.ModelAdmin):
 		  'fields': ['discharge_diagnosis', 'discharged_date', 'hosp_discharged_date', 'discharged_to', 'death_in_picu', 'death_in_hospital', 'survival_post_icu_discharge']})
 	]
 
-	list_display = ('picu_admission_date', 'patient_info', 'current_diagnosis', 'pos_cultures', 'admission_month', 'mortality', 'pupils_fixed',
+	list_display = ('case_no', 'picu_admission_date', 'patient_info', 'current_diagnosis', 'pos_cultures', 'admission_month', 'mortality', 'pupils_fixed',
 	                'elective_admission', 'hiv', 'mechanical_ventilation', 'base_excess', 'sbp', 'sys_blood_pressure_squared',
 	                'fraction_inspired_oxygen', 'partial_oxygen_pressure', 'paop_in_mmhg', 'ratio_of_fio2_over_pao2', 'bypass_cardiac',
 	                'non_bypass_cardiac', 'non_cardiac_procedure', 'risk_associated_with_diagnosis', 'logit', 'length_of_stay', 'mortality_risk')
@@ -48,9 +48,9 @@ class AdmissionAdmin(admin.ModelAdmin):
 
 
 class PatientAdmin(admin.ModelAdmin):
-	list_display = ('first_name', 'second_name', 'gender', 'date_of_birth', 'hiv', 'age_in_months')
+	list_display = ('hospital_no', 'first_name', 'second_name', 'gender', 'date_of_birth', 'hiv', 'age_in_months')
 	list_filter = ['gender', 'date_of_birth', 'first_name', 'second_name', 'hiv']
-	search_fields = ['first_name', 'second_name', 'gender', 'date_of_birth', 'hiv']
+	search_fields = ['hospital_no', 'first_name', 'second_name', 'gender', 'date_of_birth', 'hiv']
 
 class SelectionValueAdmin(admin.ModelAdmin):
 	list_display = ('name', 'description', 'sort_order', 'numeric_value', 'type')

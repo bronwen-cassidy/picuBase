@@ -2,7 +2,7 @@ import os
 
 from django.test import TestCase
 
-from datetime import date
+from datetime import date, datetime
 from django.core.urlresolvers import reverse
 
 from picu import formatter
@@ -41,7 +41,8 @@ class AdmissionMethodTests(TestCase):
 
 
 	def test_admission_month(self):
-		admin_date = date(year=2016, month=4, day=12)
+		#admin_date = date('2016-01-01') #date(year=2016, month=4, day=12)
+		admin_date = datetime.strptime("2016-04-01", "%Y-%m-%d")
 		my_admission = Admission()
 		my_admission.picu_admission_date = admin_date
 		self.assertEqual(4, my_admission.admission_month())

@@ -13,16 +13,10 @@ class Picu(models.Model):
 	name = models.CharField(max_length=300)
 	street_address = models.CharField(max_length=1000)
 	city = models.CharField(max_length = 500)
-	hospital_number = models.CharField(max_length=200)	
 	unit_number = models.CharField(max_length=200)
-	case_number = models.CharField(max_length=200)
-	
 	
 	class Meta:
 		verbose_name_plural = 'Pediatric ICUS'
-	
-	def case_number_def(self):
-		return self.unit_number + self.case_number
 	
 	def __str__(self):
 		return self.name + " in " + self.city		
@@ -64,6 +58,7 @@ class Patient(models.Model):
 	
 	first_name = models.CharField(max_length=300)
 	second_name = models.CharField(max_length=300)
+	hospital_no = models.CharField(max_length=300)
 	gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default=None)
 	date_of_birth = models.DateField()	
 	hiv = models.CharField(max_length=50, choices=HIV_CHOICES, default=None)
@@ -105,13 +100,15 @@ class Admission(models.Model):
 	HIGH_RISK = '2'
 	VERY_HIGH_RISK = '3'
 	DIAGNOSIS_RISK_CHOICES = ((LOW_RISK,'Low Risk'),(HIGH_RISK,'High Risk'),(VERY_HIGH_RISK,'Very High Risk'))
-	
+
+	picu = models.ForeignKey(Picu)
 	picu_admission_date = models.DateField()
 	admitted_from = models.CharField("Referred From", max_length=300)
 	hospital_admission_date = models.DateField(default = None)
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None, related_name="admission")
 	risk_associated_with_diagnosis = models.ForeignKey(SelectionType, default=None, null=True, limit_choices_to=Q(id=1) | Q(id=2)| Q(id=3))
+	condition_associated_with_risk = models.ForeignKey(Diagnosis, default=None, related_name='risk_condition')
 	positive_cultures = models.ManyToManyField(Culture, default=None)
 	main_admission_reason = models.ForeignKey(SelectionValue, default=None, null=True, limit_choices_to={"type": "5"}, related_name='+',)
 
@@ -135,6 +132,7 @@ class Admission(models.Model):
 	death_in_picu = models.BooleanField(default=False)
 	death_in_hospital = models.BooleanField(default=False)
 	survival_post_icu_discharge = models.BooleanField(default=False)
+	case_no = models.CharField(max_length=300, default="1")
 
 	def admission_month(self):
 		return self.picu_admission_date.month
@@ -148,13 +146,17 @@ class Admission(models.Model):
 		
 	def patient_info(self):
 		return self.patient
-		
+
 	def hiv(self):
 		return self.patient.hiv
 
 	def age_in_months(self):
 		delta = self.picu_admission_date - self.patient.date_of_birth
-		return delta.months
+		try:
+			months = delta.months
+		except AttributeError:
+			months = delta.days / 100
+		return months
 	
 	def current_diagnosis(self):
 		return ', '.join([a.name for a in self.admission_diagnosis.all()])
@@ -167,7 +169,6 @@ class Admission(models.Model):
 			return None
 		return self.discharged_date.month
 
-	# todo change this into a selection type/value
 	def mortality(self):
 		return 'Y' if self.discharged_to is not None and self.discharged_to.lower is "death" else 'N'
 						

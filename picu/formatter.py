@@ -2,7 +2,6 @@ from datetime import datetime
 
 from picu.models import Patient
 
-
 def format_date(value):
 	return datetime.strptime(value, '%d-%b-%y').strftime('%Y-%m-%d') if value else None
 
