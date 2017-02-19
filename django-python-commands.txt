@@ -65,6 +65,6 @@ python manage.py migrate
 
 ##### reset the db
 - delete all migrations except __init__.py
-- delete all entries in the db from table django_migrations where app name = 'your_app'
+- delete all entries in the db from table django_migrations where app name = 'your_app' i.e) delete from django_migrations where app='picu';
 - run makemigrations
 - run migrate

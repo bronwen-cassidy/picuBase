@@ -83,6 +83,7 @@ DATABASES = {
 		'HOST': 'localhost',
 		'PORT': '3306',
 		'OPTIONS': {
+			'use_unicode': True,
 			'sql_mode': 'traditional',
 		},
 		'TEST': {
