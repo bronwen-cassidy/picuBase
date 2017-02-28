@@ -1,7 +1,8 @@
-from django import forms
+import floppyforms.__future__ as forms
 from django.contrib.admin.widgets import AdminDateWidget
 
-from .models import Patient
+from picu.widgets import SearchDataListWidget
+from .models import Patient, Admission
 
 
 class PatientSearchForm(forms.Form):
@@ -18,3 +19,18 @@ class PatientSearchForm(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(PatientSearchForm, self).__init__(*args, **kwargs)
+
+
+class AdmissionForm (forms.Form):
+
+	# todo admission_diagnosis = forms.TextInput(attrs={'required': False}) this is not currently used may be when saving
+
+	def __init__(self, *args, **kwargs):
+		super(AdmissionForm, self).__init__(*args, **kwargs)
+
+	class Meta:
+		model = Admission
+		widgets = {
+			'admission_diagnosis': forms.TextInput,
+		}
+

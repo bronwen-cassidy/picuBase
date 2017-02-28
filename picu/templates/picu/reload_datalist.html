@@ -1,0 +1,46 @@
+{% load floppyforms %}
+
+<input list="datalist1" id="companyName"/>
+
+<datalist id="datalist1">
+    <option value="US" label="United States" />
+    <option value="UK" label="United Kingdom" />
+    <option value="IN" label="India" />
+</datalist>
+
+<div id="yay"></div>
+
+<script type="text/javascript">
+
+django.jQuery(document).ready(function($) {
+
+    $("#companyName").on("input keypress", function (e) {
+
+        if (e.keyCode === 10 || e.keyCode === 13) {
+            console.log('ignore keyCodes 10 and 13');
+        } else if (e.which !== 0) {
+            if(e.type === 'input') {
+                var val = $('#companyName').val();
+                var xyz = $('#datalist1 option').filter(function() {
+                    return this.value == val;
+                }).attr('label');
+                $("#yay").append(xyz + "<br/>");
+            } else {
+                var options = {};
+                options.url = "/home/getcompanylist";
+                options.type = "GET";
+                options.data = { "criteria": $("#companyName").val() };
+                options.dataType = "json";
+                options.success = function (data) {
+                    $("#companyList").empty();
+                    for(var i=0;i<data.length;i++)
+                    {
+                        $("#datalist1").append("<option value='" + data[i].diagnosis + "'>" + data[i].diagnosis + " | " + data[i].codes + "</option>");
+                    }
+                };
+                $.ajax(options);
+            }
+        }
+    });
+});
+</script>

@@ -64,7 +64,7 @@ def create_diagnoses(cells):
 
 
 def create_cultures(cells):
-	culture_list = cells[10].split('#')
+	culture_list = cells[11].split('#')
 	result = []
 
 	for i, name in enumerate(culture_list):
@@ -89,7 +89,7 @@ def determine_risk_condition(diagnoses_list):
 			if any(word in selection_value.name for word in word_list):
 				return diagnosis
 
-	return diagnoses_list[0]
+	return None
 
 
 def create_admission(cells):
@@ -98,7 +98,7 @@ def create_admission(cells):
 	diagnoses_list = list(create_diagnoses(cells))
 	postive_cultures_list = list(create_cultures(cells))
 	risk_condition = determine_risk_condition(diagnoses_list)
-	referred_from = cells[3]
+	referred_from = str(cells[3]).replace('#', ',')
 	picu_admisison_date = formatter.format_date(cells[4])
 	hosp_admission_date = formatter.format_date(cells[5])
 	risk = SelectionType.objects.get(id=("1" if cells[27] is None or cells[27] is "0" else cells[27]))

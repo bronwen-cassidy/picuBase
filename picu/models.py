@@ -108,7 +108,7 @@ class Admission(models.Model):
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None, related_name="admission")
 	risk_associated_with_diagnosis = models.ForeignKey(SelectionType, default=None, null=True, limit_choices_to=Q(id=1) | Q(id=2)| Q(id=3))
-	condition_associated_with_risk = models.ForeignKey(Diagnosis, default=None, related_name='risk_condition')
+	condition_associated_with_risk = models.ForeignKey(Diagnosis, default=None, null=True, related_name='risk_condition')
 	positive_cultures = models.ManyToManyField(Culture, default=None)
 	main_admission_reason = models.ForeignKey(SelectionValue, default=None, null=True, limit_choices_to={"type": "5"}, related_name='+',)
 

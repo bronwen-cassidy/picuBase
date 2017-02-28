@@ -68,3 +68,13 @@ python manage.py migrate
 - delete all entries in the db from table django_migrations where app name = 'your_app' i.e) delete from django_migrations where app='picu';
 - run makemigrations
 - run migrate
+
+### run commands from the python console
+python manage.py shell
+>>> import django    # note not sure the next 2 lines are required
+>>> django.setup()
+
+# now your stuff example
+>>> from picu.widgets import SelectSearchWidget
+>>> c = SelectSearchWidget()
+>>> print(c.media)

@@ -113,3 +113,9 @@ class DataUploadViewTests(TestCase):
 		with open(os.path.join(os.path.dirname(__file__)) + '/test_data/data.csv', 'r') as file_data:
 			response = self.client.post(reverse('picu:data_import'), {'datafile': file_data})
 			self.assertEqual(response.status_code, 200)
+
+		# lets go and find some of that information
+		patient = Patient.objects.filter(first_name = 'a111', second_name='b111')[0]
+		self.assertEqual('31-May-16', patient.date_of_birth.strftime('%d-%b-%y'))
+		admission = Admission.objects.filter(picu_admission_date=formatter.format_date('19-Jun-16'), admitted_from='Sasolburg')
+		self.assertEqual(1, len(admission))

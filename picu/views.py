@@ -4,7 +4,7 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
-from picu import dataParser
+from picu import data_parser
 from .forms import PatientSearchForm
 from .models import Admission, Patient
 
@@ -63,7 +63,7 @@ def data_import(request):
 
 			cells = row.split(',')
 			if len(cells) > 0:
-				dataParser.create_admission(cells)
+				data_parser.create_admission(cells)
 
 		fs = FileSystemStorage()
 		filename = fs.save(csvfile.name, csvfile)

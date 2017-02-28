@@ -1,0 +1,6 @@
+div.dataTables_wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+div.dataTables_wrapper > th, td { white-space: nowrap; }

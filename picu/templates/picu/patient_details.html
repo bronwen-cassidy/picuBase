@@ -5,7 +5,9 @@
 
 	<script type="text/javascript">
         django.jQuery(document).ready(function($) {
-            $('#admissions').DataTable();
+            $('#admissions').DataTable({
+                'scrollX': true
+            });
         });
 
 	</script>

@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.db import models
 from django import forms
+
+from picu.widgets import SearchDataListWidget
 from .models import Picu, Patient, Admission, Culture, Diagnosis, SelectionType, SelectionValue, DiagnosticCode
 
 
@@ -16,14 +18,25 @@ class PatientInline(admin.StackedInline):
 
 ######################### ADMINS #################
 class PicuAdmin(admin.ModelAdmin):
+	list_per_page = 50
 	formfield_overrides = {models.ManyToManyField: {'widget': forms.SelectMultiple(attrs={'size': '3'})}, }
 
 
 class DiagnosisAdmin(admin.ModelAdmin):
+	list_per_page = 50
 	list_display = ('name', 'icd_10_code', 'anszic_code', 'risk_category')
 
 
 class AdmissionAdmin(admin.ModelAdmin):
+
+	# todo form = AdmissionForm
+	def formfield_for_dbfield(self, db_field, **kwargs):
+		if db_field.name is 'admission_diagnosis':
+			kwargs['widget'] = SearchDataListWidget
+		return super().formfield_for_dbfield(db_field, **kwargs)
+
+
+	list_per_page = 15
 	fieldsets = [
 		(None, {'fields': ['picu_admission_date', 'admitted_from', 'hospital_admission_date', 'patient',
 		                   'admission_diagnosis', 'positive_cultures', 'risk_associated_with_diagnosis', 'main_admission_reason']}),
@@ -44,18 +57,25 @@ class AdmissionAdmin(admin.ModelAdmin):
 	ordering = ['picu_admission_date']
 	list_filter = ['picu_admission_date', 'risk_associated_with_diagnosis']
 	search_fields = ['picu_admission_date', 'risk_associated_with_diagnosis', 'elective_admission', 'discharged_date', 'hosp_discharged_date']
-	raw_id_fields = ('admission_diagnosis', 'positive_cultures',)
+	raw_id_fields = ('positive_cultures',)
 
 
 class PatientAdmin(admin.ModelAdmin):
+	list_per_page = 50
 	list_display = ('hospital_no', 'first_name', 'second_name', 'gender', 'date_of_birth', 'hiv', 'age_in_months')
-	list_filter = ['gender', 'date_of_birth', 'first_name', 'second_name', 'hiv']
+	list_filter = ['gender', 'date_of_birth', 'hiv']
 	search_fields = ['hospital_no', 'first_name', 'second_name', 'gender', 'date_of_birth', 'hiv']
 
 class SelectionValueAdmin(admin.ModelAdmin):
+	list_per_page = 50
 	list_display = ('name', 'description', 'sort_order', 'numeric_value', 'type')
 	list_filter = ['name', 'sort_order']
 	search_fields = ['name']
+
+class DiagnosticCodeAdmin(admin.ModelAdmin):
+	list_per_page = 50
+	list_display = ('short_description', 'description', 'icd10_code', 'anszic_code')
+	search_fields = ['icd10_code', 'anszic_code']
 
 
 # Register your models here.
@@ -66,4 +86,4 @@ admin.site.register(Culture)
 admin.site.register(Diagnosis, DiagnosisAdmin)
 admin.site.register(SelectionType)
 admin.site.register(SelectionValue, SelectionValueAdmin)
-admin.site.register(DiagnosticCode)
+admin.site.register(DiagnosticCode,DiagnosticCodeAdmin)

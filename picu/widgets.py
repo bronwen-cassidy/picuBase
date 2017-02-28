@@ -1,10 +1,11 @@
-from django import forms
+import floppyforms as forms
 
-class SelectSearchWidget(forms.TextInput):
+class SearchDataListWidget(forms.widgets.Input):
+
+	template_name = 'picu/reload_datalist.html'
 
 	class Media:
 		extend = True
-
 		css = {
 			'all': ('picu/css/style.css',)
 		}
