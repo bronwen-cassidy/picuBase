@@ -68,6 +68,8 @@ def create_cultures(cells):
 	result = []
 
 	for i, name in enumerate(culture_list):
+		if not name:
+			continue
 		culture = Culture.objects.filter(name__iexact=name).order_by('id')[:1]
 		if not culture:
 			culture = Culture(name = name)

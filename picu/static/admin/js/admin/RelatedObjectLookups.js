@@ -73,6 +73,15 @@
         }
     }
 
+    function updateDatalistOptionsDisplayAddedValue(elem, elemId, newRepr, newId) {
+        // todo add the new value to the datalist and add the id arrays to a hidden field
+        if (elem) {
+            elem.value = newId;
+            var divElem = document.getElementById('yay');
+            divElem.innerHTML += newRepr + "<br/>";
+        }
+    }
+
     function dismissAddRelatedObjectPopup(win, newId, newRepr) {
         var name = windowname_to_id(win.name);
         var elem = document.getElementById(name);
@@ -83,6 +92,8 @@
             } else if (elemName === 'INPUT') {
                 if (elem.className.indexOf('vManyToManyRawIdAdminField') !== -1 && elem.value) {
                     elem.value += ',' + newId;
+                } else if (elem.className.indexOf('vDatalistManyToManyAdminField') !== -1) {
+                    updateDatalistOptionsDisplayAddedValue(elem, name, newRepr, newId);
                 } else {
                     elem.value = newId;
                 }

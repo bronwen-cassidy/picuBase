@@ -1,35 +1,36 @@
 {% load floppyforms %}
 
-<input list="datalist1" id="companyName"/>
+<input list="datalist_admission_diagnosis" id="id_admission_diagnosis" class="vDatalistManyToManyAdminField"/>
 
-<datalist id="datalist1">
+<datalist id="datalist_admission_diagnosis">
     <option value="US" label="United States" />
     <option value="UK" label="United Kingdom" />
     <option value="IN" label="India" />
 </datalist>
 
-<div id="yay"></div>
+<div id="yay" class="vDatalistManyTpManyAdminField"></div>
 
 <script type="text/javascript">
 
 django.jQuery(document).ready(function($) {
 
-    $("#companyName").on("input keypress", function (e) {
-
+    $("#id_admission_diagnosis").on("input keyup", function (e) {
         if (e.keyCode === 10 || e.keyCode === 13) {
             console.log('ignore keyCodes 10 and 13');
-        } else if (e.which !== 0) {
+        } else if (e.which >= 48 && e.which <= 90) {
             if(e.type === 'input') {
-                var val = $('#companyName').val();
-                var xyz = $('#datalist1 option').filter(function() {
-                    return this.value == val;
-                }).attr('label');
-                $("#yay").append(xyz + "<br/>");
+                var val = $('#id_admission_diagnosis').val();
+                if (val) {
+                    var xyz = $('#datalist_admission_diagnosis option').filter(function() {
+                        return this.value == val;
+                    }).attr('label');
+                    $("#yay").append(xyz + "<br/>");
+                }
             } else {
                 var options = {};
-                options.url = "/home/getcompanylist";
+                options.url = "{% url 'picu:diagnosis_search' %}";
                 options.type = "GET";
-                options.data = { "criteria": $("#companyName").val() };
+                options.data = { "criteria": $("#id_admission_diagnosis").val() };
                 options.dataType = "json";
                 options.success = function (data) {
                     $("#companyList").empty();

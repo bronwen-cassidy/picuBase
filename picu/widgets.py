@@ -1,4 +1,6 @@
 import floppyforms as forms
+from django.contrib.admin.widgets import RelatedFieldWidgetWrapper
+
 
 class SearchDataListWidget(forms.widgets.Input):
 
@@ -10,3 +12,11 @@ class SearchDataListWidget(forms.widgets.Input):
 			'all': ('picu/css/style.css',)
 		}
 		js = ('picu/js/select.functions.js',)
+
+
+"""
+class DiagnosisRelatedFieldWidgetWrapper(RelatedFieldWidgetWrapper):
+"""
+
+
+

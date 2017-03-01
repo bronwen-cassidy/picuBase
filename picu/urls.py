@@ -13,5 +13,6 @@ urlpatterns = [
 	url(r'^home/$', views.index, name='home'),
 	url(r'^data/import/', views.data_import, name='data_import'),
 	url(r'^patient/search/', views.patient_search, name='patient_search'),
+	url(r'^diagnosis/search/', views.diagnosis_search, name='diagnosis_search'),
 	url(r'^patient/(?P<id>\w+)/view/$', views.patient_view, name='patient_view'),
 ]

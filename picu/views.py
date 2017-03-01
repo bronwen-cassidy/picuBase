@@ -1,12 +1,14 @@
 import re
 
 from django.core.files.storage import FileSystemStorage
+from django.core import serializers
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 from picu import data_parser
 from .forms import PatientSearchForm
-from .models import Admission, Patient
+from .models import Admission, Patient, Diagnosis
 
 
 # Create your views here.
@@ -48,6 +50,14 @@ def patient_view(request, id):
 	model = {'patient': patient, 'admission_list': admission_list }
 
 	return render(request, 'picu/patient_details.html', model)
+
+def diagnosis_search(request):
+	search_param = request.GET.get('criteria', '')
+	if search_param:
+		diagnosis_list = Diagnosis.objects.filter(name__contains=search_param)
+		data = serializers.serialize("json", diagnosis_list)
+		return JsonResponse(data)
+	return None
 
 
 def data_import(request):
