@@ -79,6 +79,7 @@
             elem.value = newId;
             var divElem = document.getElementById('yay');
             divElem.innerHTML += newRepr + "<br/>";
+            var datalistElem = document.getElementById("datalist_" + name);
         }
     }
 

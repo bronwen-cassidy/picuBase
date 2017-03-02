@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.db import models
 from django import forms
+from django.urls import reverse
 
 from picu.widgets import SearchDataListWidget
 from .models import Picu, Patient, Admission, Culture, Diagnosis, SelectionType, SelectionValue, DiagnosticCode
@@ -32,7 +33,8 @@ class AdmissionAdmin(admin.ModelAdmin):
 	# todo form = AdmissionForm
 	def formfield_for_dbfield(self, db_field, **kwargs):
 		if db_field.name is 'admission_diagnosis':
-			kwargs['widget'] = SearchDataListWidget
+
+			kwargs['widget'] = SearchDataListWidget(attrs={'search_url': reverse('picu:diagnosis_search')},)
 		return super().formfield_for_dbfield(db_field, **kwargs)
 
 

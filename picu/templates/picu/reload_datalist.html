@@ -1,47 +1,61 @@
 {% load floppyforms %}
 
-<input list="datalist_admission_diagnosis" id="id_admission_diagnosis" class="vDatalistManyToManyAdminField"/>
 
-<datalist id="datalist_admission_diagnosis">
-    <option value="US" label="United States" />
-    <option value="UK" label="United Kingdom" />
-    <option value="IN" label="India" />
+<input list="datalist_{{ attrs.id }}" id="{{ attrs.id }}" class="vDatalistManyToManyAdminField"/>
+
+<datalist id="datalist_{{ attrs.id }}">
+
 </datalist>
 
 <div id="yay" class="vDatalistManyTpManyAdminField"></div>
+<input type="hidden" name="{{ attrs.name }}" id="hidden_{{ attrs.id }}" value=""/>
 
 <script type="text/javascript">
 
 django.jQuery(document).ready(function($) {
 
-    $("#id_admission_diagnosis").on("input keyup", function (e) {
-        if (e.keyCode === 10 || e.keyCode === 13) {
-            console.log('ignore keyCodes 10 and 13');
-        } else if (e.which >= 48 && e.which <= 90) {
-            if(e.type === 'input') {
-                var val = $('#id_admission_diagnosis').val();
-                if (val) {
-                    var xyz = $('#datalist_admission_diagnosis option').filter(function() {
-                        return this.value == val;
-                    }).attr('label');
+    function displayFoundData(e) {
+        var xyz;
+        if (e.keyCode === 10 && e.keyCode === 13) {
+            console.log('ignored');
+        } else if (e.which != 9 && e.which != 19 && e.which != 91 && e.which != 27 && e.which != 16) {
+            var val = $('#{{ attrs.id }}').val();
+            if(val) {
+                xyz = $('#datalist_{{ attrs.id }} option').filter(function() {
+                    return this.value === val;
+                }).attr('label');
+                if(xyz) {
                     $("#yay").append(xyz + "<br/>");
+                    var currentVal = $("#hidden_{{ attrs.id }}").val();
+                    if(currentVal) $("#hidden_{{ attrs.id }}").val(currentVal + "," + val);
                 }
-            } else {
-                var options = {};
-                options.url = "{% url 'picu:diagnosis_search' %}";
-                options.type = "GET";
-                options.data = { "criteria": $("#id_admission_diagnosis").val() };
-                options.dataType = "json";
-                options.success = function (data) {
-                    $("#companyList").empty();
-                    for(var i=0;i<data.length;i++)
-                    {
-                        $("#datalist1").append("<option value='" + data[i].diagnosis + "'>" + data[i].diagnosis + " | " + data[i].codes + "</option>");
-                    }
-                };
-                $.ajax(options);
             }
         }
+        return xyz;
+    }
+
+    $('#{{attrs.id}}').on("keyup", function (e) {
+        var found = displayFoundData(e);
+        if(!found) {
+            var options = {};
+            options.url = "{{ attrs.search_url }}";
+            options.type = "GET";
+            options.data = { "criteria": $("#{{ attrs.id }}").val() };
+            options.dataType = "json";
+            options.success = function(data) {
+                $("#datalist_{{ attrs.id }}").empty();
+
+                for(var i=0;i<data.length;i++) {
+                    var newOption = $("<option value='" + data[i].pk + "' label='" + data[i].fields.name + " | " + data[i].fields.icd_10_code +  "'></option>");
+                    $("#datalist_{{ attrs.id }}").append(newOption);
+                }
+                $('#{{attrs.id}}').off("input");
+                $('#{{attrs.id}}').on("input", function (e) {
+                    displayFoundData(e);
+                });
+            };
+            $.ajax(options);
+         }
     });
 });
 </script>

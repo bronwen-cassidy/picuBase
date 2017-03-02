@@ -56,7 +56,7 @@ def diagnosis_search(request):
 	if search_param:
 		diagnosis_list = Diagnosis.objects.filter(name__contains=search_param)
 		data = serializers.serialize("json", diagnosis_list)
-		return JsonResponse(data)
+		return HttpResponse(data)
 	return None
 
 
