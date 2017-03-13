@@ -78,3 +78,6 @@ python manage.py shell
 >>> from picu.widgets import SelectSearchWidget
 >>> c = SelectSearchWidget()
 >>> print(c.media)
+
+# update django
+pip install -U django

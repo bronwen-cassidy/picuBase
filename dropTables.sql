@@ -1,0 +1,10 @@
+drop table if exists picu_admission_admission_diagnosis;
+drop table if exists picu_admission_positive_cultures;
+drop table if exists picu_admission;
+drop table if exists picu_culture;
+drop table if exists picu_diagnosis;
+drop table if exists picu_diagnosticcode;
+drop table if exists picu_patient;
+drop table if exists picu_picu;
+drop table if exists picu_selectionvalue;
+drop table if exists picu_selectiontype;

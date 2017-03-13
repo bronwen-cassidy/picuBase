@@ -49,9 +49,12 @@ def create_diagnoses(cells):
 	result = []
 
 	for i, name in enumerate(diagnoses_list):
-		diagnosis = Diagnosis.objects.filter(name__iexact=name).order_by('id')[:1]
+		filtered_name = name.strip()
+		if not filtered_name:
+			continue
+		diagnosis = Diagnosis.objects.filter(name__iexact=filtered_name).order_by('id')[:1]
 		if not diagnosis:
-			diagnosis = Diagnosis(name = name, icd_10_code=icd10_code, anszic_code=anszic_code, risk_category=risk_category)
+			diagnosis = Diagnosis(name=filtered_name, icd_10_code=icd10_code, anszic_code=anszic_code, risk_category=risk_category)
 		else:
 			diagnosis = diagnosis[0]
 			diagnosis.icd_10_code = icd10_code
@@ -68,11 +71,12 @@ def create_cultures(cells):
 	result = []
 
 	for i, name in enumerate(culture_list):
-		if not name:
+		filtered_name = name.strip()
+		if not filtered_name:
 			continue
-		culture = Culture.objects.filter(name__iexact=name).order_by('id')[:1]
+		culture = Culture.objects.filter(name__iexact=filtered_name).order_by('id')[:1]
 		if not culture:
-			culture = Culture(name = name)
+			culture = Culture(name = filtered_name)
 			culture.save()
 			result.append(culture)
 		else:

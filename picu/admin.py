@@ -28,6 +28,13 @@ class DiagnosisAdmin(admin.ModelAdmin):
 	list_display = ('name', 'icd_10_code', 'anszic_code', 'risk_category')
 
 
+class CultureAdmin(admin.ModelAdmin):
+	list_per_page = 50
+	list_display = ('id', 'name',)
+	ordering = ['name']
+	search_fields = ['name']
+
+
 class AdmissionAdmin(admin.ModelAdmin):
 
 	# todo form = AdmissionForm
@@ -84,7 +91,7 @@ class DiagnosticCodeAdmin(admin.ModelAdmin):
 admin.site.register(Picu, PicuAdmin)
 admin.site.register(Patient, PatientAdmin)
 admin.site.register(Admission, AdmissionAdmin)
-admin.site.register(Culture)
+admin.site.register(Culture, CultureAdmin)
 admin.site.register(Diagnosis, DiagnosisAdmin)
 admin.site.register(SelectionType)
 admin.site.register(SelectionValue, SelectionValueAdmin)

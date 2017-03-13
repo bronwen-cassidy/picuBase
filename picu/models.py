@@ -148,7 +148,7 @@ class Admission(models.Model):
 		return self.patient
 
 	def hiv(self):
-		return self.patient.hiv
+		return Patient.HIV_CHOICES[int(self.patient.hiv)][1] if self.patient.hiv else None
 
 	def age_in_months(self):
 		delta = self.picu_admission_date - self.patient.date_of_birth
