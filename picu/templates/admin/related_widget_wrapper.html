@@ -1,6 +1,5 @@
 {% load i18n static %}
 <div class="related-widget-wrapper">
-    {{ widget }}
     {% block links %}
         {% if can_change_related %}
         <a class="related-widget-wrapper-link change-related" id="change_id_{{ name }}"
@@ -24,4 +23,5 @@
         </a>
         {% endif %}
     {% endblock %}
+    {{ widget }}
 </div>

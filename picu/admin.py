@@ -37,15 +37,15 @@ class CultureAdmin(admin.ModelAdmin):
 
 class AdmissionAdmin(admin.ModelAdmin):
 
-	# todo form = AdmissionForm
-	def formfield_for_dbfield(self, db_field, **kwargs):
-		if db_field.name is 'admission_diagnosis':
+	# def formfield_for_dbfield(self, db_field, **kwargs):
+	# 	if db_field.name is 'admission_diagnosis':
+	# 		kwargs['widget'] = SearchDataListWidget(db_field.rel, self.admin_site, attrs={'name': 'admission_diagnosis', 'readonly': 'readonly'},)
+	# 	if db_field.name is 'positive_cultures':
+	# 		kwargs['widget'] = SearchDataListWidget(db_field.rel, self.admin_site, attrs={'name': 'positive_cultures', 'readonly': 'readonly'}, )
+	# 	return super().formfield_for_dbfield(db_field, **kwargs)
 
-			kwargs['widget'] = SearchDataListWidget(attrs={'search_url': reverse('picu:diagnosis_search')},)
-		return super().formfield_for_dbfield(db_field, **kwargs)
-
-
-	list_per_page = 15
+	filter_horizontal = ('positive_cultures', 'admission_diagnosis',)
+	list_per_page = 10
 	fieldsets = [
 		(None, {'fields': ['picu_admission_date', 'admitted_from', 'hospital_admission_date', 'patient',
 		                   'admission_diagnosis', 'positive_cultures', 'risk_associated_with_diagnosis', 'main_admission_reason']}),
@@ -66,7 +66,7 @@ class AdmissionAdmin(admin.ModelAdmin):
 	ordering = ['picu_admission_date']
 	list_filter = ['picu_admission_date', 'risk_associated_with_diagnosis']
 	search_fields = ['picu_admission_date', 'risk_associated_with_diagnosis', 'elective_admission', 'discharged_date', 'hosp_discharged_date']
-	raw_id_fields = ('positive_cultures',)
+	# raw_id_fields = ('positive_cultures',)
 
 
 class PatientAdmin(admin.ModelAdmin):

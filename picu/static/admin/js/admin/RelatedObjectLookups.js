@@ -123,6 +123,10 @@
         win.close();
     }
 
+    function clearRelatedSelectedId(obj) {
+        // obj is the element
+    }
+
     function dismissDeleteRelatedObjectPopup(win, objId) {
         var id = windowname_to_id(win.name).replace(/^delete_/, '');
         var selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);

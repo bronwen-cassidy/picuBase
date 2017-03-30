@@ -1,18 +1,26 @@
 {% load floppyforms %}
 
-
-<input list="datalist_{{ attrs.id }}" id="{{ attrs.id }}" class="vDatalistManyToManyAdminField"/>
-
 <datalist id="datalist_{{ attrs.id }}">
 
 </datalist>
-
 <div id="yay" class="vDatalistManyTpManyAdminField"></div>
 <input type="hidden" name="{{ attrs.name }}" id="hidden_{{ attrs.id }}" value=""/>
+<input list="datalist_{{ attrs.id }}" id="{{ attrs.id }}" class="vDatalistManyToManyAdminField"/>
+
 
 <script type="text/javascript">
 
 django.jQuery(document).ready(function($) {
+
+
+    function attachValue(val) {
+        var currentVal = $("#hidden_{{ attrs.id }}").val();
+        if(currentVal) {
+            $("#hidden_{{ attrs.id }}").val(currentVal + "," + val);
+        } else {
+            $("#hidden_{{ attrs.id }}").val(val);
+        }
+    }
 
     function displayFoundData(e) {
         var xyz;
@@ -25,9 +33,20 @@ django.jQuery(document).ready(function($) {
                     return this.value === val;
                 }).attr('label');
                 if(xyz) {
-                    $("#yay").append(xyz + "<br/>");
-                    var currentVal = $("#hidden_{{ attrs.id }}").val();
-                    if(currentVal) $("#hidden_{{ attrs.id }}").val(currentVal + "," + val);
+                    $("#yay").append(function() {
+                        var elem = $("<div><span>" + xyz + "</span><span><img src='/static/admin/img/icon-deletelink.svg' alt='Delete' class='deletable'/></span></div>");
+                        return elem.on('click', function(e) {
+                            elem.remove();
+                            // remove the id from the hidden field
+                            var hiddenFld = $("#hidden_{{ attrs.id }}");
+                            var selectedItems = hiddenFld.val().split(',');
+                            hiddenFld.val('');
+                            selectedItems.each(function(x) {
+                                attachValue(x);
+                            });
+                         });
+                    });
+                    attachValue(val);
                 }
             }
         }

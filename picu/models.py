@@ -85,13 +85,22 @@ class Diagnosis(models.Model):
 		verbose_name_plural = 'Diagnoses'
 
 	def __str__(self):
-		return self.name
+		anszic = self.anszic_code if self.anszic_code else 'N/A'
+		icd10 = self.icd_10_code if self.icd_10_code else 'N/A'
+		return self.name + ', (icd10: ' + icd10 + '), (anszic: ' + anszic + ')'
+
+	def render(self):
+		return self.name + ': icd10: ' + self.icd_10_code + ': anzsic: ' + self.anszic_code
+
 	
 
 class Culture(models.Model):
 	name = models.CharField(max_length=300)
 	
 	def __str__(self):
+		return self.name
+
+	def render(self):
 		return self.name
 
 
@@ -101,12 +110,12 @@ class Admission(models.Model):
 	VERY_HIGH_RISK = '3'
 	DIAGNOSIS_RISK_CHOICES = ((LOW_RISK,'Low Risk'),(HIGH_RISK,'High Risk'),(VERY_HIGH_RISK,'Very High Risk'))
 
-	picu = models.ForeignKey(Picu)
+	picu = models.ForeignKey(Picu, default=None, null=True)
 	picu_admission_date = models.DateField()
 	admitted_from = models.CharField("Referred From", max_length=300)
 	hospital_admission_date = models.DateField(default = None)
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None, related_name="admission")
+	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None, related_name="admission", limit_choices_to=None)
 	risk_associated_with_diagnosis = models.ForeignKey(SelectionType, default=None, null=True, limit_choices_to=Q(id=1) | Q(id=2)| Q(id=3))
 	condition_associated_with_risk = models.ForeignKey(Diagnosis, default=None, null=True, related_name='risk_condition')
 	positive_cultures = models.ManyToManyField(Culture, default=None)

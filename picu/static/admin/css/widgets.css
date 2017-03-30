@@ -542,15 +542,19 @@ ul.timelist, .timelist li {
 
 /* RELATED WIDGET WRAPPER */
 .related-widget-wrapper {
+    display: relative;
     float: left;       /* display properly in form rows with multiple fields */
     overflow: hidden;  /* clear floated contents */
 }
 
 .related-widget-wrapper-link {
+    padding: 3px 3px;
+    float: right;
     opacity: 0.3;
 }
 
 .related-widget-wrapper-link:link {
+    float: right;
     opacity: .8;
 }
 
@@ -562,4 +566,10 @@ ul.timelist, .timelist li {
 select + .related-widget-wrapper-link,
 .related-widget-wrapper-link + .related-widget-wrapper-link {
     margin-left: 7px;
+}
+
+div.related-display-input {
+   display: block;
+   vertical-align: bottom;
+   cursor: pointer;
 }
