@@ -1,7 +1,6 @@
-import floppyforms.__future__ as forms
 from django.contrib.admin.widgets import AdminDateWidget
+from django import forms
 
-from picu.widgets import SearchDataListWidget
 from .models import Patient, Admission
 
 
