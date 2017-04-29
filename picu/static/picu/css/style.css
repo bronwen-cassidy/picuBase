@@ -1,5 +1,50 @@
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.nav a:hover {
+  background-color: #005f5f;
+}
+
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav ul {
+    overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+}
+.nav {
+    background-color: #444;
+}
+
 div.dataTables_wrapper {
-    width: 800px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -7,4 +52,24 @@ div.dataTables_wrapper > th, td { white-space: nowrap; }
 
 .deletable {
     cursor:pointer;
+}
+
+#summary {
+    float:right;
+}
+
+td.heading {
+    padding: 5px 10px;
+    line-height: normal;
+    text-transform: uppercase;
+    background: #f6f6f6;
+}
+
+#admissions_list {
+    float: left;
+    width:100%;
+}
+
+.spacing {
+    padding-bottom: 25px;
 }

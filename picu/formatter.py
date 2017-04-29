@@ -14,6 +14,8 @@ def format_hiv(hiv):
 	result = list((key for key,value in Patient.HIV_CHOICES if value.upper() == hiv.upper()))
 	return "0" if not result else result[0]
 
+def format_yes_no(value):
+	return "1" if value is True else "0"
 
 def format_boolean(value):
 	return True if value is "1" else False

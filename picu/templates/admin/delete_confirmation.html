@@ -2,7 +2,9 @@
 {% load i18n admin_urls static %}
 
 {% block extrahead %}
+    {% if form_is_saved and previous_page %}<meta http-equiv="refresh" content="0; url={{ previous_page }}" />{% endif %}
     {{ media }}
+
     <script type="text/javascript" src="{% static 'admin/js/cancel.js' %}"></script>
 {% endblock %}
 

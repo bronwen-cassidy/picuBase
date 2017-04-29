@@ -4,6 +4,7 @@
 {% block extrastyle %}
     {{ block.super }}
     <link rel="stylesheet" type="text/css" href="/static/picu/css/vendor/datatables/datatables.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/picu/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css"/>
     <link rel="stylesheet" type="text/css" href="/static/admin/css/widgets.css"/>
 {% endblock %}
@@ -15,6 +16,14 @@
     <script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
     <script type="text/javascript" src="/static/picu/js/vendor/datatables/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="/static/picu/js/vendor/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/dataTables.fixedHeader.min.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/jszip.min.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/buttons.print.min.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/pdfmake.min.js"></script>
+    <script type="text/javascript" src="/static/picu/js/vendor/datatables/vfs_fonts.js"></script>
     <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
 
     <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
@@ -38,7 +47,21 @@
 {% endblock %}
 {% block bodyclass %}{{ block.super }} app-picu change-list {% endblock %}
 
-{% block breadcrumbs %} <div class="breadcrumbs">&nbsp;Home</div> {% endblock %}
+{% block breadcrumbs %}
+<header>
+    <div class="nav">
+      <ul>
+        <li class="home"><a class="li-nav active" href="{% url 'picu:home' %}">Home</a></li>
+        <li class="tutorials"><a class="li-nav" href="#">Summary Reports</a></li>
+        <li class="about"><a href="#">About</a></li>
+        <li class="news"><a href="#">Newsletter</a></li>
+        <li class="contact"><a href="#">Contact</a></li>
+      </ul>
+    </div>
+</header>
+
+<div class="breadcrumbs">&nbsp;Home</div>
+{% endblock %}
 
 {% block content %}
 	<div id="content-main">
@@ -46,6 +69,9 @@
             <ul class="object-tools">
                 <li>
                   <a href="{% url 'admin:picu_admission_add' %}" class="addlink">New Admission</a>
+                </li>
+                <li>
+                  <a href="{% url 'picu:summary_reports' %}" class="changelink">Summary Report</a>
                 </li>
             </ul>
         {% endblock %}
@@ -67,20 +93,12 @@
             {% if patient_list %}
 
             <div id="changelist" class="results">
-                <table id="patient-search-results">
+                <table id="patient-search-results" width="100%">
                     <caption>
                         <a href="#" class="section" title="patients">Patients matched</a>
                     </caption>
                     <thead>
                         <tr>
-                            <th scope="col" class="action-checkbox-column">
-                               <div class="text">
-                                   <span>
-                                       <input id="action-toggle" type="checkbox">
-                                   </span>
-                               </div>
-                               <div class="clear"></div>
-                            </th>
                             <th scope="col" class="sortable column-first_name">
                                <div class="text">First name</div>
                                <div class="clear"></div>
@@ -110,9 +128,6 @@
                     <tbody>
                         {% for patient in patient_list %}
                             <tr class="{% cycle 'row1' 'row2' %}">
-                                <td class="action-checkbox">
-                                    <input class="action-select" name="_selected_action" value="1" type="checkbox">
-                                </td>
                                 <th class="field-first_name">
                                     <!-- link to view the patient details + all admissions-->
                                     <a href="{% url 'picu:patient_view' patient.id  %}">{{ patient.first_name }}</a>

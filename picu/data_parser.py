@@ -114,6 +114,7 @@ def create_admission(cells):
 	death_in_picu = formatter.format_boolean(cells[18])
 	death_in_hospital = formatter.format_boolean(cells[19])
 	death_after_discharge = formatter.format_boolean(cells[20])
+	mortality = formatter.format_yes_no(death_in_picu or death_in_hospital or death_after_discharge)
 	pupils_fixed = formatter.format_boolean(cells[21])
 	elective_admisison = formatter.format_boolean(cells[22])
 	mechanical_ventilation = formatter.format_boolean(cells[23])
@@ -133,7 +134,8 @@ def create_admission(cells):
 	                      non_bypass_cardiac=non_bypass_cardiac,non_cardiac_procedure=non_cardiac, base_excess=base_excess, sbp=sbp,
 	                      fraction_inspired_oxygen=fio2,partial_oxygen_pressure=pao2, discharged_date=picu_discharge_date,
 	                      discharged_to=discharged_to,death_in_picu=death_in_picu, death_in_hospital=death_in_hospital,
-	                      survival_post_icu_discharge=not death_after_discharge, hosp_discharged_date=hospital_discharge_date)
+	                      survival_post_icu_discharge=not death_after_discharge, hosp_discharged_date=hospital_discharge_date,
+	                      mortality=mortality)
 
 	admission.save()
 	admission.case_no = picu.unit_number + str(admission.id)
