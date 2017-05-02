@@ -33,6 +33,14 @@
 {% endblock %}
 
 {% block breadcrumbs %}
+    <header>
+        <div class="nav">
+          <ul>
+            <li class="home"><a class="li-nav" href="{% url 'picu:home' %}">Home</a></li>
+            <li class="summary"><a class="li-nav active" href="{% url 'picu:summary_reports' %}">Summary Reports</a></li>
+          </ul>
+        </div>
+    </header>
     <div class="breadcrumbs">
         <a href="{% url 'picu:home' %}">{% trans 'Home' %}</a> &rsaquo;&rsaquo; {% trans 'Summary Reports' %}
     </div>

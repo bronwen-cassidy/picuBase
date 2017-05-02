@@ -52,10 +52,7 @@
     <div class="nav">
       <ul>
         <li class="home"><a class="li-nav active" href="{% url 'picu:home' %}">Home</a></li>
-        <li class="tutorials"><a class="li-nav" href="#">Summary Reports</a></li>
-        <li class="about"><a href="#">About</a></li>
-        <li class="news"><a href="#">Newsletter</a></li>
-        <li class="contact"><a href="#">Contact</a></li>
+        <li class="summary"><a class="li-nav" href="{% url 'picu:summary_reports' %}">Summary Reports</a></li>
       </ul>
     </div>
 </header>
@@ -69,9 +66,6 @@
             <ul class="object-tools">
                 <li>
                   <a href="{% url 'admin:picu_admission_add' %}" class="addlink">New Admission</a>
-                </li>
-                <li>
-                  <a href="{% url 'picu:summary_reports' %}" class="changelink">Summary Report</a>
                 </li>
             </ul>
         {% endblock %}

@@ -30,13 +30,13 @@
         {% if has_permission %}
         <div id="user-tools">
             {% block welcome-msg %}
+                {% if site_url %}
+                    <a href="{% url 'picu:home' %}"><img class="nav_icon" src="/static/picu/img/home.png"/></a>
+                {% endif %}
                 {% trans 'Welcome,' %}
                 <strong>{% firstof user.get_short_name user.get_username %}</strong>.
             {% endblock %}
             {% block userlinks %}
-                {% if site_url %}
-                    <a href="{% url 'picu:home' %}">{% trans 'View site' %}</a> /
-                {% endif %}
                 {% if user.is_active and user.is_staff %}
                     {% url 'django-admindocs-docroot' as docsroot %}
                     {% if docsroot %}

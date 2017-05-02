@@ -1,21 +1,36 @@
-.nav ul {
+header {
+	background-color: #417690;
+}
+
+div.nav ul {
   list-style: none;
-  background-color: #444;
+  list-style-type: none;
+  background-color: #417690;
   text-align: center;
   padding: 0;
   margin: 0;
+  padding-left:10px;
+  width: 100%;
 }
-.nav li {
-  font-family: 'Oswald', sans-serif;
+div.nav li {
+  list-style: none;
+  list-style-type: none;
   font-size: 1.2em;
   line-height: 40px;
   height: 40px;
-  border-bottom: 1px solid #888;
+  padding: 1px 6px 0 4px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }
 
-.nav a {
+div.nav li a {
   text-decoration: none;
-  color: #fff;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  width:100%;
+  height:100%;
+  padding: 1px 5px 0 4px;
+  color:#f5dd5d;
   display: block;
   transition: .3s background-color;
 }
@@ -24,8 +39,8 @@
   background-color: #005f5f;
 }
 
-.nav a.active {
-  background-color: #fff;
+div.nav a.active {
+  background-color: #79aec8;
   color: #444;
   cursor: default;
 }
@@ -35,12 +50,13 @@
 }
 
 .nav ul {
-    overflow: auto;
-    width: 600px;
+    overflow: hidden;
+    width: 100%;
     margin: 0 auto;
 }
+
 .nav {
-    background-color: #444;
+    background-color: #417690;
 }
 
 div.dataTables_wrapper {
@@ -72,4 +88,14 @@ td.heading {
 
 .spacing {
     padding-bottom: 25px;
+}
+
+img#admin_link_id {
+    float: right;
+    width: 30px;
+    height: 30px;
+}
+
+a.admin_link {
+    float: right;
 }
