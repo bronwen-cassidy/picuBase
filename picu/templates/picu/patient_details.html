@@ -4,7 +4,11 @@
     {{ block.super }}
 
 	<script type="text/javascript">
+
+	    //$.fn.dataTable.Buttons.swfPath = '/static/picu/js/vendor/flashExport.swf';
+
         django.jQuery(document).ready(function($) {
+
             $('#admissions').DataTable({
                 'scrollX': true
             });
@@ -14,7 +18,11 @@
 
 {% endblock %}
 
-{% block breadcrumbs %} <div class="breadcrumbs">&nbsp;Home</div> {% endblock %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'picu:home' %}">{% trans 'Home' %}</a> &rsaquo;&rsaquo; {% trans 'Patient Details' %}
+    </div>
+{% endblock %}
 
 {% block content %}
 	<div id="content-main">
@@ -36,30 +44,30 @@
                         <tr class="row1">
                             <td><div class="text">{% trans 'First Name' %}:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.first_name }}</div><div class="clear"></div></td>
-                            <td><div class="text bordered">{% trans 'Second Name' %}&nbsp;:</div><div class="clear"></div></td>
+                            <td><div class="text bordered-left">{% trans 'Second Name' %}&nbsp;:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.second_name }}</div><div class="clear"></div></td>
                         </tr>
                         <tr class="row2">
                             <td><div class="text">{% trans 'DOB' %}:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.date_of_birth }}</div><div class="clear"></div></td>
-                            <td><div class="text bordered">{% trans 'Age in Months' %}&nbsp;:</div><div class="clear"></div></td>
+                            <td><div class="text bordered-left">{% trans 'Age in Months' %}&nbsp;:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.age_in_months }}</div><div class="clear"></div></td>
                         </tr>
                         <tr class="row1">
                             <td><div class="text">{% trans 'Gender' %}&nbsp;:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.get_gender_display }}</div><div class="clear"></div></td>
-                            <td><div class="text bordered">{% trans 'HIV' %}&nbsp;:</div><div class="clear"></div></td>
+                            <td><div class="text bordered-left">{% trans 'HIV' %}&nbsp;:</div><div class="clear"></div></td>
                             <td><div class="text">{{ patient.get_hiv_display }}</div><div class="clear"></div></td>
                         </tr>
                     </table>
                 </div>
             </div>
 
-            <div class="clear"><br/><hr/></div>
+            <div class="clear spacing"><br/></div>
 
             {% if admission_list %}
 
-            <div id="changelist" class="results">
+            <div id="admissions_list" class="results">
                 <table id="admissions">
                     <caption>
                         <a href="#" class="section" title="all admissions">Admissions</a>

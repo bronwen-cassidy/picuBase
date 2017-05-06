@@ -5,11 +5,9 @@ from django.test import TestCase
 from datetime import date, datetime
 from django.core.urlresolvers import reverse
 
-from picu import formatter
+from picu import formatter, summaries
 from picu.models import Admission, Patient
 from picu.forms import PatientSearchForm
-
-
 
 def create_addmission(addmission_date, patient, risk, pos_cultures, pupils_fixed, ventilation, bypass_cardiac, base_excess, sbp, fio):
 	return Admission.objects.create(picu_admission_date=addmission_date, admitted_from='Test', hospital_admission_date=addmission_date,
@@ -35,6 +33,60 @@ class GenericMethodTests(TestCase):
 	def test_format_hiv_no_val(self):
 		actual = formatter.format_hiv("r")
 		self.assertEquals("0", actual)
+
+class SummariesTest(TestCase):
+	fixtures = ['selection_types', 'selection_values', 'test_summary_reports']
+
+	def test_total_year_admissions(self):
+
+		admission_dictionary = summaries.total_year_admissions(year="2016")
+
+		self.assertEquals(12, len(admission_dictionary['admissions']))
+
+		# get the list for june and assert we have 2 entries
+		list_values = admission_dictionary['admissions'].get(5)
+		self.assertEquals(2, len(list_values))
+
+	def test_total_deaths(self):
+
+		admission_dictionary = summaries.total_year_admissions(year="2016")
+
+		# get the list for june and assert we have 2 entries
+		total_deaths = admission_dictionary['totals'].get('total_deaths')
+		self.assertEquals(4, total_deaths)
+
+	def test_total_admissions(self):
+
+		admission_dictionary = summaries.total_year_admissions(year="2016")
+
+		# get the list for june and assert we have 2 entries
+		total_admissions = admission_dictionary['totals'].get('total_admissions')
+		self.assertEquals(5, total_admissions)
+
+	def test_mortality_rate(self):
+
+		admission_dictionary = summaries.total_year_admissions(year="2016")
+
+		# get the list for june and assert we have 2 entries
+		mortality_rate = admission_dictionary['totals'].get('mortality_rate')
+		self.assertEquals('80.0%', mortality_rate)
+
+	def test_expected_deaths(self):
+
+		admission_dictionary = summaries.total_year_admissions(year="2016")
+
+		# get the list for june and assert we have 2 entries
+		expected_deaths = admission_dictionary['totals'].get('expected_deaths')
+		self.assertEquals('0.46501316724104913', expected_deaths)
+
+	def test_smr(self):
+
+		admission_dictionary = summaries.total_year_admissions(year="2016")
+
+		# get the list for june and assert we have 2 entries
+		smr = admission_dictionary['totals'].get('smr')
+		self.assertEquals(8.601906960467891, smr)
+
 
 # Create your tests here.
 class AdmissionMethodTests(TestCase):

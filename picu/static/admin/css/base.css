@@ -831,6 +831,12 @@ table#change-history tbody th {
     text-decoration: underline;
 }
 
+img.nav_icon {
+    width:30px;
+    height: 30px;
+    margin-bottom: 14px;
+}
+
 #branding {
     float: left;
 }
@@ -970,6 +976,15 @@ table#change-history tbody th {
     padding: 10px 20px;
 }
 
-.bordered {
+.bordered-left {
     border-left: 1px solid black; padding-left: 3px;
+}
+
+table.summary-reports {
+    border-right: 1px solid #ccc !important;
+    border-style: solid;
+    border-color: #ccc;
+    padding-top: 2px;
+    margin-top: 2px;
+    margin-bottom:4px;
 }

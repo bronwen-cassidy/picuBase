@@ -15,4 +15,7 @@ urlpatterns = [
 	url(r'^patient/search/', views.patient_search, name='patient_search'),
 	url(r'^diagnosis/search/', views.diagnosis_search, name='diagnosis_search'),
 	url(r'^patient/(?P<id>\w+)/view/$', views.patient_view, name='patient_view'),
+	url(r'^admission/add/', views.admission_add, name='picu_admission_add'),
+	url(r'^admission/summaries/(?P<year>\w+)/$', views.summary_reports, name='summary_reports'),
+	url(r'^admission/summaries/', views.summary_reports, name='summary_reports'),
 ]

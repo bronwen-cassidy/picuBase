@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.db import models
 from django import forms
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from picu.widgets import SearchDataListWidget
@@ -37,12 +38,19 @@ class CultureAdmin(admin.ModelAdmin):
 
 class AdmissionAdmin(admin.ModelAdmin):
 
-	# def formfield_for_dbfield(self, db_field, **kwargs):
-	# 	if db_field.name is 'admission_diagnosis':
-	# 		kwargs['widget'] = SearchDataListWidget(db_field.rel, self.admin_site, attrs={'name': 'admission_diagnosis', 'readonly': 'readonly'},)
-	# 	if db_field.name is 'positive_cultures':
-	# 		kwargs['widget'] = SearchDataListWidget(db_field.rel, self.admin_site, attrs={'name': 'positive_cultures', 'readonly': 'readonly'}, )
-	# 	return super().formfield_for_dbfield(db_field, **kwargs)
+	def response_add(self, request, obj, post_url_continue="../%s/"):
+		referrer = reverse('picu:patient_view', args=[obj.patient.id])
+		if not '_continue' in request.POST:
+			return HttpResponseRedirect(referrer)
+		else:
+			return super(AdmissionAdmin, self).response_add(request, obj, post_url_continue)
+
+	def response_change(self, request, obj, post_url_continue="../%s/"):
+		referrer = reverse('picu:patient_view', args=[obj.patient.id])
+		if not '_continue' in request.POST:
+			return HttpResponseRedirect(referrer)
+		else:
+			return super(AdmissionAdmin, self).response_add(request, obj, post_url_continue)
 
 	filter_horizontal = ('positive_cultures', 'admission_diagnosis',)
 	list_per_page = 10

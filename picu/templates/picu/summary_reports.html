@@ -1,0 +1,212 @@
+{% extends "picu/index.html" %}
+{% load i18n admin_urls static admin_list admin_modify %}
+{% block extrahead %}
+    {{ block.super }}
+
+	<script type="text/javascript">
+
+
+        django.jQuery(document).ready(function($) {
+
+            $('#year-form-select').on('change', function() {
+                var selectedElem = $(this).val();
+                window.location.href = '/picu/admission/summaries/' + selectedElem + '/'
+            });
+        });
+
+	</script>
+
+{% endblock %}
+
+{% block header %}
+<header>
+    <div class="nav">
+      <ul>
+        <li class="home"><a class="li-nav" href="{% url 'picu:home' %}">Home</a></li>
+        <li class="tutorials"><a class="active" href="#">Summary Reports</a></li>
+        <li class="about"><a href="#">About</a></li>
+        <li class="news"><a href="#">Newsletter</a></li>
+        <li class="contact"><a href="#">Contact</a></li>
+      </ul>
+    </div>
+</header>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <header>
+        <div class="nav">
+          <ul>
+            <li class="home"><a class="li-nav" href="{% url 'picu:home' %}">Home</a></li>
+            <li class="summary"><a class="li-nav active" href="{% url 'picu:summary_reports' %}">Summary Reports</a></li>
+          </ul>
+        </div>
+    </header>
+    <div class="breadcrumbs">
+        <a href="{% url 'picu:home' %}">{% trans 'Home' %}</a> &rsaquo;&rsaquo; {% trans 'Summary Reports' %}
+    </div>
+{% endblock %}
+
+{% block content %}
+	<div id="content-main">
+
+        <div id="year-select" class="module filtered">
+            <div class="results">
+                <div>
+                    {{hospital}} {{year}}
+                    <select id="year-form-select" name="year">
+                        {% for op in years %}
+                            <option value="{{op}}" {% if year == op %} selected {% endif %}>{{op}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="clear"><br/><hr/></div>
+
+            {% if totals %}
+
+            <div id="summary" class="results">
+                <table id="admissions" class="summary-reports">
+                    <caption>
+                        <a href="#" class="section" title="all admissions">Annual Summary Report</a>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="sortable column-picu_admission_date">
+                               Admissions
+                            </th>
+                            <th scope="col" class="sortable column-admission_month">
+                               Observed Deaths
+                            </th>
+                            <th scope="col" class="sortable column-admitted_from">
+                               Mortality Rate
+                            </th>
+                            <th scope="col" class="sortable column-hospital_admission_date">
+                               Expected Deaths
+                            </th>
+                            <th scope="col" class="sortable column-current_diagnosis">
+                               SMRs
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="{% cycle 'row1' 'row2' %}">
+                            {% for key, value in totals %}
+                                <td class="field-picu_admission_results nowrap">
+                                    {{ value }}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="clear"><br/></div>
+
+            <div id="monthly_summary" class="results">
+                <table id="monthly_details" class="summary-reports" width="100%">
+                    <caption>
+                        <a href="#" class="section" title="all admissions">Annual Monthly Stats Report</a>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="sortable column-picu_admission_date">
+                               &nbsp;
+                            </th>
+                            <th scope="col" class="sortable column-current_diagnosis">Jan</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Feb</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Mar</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Apr</th>
+                            <th scope="col" class="sortable column-current_diagnosis">May</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Jun</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Jul</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Aug</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Sept</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Oct</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Nov</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Dec</th>
+                            <th scope="col" class="sortable column-current_diagnosis">Totals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row1">
+                            <td class="heading">Total Admissions</td>
+                            {% for key, value in admissions %}
+                                <td class="field-picu_admission_summary nowrap">
+                                    {{ value|length }}
+                                </td>
+                            {% endfor %}
+                            <td class="field-picu_admission_summary nowrap">{{sum_admissions}}</td>
+                        </tr>
+                        <tr class="row2">
+                            <td class="heading">Total Discharges</td>
+                            {% for key, value in discharges %}
+                                <td class="field-picu_admission_summary nowrap">
+                                    {{ value|length }}
+                                </td>
+                            {% endfor %}
+                            <td class="field-picu_admission_summary nowrap">{{sum_discharges}}</td>
+                        </tr>
+                        <tr class="row1">
+                            <td class="heading">Boys</td>
+                            {% for key, value in boys %}
+                                <td class="field-picu_admission_summary nowrap">
+                                    {{ value|length }}
+                                </td>
+                            {% endfor %}
+                            <td class="field-picu_admission_summary nowrap">{{sum_boys}}</td>
+                        </tr>
+                        <tr class="row2">
+                            <td class="heading">Girls</td>
+                            {% for key, value in girls %}
+                                <td class="field-picu_admission_summary nowrap">
+                                    {{ value|length }}
+                                </td>
+                            {% endfor %}
+                            <td class="field-picu_admission_summary nowrap">{{sum_girls}}</td>
+                        </tr>
+                        <tr class="row1">
+                            <td class="heading">Number Ventilated</td>
+                            {% for key, value in ventilations %}
+                                <td class="field-picu_admission_summary nowrap">
+                                    {{ value|length }}
+                                </td>
+                            {% endfor %}
+                            <td class="field-picu_admission_summary nowrap">{{sum_ventilated}}</td>
+                        </tr>
+                        <tr class="row2">
+                            <td class="heading">Deaths</td>
+                            {% for key, value in deaths %}
+                                <td class="field-picu_admission_summary nowrap">
+                                    {{ value|length }}
+                                </td>
+                            {% endfor %}
+                            <td class="field-picu_admission_summary nowrap">{{sum_deaths}}</td>
+                        </tr>
+                         <tr class="row1">
+                            <td class="heading"></td>
+                            <td class="field-picu_admission_summary nowrap" colspan="12">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr class="row2">
+                            <td class="heading">Total (Patient Days)</td>
+                            {% for key, value in total_days %}
+                                <td class="field-picu_admission_summary nowrap">
+                                    {{ value }}
+                                </td>
+                            {% endfor %}
+                            <td class="field-picu_admission_summary nowrap">{{sum_patient_days}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        {% else %}
+            <p>
+                {% trans "No results available" %}
+            </p>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

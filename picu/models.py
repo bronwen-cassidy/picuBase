@@ -3,11 +3,14 @@ import math
 
 from django.db import models
 from django.db.models import Q
+from django.urls import reverse
 from django.utils import timezone
 
 
 # Create your models here.
 
+STATUS_CHOICES = (('Y','Yes'),('N','No'),)
+YES_NO_CHOICES = (('1','Yes'),('0','No'),)
 
 class Picu(models.Model):
 	name = models.CharField(max_length=300)
@@ -54,8 +57,7 @@ class DiagnosticCode(models.Model):
 class Patient(models.Model):
 	GENDER_CHOICES = (('M','Male'),('F','Female'),)
 	HIV_CHOICES = (('0','Unknown'),('1','Positive'),('2','Negative'),('3','Pending'),)
-	STATUS_CHOICES = (('Y','Yes'),('N','No'),)
-	
+
 	first_name = models.CharField(max_length=300)
 	second_name = models.CharField(max_length=300)
 	hospital_no = models.CharField(max_length=300)
@@ -142,6 +144,10 @@ class Admission(models.Model):
 	death_in_hospital = models.BooleanField(default=False)
 	survival_post_icu_discharge = models.BooleanField(default=False)
 	case_no = models.CharField(max_length=300, default="1")
+	mortality = models.CharField(max_length=1, choices=YES_NO_CHOICES, default="0")
+
+	def get_absolute_url(self):
+		return reverse('patient_view', kwargs={'id': self.patient.id})
 
 	def admission_month(self):
 		return self.picu_admission_date.month
@@ -177,9 +183,6 @@ class Admission(models.Model):
 		if self.discharged_date is None:
 			return None
 		return self.discharged_date.month
-
-	def mortality(self):
-		return 'Y' if self.discharged_to is not None and self.discharged_to.lower is "death" else 'N'
 						
 	def sys_blood_pressure_squared(self):
 		return (self.sbp * self.sbp) / 1000
