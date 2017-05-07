@@ -147,7 +147,7 @@ class Admission(models.Model):
 	mortality = models.CharField(max_length=1, choices=YES_NO_CHOICES, default="0")
 
 	def get_absolute_url(self):
-		return reverse('patient_view', kwargs={'id': self.patient.id})
+		return reverse('picu:patient_view',  args={self.patient.id})
 
 	def admission_month(self):
 		return self.picu_admission_date.month

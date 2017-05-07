@@ -64,16 +64,17 @@ class AdmissionAdmin(admin.ModelAdmin):
 		 {'fields': ['bypass_cardiac', 'non_bypass_cardiac', 'non_cardiac_procedure']}),
 		('Discharge Information',
 		 {'classes': ['collapse'],
-		  'fields': ['discharge_diagnosis', 'discharged_date', 'hosp_discharged_date', 'discharged_to', 'death_in_picu', 'death_in_hospital', 'survival_post_icu_discharge']})
+		  'fields': ['discharge_diagnosis', 'discharged_date', 'hosp_discharged_date', 'discharged_to', 'death_in_picu', 'death_in_hospital',
+		             'survival_post_icu_discharge', 'mortality']})
 	]
 
 	list_display = ('case_no', 'picu_admission_date', 'patient_info', 'current_diagnosis', 'pos_cultures', 'admission_month', 'mortality', 'pupils_fixed',
 	                'elective_admission', 'hiv', 'mechanical_ventilation', 'base_excess', 'sbp', 'sys_blood_pressure_squared',
 	                'fraction_inspired_oxygen', 'partial_oxygen_pressure', 'paop_in_mmhg', 'ratio_of_fio2_over_pao2', 'bypass_cardiac',
-	                'non_bypass_cardiac', 'non_cardiac_procedure', 'risk_associated_with_diagnosis', 'logit', 'length_of_stay', 'mortality_risk')
+	                'non_bypass_cardiac', 'non_cardiac_procedure', 'risk_associated_with_diagnosis', 'logit', 'length_of_stay', 'mortality_risk', 'mortality')
 	ordering = ['picu_admission_date']
-	list_filter = ['picu_admission_date', 'risk_associated_with_diagnosis']
-	search_fields = ['picu_admission_date', 'risk_associated_with_diagnosis', 'elective_admission', 'discharged_date', 'hosp_discharged_date']
+	list_filter = ['picu_admission_date', 'risk_associated_with_diagnosis', 'mortality']
+	search_fields = ['picu_admission_date', 'risk_associated_with_diagnosis', 'elective_admission', 'discharged_date', 'hosp_discharged_date', 'mortality']
 	# raw_id_fields = ('positive_cultures',)
 
 
