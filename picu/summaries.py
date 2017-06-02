@@ -23,12 +23,13 @@ def total_year_admissions(year):
 
 	for admission in admissions:
 		total_admissions.setdefault(admission.picu_admission_date.month, []).append(admission)
-		patient_days[admission.picu_admission_date.month] += admission.length_of_stay()
-		sum_patient_days += admission.length_of_stay()
+		if admission.discharged_date is not None:
+			patient_days[admission.picu_admission_date.month] += admission.length_of_stay()
+			sum_patient_days += admission.length_of_stay()
 		if admission.patient.gender is 'M':
 			boys.setdefault(admission.picu_admission_date.month, []).append(admission)
 			sum_boys += 1
-		elif admission.patient.gender is 'F':
+		if admission.patient.gender is 'F':
 			girls.setdefault(admission.picu_admission_date.month, []).append(admission)
 			sum_girls += 1
 		if admission.discharged_date:
