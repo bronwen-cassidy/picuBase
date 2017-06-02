@@ -1,5 +1,6 @@
-from picu.models import Admission, Picu
 from collections import OrderedDict
+
+from picu.models import Admission
 
 
 def total_year_admissions(year):
