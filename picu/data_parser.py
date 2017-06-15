@@ -43,7 +43,7 @@ def create_diagnoses(cells):
 	diagnoses_list = cells[10].split('#')
 	icd10_code = cells[14]
 	anszic_code = cells[13]
-	risk_category_id = "1" if cells[27] is None or cells[27] is "0" else cells[27]
+	risk_category_id = "0" if cells[27] is None or cells[27] is "0" else cells[27]
 	risk_category = SelectionType.objects.get(id=risk_category_id)
 
 	result = []

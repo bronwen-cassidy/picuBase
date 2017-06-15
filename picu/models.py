@@ -81,7 +81,7 @@ class Diagnosis(models.Model):
 	icd_10_code = models.CharField(max_length=20, default=None)
 	# Australian and New Zealand Intensive Care diagnostic Code
 	anszic_code = models.CharField(max_length=30, default=None)
-	risk_category = models.ForeignKey(SelectionType, default=1, null=True, limit_choices_to={'id__in': [1, 2, 3]}, related_name='+',)
+	risk_category = models.ForeignKey(SelectionType, default=0, null=True, limit_choices_to={'id__in': [0, 1, 2, 3]}, related_name='+',)
 	
 	class Meta:
 		verbose_name_plural = 'Diagnoses'
@@ -107,10 +107,11 @@ class Culture(models.Model):
 
 
 class Admission(models.Model):
+	NO_RISK = '0'
 	LOW_RISK = '1'
 	HIGH_RISK = '2'
 	VERY_HIGH_RISK = '3'
-	DIAGNOSIS_RISK_CHOICES = ((LOW_RISK,'Low Risk'),(HIGH_RISK,'High Risk'),(VERY_HIGH_RISK,'Very High Risk'))
+	DIAGNOSIS_RISK_CHOICES = ((NO_RISK, 'No Risk'), (LOW_RISK,'Low Risk'),(HIGH_RISK,'High Risk'),(VERY_HIGH_RISK,'Very High Risk'))
 
 	picu = models.ForeignKey(Picu, default=None, null=True)
 	picu_admission_date = models.DateField()
@@ -118,7 +119,7 @@ class Admission(models.Model):
 	hospital_admission_date = models.DateField(default = None)
 	patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 	admission_diagnosis = models.ManyToManyField(Diagnosis, default=None, related_name="admission", limit_choices_to=None)
-	risk_associated_with_diagnosis = models.ForeignKey(SelectionType, default=None, null=True, limit_choices_to=Q(id=1) | Q(id=2)| Q(id=3))
+	risk_associated_with_diagnosis = models.ForeignKey(SelectionType, default=None, null=True, limit_choices_to=Q(id=0) | Q(id=1) | Q(id=2)| Q(id=3))
 	condition_associated_with_risk = models.ForeignKey(Diagnosis, default=None, null=True, related_name='risk_condition')
 	positive_cultures = models.ManyToManyField(Culture, default=None)
 	main_admission_reason = models.ForeignKey(SelectionValue, default=None, null=True, limit_choices_to={"type": "5"}, related_name='+',)
@@ -209,7 +210,7 @@ class Admission(models.Model):
 		+ (self.ratio_of_fio2_over_pao2() * 0.4214) + (self.bool_to_number(self.bypass_cardiac) * -1.2246) \
 		+ (self.bool_to_number(self.non_bypass_cardiac) * -0.8762) + (self.bool_to_number(self.non_cardiac_procedure) * -1.5164) \
 		+ (self.calc_diagnostic_risk(self.VERY_HIGH_RISK) * 1.6225) + (self.calc_diagnostic_risk(self.HIGH_RISK) * 1.0725) \
-		+ (self.calc_diagnostic_risk(self.LOW_RISK) * -2.1766) + (-1.7928)
+		+ (self.calc_diagnostic_risk(self.LOW_RISK) * -2.1766) + (self.calc_diagnostic_risk(self.NO_RISK) * 0) + (-1.7928)
 	
 	def mortality_risk(self):
 		risk_factor = math.exp(self.logit())

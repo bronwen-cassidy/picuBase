@@ -1,6 +1,14 @@
 [
   {
     "model": "picu.SelectionType",
+    "pk": "0",
+    "fields": {
+      "name": "No Risk",
+      "description": "Diagnosis considered no risk"
+    }
+  },
+  {
+    "model": "picu.SelectionType",
     "pk": "1",
     "fields": {
       "name": "Low Risk Diagnosis",
