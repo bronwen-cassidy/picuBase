@@ -6,7 +6,7 @@ from datetime import date, datetime
 from django.core.urlresolvers import reverse
 
 from picu import formatter, summaries
-from picu.models import Admission, Patient
+from picu.models import Admission, Patient, SelectionType
 from picu.forms import PatientSearchForm
 
 def create_addmission(addmission_date, patient, risk, pos_cultures, pupils_fixed, ventilation, bypass_cardiac, base_excess, sbp, fio):
@@ -91,6 +91,7 @@ class SummariesTest(TestCase):
 # Create your tests here.
 class AdmissionMethodTests(TestCase):
 
+	fixtures = ['selection_types', 'selection_values']
 
 	def test_admission_month(self):
 		#admin_date = date('2016-01-01') #date(year=2016, month=4, day=12)
@@ -98,6 +99,16 @@ class AdmissionMethodTests(TestCase):
 		my_admission = Admission()
 		my_admission.picu_admission_date = admin_date
 		self.assertEqual(4, my_admission.admission_month())
+
+
+	def test_calc_diagnostic_risk(self):
+		#diagnosis_category = SelectionType.objects.filter(id = 1)
+		my_admission = Admission(risk_associated_with_diagnosis=SelectionType.objects.filter(id=1)[0])
+		self.assertEquals(0, my_admission.calc_diagnostic_risk(Admission.NO_RISK))
+		my_admission = Admission(risk_associated_with_diagnosis=SelectionType.objects.filter(id=Admission.LOW_RISK)[0]) # low risk
+
+		self.assertEquals(0, my_admission.calc_diagnostic_risk(Admission.NO_RISK))
+		self.assertEquals(1, my_admission.calc_diagnostic_risk(Admission.LOW_RISK))
 
 
 # not yet class AdmissionViewTests(TestCase):
@@ -171,3 +182,5 @@ class DataUploadViewTests(TestCase):
 		self.assertEqual('31-May-16', patient.date_of_birth.strftime('%d-%b-%y'))
 		admission = Admission.objects.filter(picu_admission_date=formatter.format_date('19-Jun-16'), admitted_from='Sasolburg')
 		self.assertEqual(1, len(admission))
+
+		# todo add tests for the correct risk category for the uploaded data

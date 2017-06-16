@@ -21,7 +21,7 @@ class PatientInline(admin.StackedInline):
 ######################### ADMINS #################
 class PicuAdmin(admin.ModelAdmin):
 	list_per_page = 50
-	formfield_overrides = {models.ManyToManyField: {'widget': forms.SelectMultiple(attrs={'size': '3'})}, }
+	# formfield_overrides = {models.ManyToManyField: {'widget': forms.SelectMultiple(attrs={'size': '3'})}, }
 
 
 class DiagnosisAdmin(admin.ModelAdmin):
@@ -40,17 +40,17 @@ class AdmissionAdmin(admin.ModelAdmin):
 
 	def response_add(self, request, obj, post_url_continue="../%s/"):
 		referrer = reverse('picu:patient_view', args=[obj.patient.id])
-		if not '_continue' in request.POST:
+		if not '_continue' and not '_addanother' in request.POST:
 			return HttpResponseRedirect(referrer)
 		else:
 			return super(AdmissionAdmin, self).response_add(request, obj, post_url_continue)
 
 	def response_change(self, request, obj, post_url_continue="../%s/"):
 		referrer = reverse('picu:patient_view', args=[obj.patient.id])
-		if not '_continue' in request.POST:
+		if not '_continue' and not '_addanother' in request.POST:
 			return HttpResponseRedirect(referrer)
 		else:
-			return super(AdmissionAdmin, self).response_add(request, obj, post_url_continue)
+			return super(AdmissionAdmin, self).response_change(request, obj)
 
 	filter_horizontal = ('positive_cultures', 'admission_diagnosis',)
 	list_per_page = 10

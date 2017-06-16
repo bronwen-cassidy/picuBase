@@ -6,7 +6,7 @@
       "name": "Asthma",
       "description": "Asthma is the main reason for ICU admission",
 	  "sort_order": "1",
-	  "type": "1"
+	  "type": "2"
     }
   },
   {
@@ -16,7 +16,7 @@
       "name": "Bronchiolitis",
       "description": "Bronchiolitis is the main reason for ICU admission",
 	  "sort_order": "2",
-	  "type": "1"
+	  "type": "2"
     }
   },
   {
@@ -26,7 +26,7 @@
       "name": "Croup",
       "description": "Croup is the main reason for ICU admission",
 	  "sort_order": "3",
-	  "type": "1"
+	  "type": "2"
     }
   },
   {
@@ -36,7 +36,7 @@
       "name": "Obstructive sleep apnea",
       "description": "Obstructive sleep apnea is the main reason for ICU admission",
 	  "sort_order": "4",
-	  "type": "1"
+	  "type": "2"
     }
   },
   {
@@ -46,7 +46,7 @@
       "name": "Diabetic ketoacidosis",
       "description": "Diabetic ketoacidosis is the main reason for ICU admission",
 	  "sort_order": "5",
-	  "type": "1"
+	  "type": "2"
     }
   },
   {
@@ -56,7 +56,7 @@
       "name": "Seizure disorder",
       "description": "Seizure disorder is the main reason for ICU admission",
 	  "sort_order": "6",
-	  "type": "1"
+	  "type": "2"
     }
   },
   {
@@ -66,7 +66,7 @@
       "name": "Spontaneous cerebral hemorrhage",
       "description": "Spontaneous cerebral hemorrhage",
 	  "sort_order": "1",
-	  "type": "2"
+	  "type": "3"
     }
   },
   {
@@ -76,7 +76,7 @@
       "name": "Cardiomyopathy or myocarditis",
       "description": "Cardiomyopathy or myocarditis",
 	  "sort_order": "2",
-	  "type": "2"
+	  "type": "3"
     }
   },
   {
@@ -86,7 +86,7 @@
       "name": "Hypoplastic left heart syndrome",
       "description": "Hypoplastic left heart syndrome",
 	  "sort_order": "3",
-	  "type": "2"
+	  "type": "3"
     }
   },
   {
@@ -96,7 +96,7 @@
       "name": "Neurodegenerative disorder",
       "description": "Neurodegenerative disorder",
 	  "sort_order": "4",
-	  "type": "2"
+	  "type": "3"
     }
   },
   {
@@ -106,7 +106,7 @@
       "name": "Necrotizing enterocolitis",
       "description": "Necrotizing enterocolitis is the main reason for ICU admission",
 	  "sort_order": "5",
-	  "type": "2"
+	  "type": "3"
     }
   },
   {
@@ -116,7 +116,7 @@
       "name": "Cardiac arrest",
       "description": "Cardiac arrest preceding ICU admission",
 	  "sort_order": "1",
-	  "type": "3"
+	  "type": "4"
     }
   },
   {
@@ -126,7 +126,7 @@
       "name": "Severe combined immune deficiency",
       "description": "Severe combined immune deficiency",
 	  "sort_order": "2",
-	  "type": "3"
+	  "type": "4"
     }
   },
   {
@@ -136,7 +136,7 @@
       "name": "Leukemia or lymphoma",
       "description": "Leukemia or lymphoma after first induction",
 	  "sort_order": "3",
-	  "type": "3"
+	  "type": "4"
     }
   },
   {
@@ -146,7 +146,7 @@
       "name": "Bone marrow transplant recipient",
       "description": "Bone marrow transplant recipient",
 	  "sort_order": "4",
-	  "type": "3"
+	  "type": "4"
     }
   },
   {
@@ -156,7 +156,7 @@
       "name": "Liver failure",
       "description": "Liver failure is the main reason for ICU admission",
 	  "sort_order": "5",
-	  "type": "3"
+	  "type": "4"
     }
   },
   {
@@ -166,7 +166,7 @@
       "name": "Death",
       "description": "Discharged to death",
 	  "sort_order": "1",
-	  "type": "4"
+	  "type": "5"
     }
   },
   {
@@ -176,7 +176,7 @@
       "name": "Home",
       "description": "Discharged to home",
 	  "sort_order": "0",
-	  "type": "4"
+	  "type": "5"
     }
   },
   {
@@ -186,7 +186,7 @@
       "name": "Hospital",
       "description": "Discharged to hospital",
 	  "sort_order": "1",
-	  "type": "4"
+	  "type": "5"
     }
   },
   {
@@ -196,7 +196,7 @@
       "name": "Injury or Accident",
       "description": "Injury or Accident",
 	  "sort_order": "0",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -206,7 +206,7 @@
       "name": "Cardiac",
       "description": "Cardiac",
 	  "sort_order": "1",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -216,7 +216,7 @@
       "name": "Neurological",
       "description": "Neurological",
 	  "sort_order": "2",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -226,7 +226,7 @@
       "name": "Respiratory",
       "description": "Respiratory",
 	  "sort_order": "3",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -236,7 +236,7 @@
       "name": "GIT",
       "description": "GIT",
 	  "sort_order": "4",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -246,7 +246,7 @@
       "name": "Renal / Urological",
       "description": "Renal / Urological",
 	  "sort_order": "5",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -256,7 +256,7 @@
       "name": "Haematological / Oncological",
       "description": "Haematological / Oncological",
 	  "sort_order": "6",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -266,7 +266,7 @@
       "name": "Sepsis",
       "description": "Sepsis",
 	  "sort_order": "7",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -276,7 +276,7 @@
       "name": "Toxins / envenomations",
       "description": "Toxins / envenomations",
 	  "sort_order": "8",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -286,7 +286,7 @@
       "name": "Metabolic",
       "description": "Metabolic",
 	  "sort_order": "9",
-	  "type": "5"
+	  "type": "6"
     }
   },
   {
@@ -296,7 +296,7 @@
       "name": "Other",
       "description": "Other",
 	  "sort_order": "10",
-	  "type": "5"
+	  "type": "6"
     }
   }
 ]

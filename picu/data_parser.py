@@ -43,8 +43,7 @@ def create_diagnoses(cells):
 	diagnoses_list = cells[10].split('#')
 	icd10_code = cells[14]
 	anszic_code = cells[13]
-	risk_category_id = "0" if cells[27] is None or cells[27] is "0" else cells[27]
-	risk_category = SelectionType.objects.get(id=risk_category_id)
+	risk_category = format_risk(cells)
 
 	result = []
 
@@ -107,7 +106,7 @@ def create_admission(cells):
 	referred_from = str(cells[3]).replace('#', ',')
 	picu_admisison_date = formatter.format_date(cells[4])
 	hosp_admission_date = formatter.format_date(cells[5])
-	risk = SelectionType.objects.get(id=("1" if cells[27] is None or cells[27] is "0" else cells[27]))
+	risk = format_risk(cells)
 	picu_discharge_date = formatter.format_date(cells[15])
 	hospital_discharge_date = formatter.format_date(cells[16])
 	discharged_to = cells[17]
@@ -143,3 +142,7 @@ def create_admission(cells):
 	admission.positive_cultures.add(*postive_cultures_list)
 	admission.save()
 	return admission
+
+
+def format_risk(cells):
+	return SelectionType.objects.get(id=(1 if cells[27] is None or cells[27] is "0" else int(cells[27]) + 1))

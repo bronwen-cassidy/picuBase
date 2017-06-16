@@ -1,7 +1,7 @@
 [
   {
     "model": "picu.SelectionType",
-    "pk": "0",
+    "pk": "1",
     "fields": {
       "name": "No Risk",
       "description": "Diagnosis considered no risk"
@@ -9,7 +9,7 @@
   },
   {
     "model": "picu.SelectionType",
-    "pk": "1",
+    "pk": "2",
     "fields": {
       "name": "Low Risk Diagnosis",
       "description": "Diagnosis considered low risk"
@@ -17,7 +17,7 @@
   },
   {
     "model": "picu.SelectionType",
-    "pk": "2",
+    "pk": "3",
     "fields": {
       "name": "High Risk Diagnosis",
       "description": "Diagnosis considered High risk"
@@ -25,7 +25,7 @@
   },
   {
     "model": "picu.SelectionType",
-    "pk": "3",
+    "pk": "4",
     "fields": {
       "name": "Very High Risk Diagnosis",
       "description": "Diagnosis considered very high risk"
@@ -33,7 +33,7 @@
   },
   {
     "model": "picu.SelectionType",
-    "pk": "4",
+    "pk": "5",
     "fields": {
       "name": "Discharged To",
       "description": "Various places a patient can be discharged to"
@@ -41,7 +41,7 @@
   },
   {
     "model": "picu.SelectionType",
-    "pk": "5",
+    "pk": "6",
     "fields": {
       "name": "Main Admission Reason",
       "description": "Main reason for PICU admission system of pathology based"
