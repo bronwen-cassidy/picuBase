@@ -23,6 +23,9 @@
 {{ media.js }}
 {% endblock %}
 
+{% block nav-global %}{% endblock %}
+
+
 {% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-list{% endblock %}
 
 {% if not is_popup %}

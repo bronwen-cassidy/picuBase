@@ -30,9 +30,6 @@
         {% if has_permission %}
         <div id="user-tools">
             {% block welcome-msg %}
-                {% if site_url %}
-                    <a href="{% url 'picu:home' %}"><img class="nav_icon" src="/static/picu/img/home.png"/></a>
-                {% endif %}
                 {% trans 'Welcome,' %}
                 <strong>{% firstof user.get_short_name user.get_username %}</strong>.
             {% endblock %}
@@ -45,6 +42,9 @@
                 {% endif %}
                 {% if user.has_usable_password %}
                 <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                {% endif %}
+				{% if site_url %}
+                    <a href="{% url 'picu:home' %}"><img class="nav_icon" src="/static/picu/img/home.png"/></a> /
                 {% endif %}
                 <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
             {% endblock %}
