@@ -1,0 +1,99 @@
+[
+  {
+    "model": "picu.Picu",
+    "pk": "1",
+    "fields": {
+      "name": "Frere ICU",
+      "street_address": "21 Salisbury Street",
+      "city": "East Londin",
+      "unit_number": "01112345"
+    }
+  },
+  {
+    "model": "picu.Patient",
+    "pk": "1",
+    "fields": {
+      "first_name": "Mario",
+      "second_name": "Nintendo",
+      "hospital_no": "1",
+      "hiv": "1",
+      "gender": "M",
+      "date_of_birth": "2016-01-12"
+    }
+  },
+  {
+    "model": "picu.Patient",
+    "pk": "2",
+    "fields": {
+      "first_name": "Mary",
+      "second_name": "OBrian",
+      "hospital_no": "12",
+      "hiv": "2",
+      "gender": "F",
+      "date_of_birth": "2016-02-20"
+    }
+  },
+  {
+    "model": "picu.Admission",
+    "pk": "1",
+    "fields": {
+      "picu": "1",
+      "picu_admission_date": "2016-05-22",
+      "hospital_admission_date": "2016-05-22",
+      "admitted_from": "Some hospital place",
+      "patient": "1",
+      "mortality": "0"
+    }
+  },
+  {
+    "model": "picu.Admission",
+    "pk": "2",
+    "fields": {
+      "picu": "1",
+      "picu_admission_date": "2016-04-21",
+      "hospital_admission_date": "2016-04-21",
+      "admitted_from": "Some hospital place",
+      "patient": "1",
+      "mortality": "0"
+    }
+  },
+  {
+    "model": "picu.Admission",
+    "pk": "3",
+    "fields": {
+      "picu": "1",
+      "picu_admission_date": "2016-07-18",
+      "hospital_admission_date": "2016-07-18",
+      "admitted_from": "Some hospital place",
+      "patient": "1",
+      "mortality": "1",
+      "death_in_picu": "True"
+    }
+  },
+  {
+    "model": "picu.Admission",
+    "pk": "4",
+    "fields": {
+      "picu": "1",
+      "picu_admission_date": "2016-09-03",
+      "hospital_admission_date": "2016-09-03",
+      "admitted_from": "Some hospital place",
+      "pupils_fixed": "True",
+      "patient": "2",
+      "mortality": "0"
+    }
+  },
+  {
+    "model": "picu.Admission",
+    "pk": "5",
+    "fields": {
+      "picu": "1",
+      "picu_admission_date": "2016-10-03",
+      "hospital_admission_date": "2016-09-12",
+      "pupils_fixed": "True",
+      "admitted_from": "Some hospital place",
+      "patient": "2",
+      "mortality": "0"
+    }
+  }
+]

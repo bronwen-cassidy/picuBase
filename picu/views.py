@@ -3,14 +3,14 @@ import re
 from django.core.files.storage import FileSystemStorage
 from django.core import serializers
 from django.http import HttpResponse
-from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.utils import timezone
 
-from picu import data_parser, summaries
+from picu import data_parser, summaries, analyses
 from .forms import PatientSearchForm
 from .models import Admission, Patient, Diagnosis
+
 
 
 # Create your views here.
@@ -53,6 +53,7 @@ def patient_view(request, id):
 	return render(request, 'picu/patient_details.html', model)
 
 def admission_add(request):
+
 	request.session['URL_HISTORY'] = []
 	return redirect(reverse('admin:picu_admission_add'))
 
@@ -88,6 +89,14 @@ def summary_reports(request, year=None):
 	                                                     'sum_girls': results['sum_girls'], 'sum_boys': results['sum_boys'],
 	                                                     'sum_ventilated': results['sum_ventilated'], 'sum_deaths': results['sum_deaths'],
 	                                                     'sum_patient_days': results['sum_patient_days']})
+
+# todo need to build all the data for these charts in one go
+def charts_view(request):
+	data = analyses.full_cusum_llr()
+
+	return render(request, 'picu/charts.html')
+
+
 
 def data_import(request):
 

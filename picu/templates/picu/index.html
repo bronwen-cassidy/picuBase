@@ -17,7 +17,6 @@
 
     <script type="text/javascript" src="/admin/jsi18n/"></script>
     <script type="text/javascript" src="/static/admin/js/core.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>-->
     <script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
     <script type="text/javascript" src="/static/picu/js/vendor/datatables/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="/static/picu/js/vendor/datatables/datatables.min.js"></script>
@@ -58,6 +57,7 @@
       <ul>
         <li class="home"><a class="li-nav active" href="{% url 'picu:home' %}">Home</a></li>
         <li class="summary"><a class="li-nav" href="{% url 'picu:summary_reports' %}">Summary Reports</a></li>
+        <li class="charts"><a class="li-nav" href="{% url 'picu:charts' %}">Charts</a></li>
       </ul>
     </div>
 </header>

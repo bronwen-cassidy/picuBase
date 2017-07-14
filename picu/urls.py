@@ -18,4 +18,5 @@ urlpatterns = [
 	url(r'^admission/add/', views.admission_add, name='picu_admission_add'),
 	url(r'^admission/summaries/(?P<year>\w+)/$', views.summary_reports, name='summary_reports'),
 	url(r'^admission/summaries/', views.summary_reports, name='summary_reports'),
+	url(r'^analysis/charts/', views.charts_view, name='charts'),
 ]

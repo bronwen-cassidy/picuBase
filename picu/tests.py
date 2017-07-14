@@ -5,7 +5,7 @@ from django.test import TestCase
 from datetime import date, datetime
 from django.core.urlresolvers import reverse
 
-from picu import formatter, summaries
+from picu import formatter, summaries, analyses
 from picu.models import Admission, Patient, SelectionType
 from picu.forms import PatientSearchForm
 
@@ -77,7 +77,7 @@ class SummariesTest(TestCase):
 
 		# get the list for june and assert we have 2 entries
 		expected_deaths = admission_dictionary['totals'].get('expected_deaths')
-		self.assertEquals('0.46501316724104913', expected_deaths)
+		self.assertEquals('0.46501316724104913', str(expected_deaths))
 
 	def test_smr(self):
 
@@ -86,6 +86,19 @@ class SummariesTest(TestCase):
 		# get the list for june and assert we have 2 entries
 		smr = admission_dictionary['totals'].get('smr')
 		self.assertEquals(8.601906960467891, smr)
+
+
+class AnalysesTest(TestCase):
+
+	fixtures = ['selection_types', 'selection_values', 'admissions_test_data']
+
+	def test_latest_admission_only(self):
+		admissions = analyses.find_latest_admissions('2016')
+
+		self.assertEquals(2, sum(1 for result in admissions))
+		self.assertEquals(7, admissions[0].picu_admission_date.month)
+
+
 
 
 # Create your tests here.
