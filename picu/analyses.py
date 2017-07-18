@@ -26,7 +26,8 @@ def full_cusum_llr(year):
 		data.append((x, y_index))
 		y_index += 1
 
-	return data
+	results_dictionary = {'full_cusum_llr': data, 'full_cusum_llr_count' : y_index}
+	return results_dictionary
 
 
 """
@@ -44,3 +45,10 @@ def find_latest_admissions(year):
 		'where pa.patient_id = pa2.patient_id)')
 
 	return admissions
+
+
+class ChartData(object):
+
+	def __init__(self, data, num_results):
+		self.data = data
+		self.num_results = num_results

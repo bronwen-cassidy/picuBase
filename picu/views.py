@@ -91,12 +91,12 @@ def summary_reports(request, year=None):
 	                                                     'sum_patient_days': results['sum_patient_days']})
 
 # todo need to build all the data for these charts in one go
-def charts_view(request, year=None):
+def charts_view(request, year='2016'):
 	if not year:
 		year = timezone.now().year
 	data = analyses.full_cusum_llr(year)
 
-	return render(request, 'picu/charts.html')
+	return render(request, 'picu/charts.html', data)
 
 
 
