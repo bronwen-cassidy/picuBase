@@ -18,11 +18,14 @@ def full_cusum_llr(year):
 
 		#  IF(mortality == 1,LN(O3/E3), LN((1-O3)/(1-E3)))     03=2*E3/(1+E3)
 		mortality_risk = admission.mortality_risk()
-		if admission.mortality() == "1":
-			x = (log((2 * mortality_risk/(1 + mortality_risk)) / mortality_risk))
-		else:   # log((1-O3)/(1-E3)    E3=mortality_risk
-			x = (log((1 - (2 * mortality_risk / 1 + mortality_risk)) / (1-mortality_risk)))
 
+		if admission.mortality == "1":
+			risk_ = (2 * mortality_risk / (1 + mortality_risk)) / mortality_risk
+
+		else:   # log((1-O3)/(1-E3)    E3=mortality_risk
+			risk_ = (1 - (2 * mortality_risk) / (1 + mortality_risk)) / (1 - mortality_risk)
+
+		x = (log(risk_))
 		data.append((x, y_index))
 		y_index += 1
 

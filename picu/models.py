@@ -204,14 +204,35 @@ class Admission(models.Model):
 	def paop_in_mmhg(self):
 		return self.partial_oxygen_pressure * 7.5
 
+	#SUM(pupils_fixed*3.8233,
+	# elective_admission*-0.5378,
+	# mechanical_ventialtion*0.9763,
+	# base_excess*0.0671,
+	# spb *-0.0431,
+	# (0.1716*spb*spb/1000),
+	# Fio2*0.4214,
+	# bypass_cardiac*-1.2246,
+	# non_bypass_cardiac*-0.8762,
+	# non_cardiac_procedure*-1.5164,
+	# very_high_risk_diagnosis*1.6225,
+	# high_risk_diagnosis*1.0725,
+	# low_risk_diagnosis*-2.1766,
+	# -1.7928)
 	def logit(self):
-		return (self.bool_to_number(self.pupils_fixed) * 3.8233) + (self.bool_to_number(self.elective_admission) * -0.5378) \
-		+ (self.bool_to_number(self.mechanical_ventilation) * 0.9763) + (self.base_excess * 0.0671) \
-		+ (self.sbp * -0.0431) + (0.1716 * self.sys_blood_pressure_squared()) \
-		+ (self.ratio_of_fio2_over_pao2() * 0.4214) + (self.bool_to_number(self.bypass_cardiac) * -1.2246) \
-		+ (self.bool_to_number(self.non_bypass_cardiac) * -0.8762) + (self.bool_to_number(self.non_cardiac_procedure) * -1.5164) \
-		+ (self.calc_diagnostic_risk(self.VERY_HIGH_RISK) * 1.6225) + (self.calc_diagnostic_risk(self.HIGH_RISK) * 1.0725) \
-		+ (self.calc_diagnostic_risk(self.LOW_RISK) * -2.1766) + (-1.7928)
+		return ((self.bool_to_number(self.pupils_fixed) * 3.8233)
+		        + (self.bool_to_number(self.elective_admission) * -0.5378)
+		        + (self.bool_to_number(self.mechanical_ventilation) * 0.9763)
+		        + (self.base_excess * 0.0671)
+		        + (self.sbp * -0.0431)
+		        + (0.1716 * self.sys_blood_pressure_squared())
+		        + (self.ratio_of_fio2_over_pao2() * 0.4214)
+		        + (self.bool_to_number(self.bypass_cardiac) * -1.2246)
+		        + (self.bool_to_number(self.non_bypass_cardiac) * -0.8762)
+		        + (self.bool_to_number(self.non_cardiac_procedure) * -1.5164)
+		        + (self.calc_diagnostic_risk(self.VERY_HIGH_RISK) * 1.6225)
+		        + (self.calc_diagnostic_risk(self.HIGH_RISK) * 1.0725)
+		        + (self.calc_diagnostic_risk(self.LOW_RISK) * -2.1766)
+		        + (-1.7928))
 	
 	def mortality_risk(self):
 		risk_factor = math.exp(self.logit())
