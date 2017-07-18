@@ -98,6 +98,10 @@ class AnalysesTest(TestCase):
 		self.assertEquals(2, sum(1 for result in admissions))
 		self.assertEquals(7, admissions[0].picu_admission_date.month)
 
+	def test_full_cusum_llr(self):
+		analyses.full_cusum_llr('2016')
+
+
 
 
 

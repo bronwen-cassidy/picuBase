@@ -61,11 +61,23 @@
               marker: {symbol: 'line-ew-open'},
               type: 'scatter'
             };
+            var trace8 = {
+              x: [0,10,20,30,40,50,60,70,80,90,100,110,120,130,140],
+              y: [0, -4, 2.1, 3.2,-3.4, 2.0,-2.2, -1.2,1.0, 1.5,2.2, 3.2,-1.4, -1.4,4],
+              mode: 'lines',
+              type: 'scatter'
+            };
 
-            var data = [trace4, trace5, trace6, trace7];
+            var data = [trace4, trace5, trace6, trace7, trace8];
             var layout = {
               xaxis: {
-                range: [ 0.0, 141 ]
+                range: [ 0, 141 ],
+                type: 'linear',
+                rangemode: 'tozero',
+                anchor: 'free',
+                position: 0,
+                //showticklabels: false,
+                anchor: 'y0'
               },
               yaxis: {
                 range: [-6, 6]

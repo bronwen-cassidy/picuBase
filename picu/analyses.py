@@ -1,38 +1,42 @@
 """ file containing all the alaysis function required for the charts """
 
 # needs parameters for various options (but we shall see what emerges)
-from collections import OrderedDict
+from math import log
 
-from django.db.models import Max
-
-from picu import formatter
-from picu.models import Admission, Patient
+from picu.models import Admission
 
 
 def full_cusum_llr(year):
 	# mortality risk > 0 need a given year
-	admissions = list(Admission.objects.filter(picu_admission_date__year=year).order_by('admission_date'))
-	admissions_list = []
-	yaxis_count = 0
-	observed_deaths = 0
+	admissions = list(find_latest_admissions(year))
+	data = []
+
+	y_index = 1
+	x = 0
+	# if observed death = 1 (mortality = 1) then log ((2*mortality_risk/(1+mortality_risk))/mortality_risk)
 	for admission in admissions:
-		if admission.mortality_risk() > 0:
-			yaxis_count += 1
-			admissions_list.append(admission)
 
-	for admission in admissions_list:
-		death = formatter.format_boolean(admission.mortality)
+		#  IF(mortality == 1,LN(O3/E3), LN((1-O3)/(1-E3)))     03=2*E3/(1+E3)
+		mortality_risk = admission.mortality_risk()
+		if admission.mortality() == "1":
+			x = (log((2 * mortality_risk/(1 + mortality_risk)) / mortality_risk))
+		else:   # log((1-O3)/(1-E3)    E3=mortality_risk
+			x = (log((1 - (2 * mortality_risk / 1 + mortality_risk)) / (1-mortality_risk)))
 
-	data = [[]]
+		data.append((x, y_index))
+		y_index += 1
+
 	return data
 
-""" 
+
+"""
 	looking for the patients last admission for the year. This will work for the smr collection as find the first admission
 	date of the first patient that died then find all the admission with a date >= to that date. This needs to be the 
 	last admisison for each patient
 """
-def find_latest_admissions(year):
 
+
+def find_latest_admissions(year):
 	admissions = Admission.objects.raw(
 		'SELECT distinct(pa.patient_id), pa.* from picu_admission pa where year(pa.picu_admission_date) = ' + str(year) +
 		' and pa.picu_admission_date = '
