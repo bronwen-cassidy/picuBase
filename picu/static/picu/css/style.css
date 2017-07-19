@@ -99,3 +99,8 @@ img#admin_link_id {
 a.admin_link {
     float: right;
 }
+
+.cell-data {
+    display: inline-block;
+    width: 50%;
+}

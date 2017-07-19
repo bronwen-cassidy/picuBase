@@ -29,7 +29,8 @@ def full_cusum_llr(year):
 		data.append((x, y_index))
 		y_index += 1
 
-	results_dictionary = {'full_cusum_llr': data, 'full_cusum_llr_count' : y_index}
+
+	results_dictionary = {'full_cusum_llr': data, 'full_cusum_llr_count' : y_index, 'x_range': range(0, y_index, 2)}
 	return results_dictionary
 
 
