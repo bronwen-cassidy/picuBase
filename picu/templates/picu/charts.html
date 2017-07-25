@@ -70,7 +70,76 @@
               },
               title:'Data Labels Hover'
             };
-            Plotly.newPlot('smr_chart', data, layout);
+
+            //=========================== smr
+
+            var smex = {
+                x: [
+                    {% for key in x_range %}
+                        {{key}} {% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ],
+
+              close: [
+                {% for key, value in smr %}
+                    {{key.0}} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+
+              decreasing: {line: {color: '#7F7F7F'}},
+
+              high: [
+                {% for key, value in smr %}
+                    {{key.2}} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              increasing: {line: {color: '#17BECF'}},
+              line: {color: 'rgba(31,119,180,1)'},
+
+              low: [
+                {% for key, value in smr %}
+                    {{key.1}} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+
+              open: [
+                {% for key, value in smr %}
+                    {{key.0}} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+
+              type: 'candlestick',
+              xaxis: 'x',
+              yaxis: 'y'
+};
+
+var data_smex = [smex];
+
+var layout_smex = {
+  //dragmode: 'zoom',
+  //margin: {
+   // r: 10,
+   // t: 25,
+    //b: 40,
+    //l: 60
+  //},
+  showlegend: false,
+  xaxis: {
+    autorange: true,
+    //domain: [0, 1],
+    range: [0, {{ full_cusum_llr_count }}],
+    title: 'Number',
+    type: 'float'
+  },
+  yaxis: {
+    autorange: true,
+    domain: [0, 1],
+    range: [{{smr_y_range.0}}, {{ smr_y_range.1 }}],
+    type: 'linear'
+  }
+};
+
+            Plotly.newPlot('smr_chart', data_smex, layout_smex);
             Plotly.newPlot('cusum_llr_chart', data, layout);
         });
 
