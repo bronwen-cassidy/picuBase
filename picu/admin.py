@@ -70,7 +70,7 @@ class AdmissionAdmin(admin.ModelAdmin):
 
 	list_display = ('case_no', 'picu_admission_date', 'patient_info', 'current_diagnosis', 'pos_cultures', 'admission_month', 'mortality', 'pupils_fixed',
 	                'elective_admission', 'hiv', 'mechanical_ventilation', 'base_excess', 'sbp', 'sys_blood_pressure_squared',
-	                'fraction_inspired_oxygen', 'partial_oxygen_pressure', 'paop_in_mmhg', 'ratio_of_fio2_over_pao2', 'bypass_cardiac',
+	                'fraction_inspired_oxygen', 'partial_oxygen_pressure','ratio_of_fio2_over_pao2', 'bypass_cardiac',
 	                'non_bypass_cardiac', 'non_cardiac_procedure', 'risk_associated_with_diagnosis', 'logit', 'length_of_stay', 'mortality_risk', 'mortality')
 	ordering = ['picu_admission_date']
 	list_filter = ['picu_admission_date', 'risk_associated_with_diagnosis', 'mortality']

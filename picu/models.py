@@ -136,7 +136,7 @@ class Admission(models.Model):
 	base_excess = models.FloatField("Absolute value of base excess (mmol/L)", default=0.0)
 	sbp = models.IntegerField("SBP at admission (mm Hg)", default=0)
 	fraction_inspired_oxygen = models.FloatField("FiO2 as Decimal", default=0.0)
-	partial_oxygen_pressure = models.FloatField("PaO2 KPa", default=0.0)
+	partial_oxygen_pressure = models.FloatField("PaO2 (mm Hg)", default=0.0)
 	
 	discharged_date = models.DateField(default=None, blank=True, null=True)
 	hosp_discharged_date = models.DateField(default=None, blank=True, null=True)
@@ -201,9 +201,6 @@ class Admission(models.Model):
 				return 1
 		return 0
 
-	def paop_in_mmhg(self):
-		return self.partial_oxygen_pressure * 7.5
-
 	#SUM(pupils_fixed*3.8233,
 	# elective_admission*-0.5378,
 	# mechanical_ventialtion*0.9763,
@@ -249,7 +246,6 @@ class Admission(models.Model):
 	sys_blood_pressure_squared.short_description = "sbt*sbt/1000"
 	ratio_of_fio2_over_pao2.short_description = "100 × Fio2/Pao2 (mm Hg)"
 	mortality_risk.short_description = "Mortality Risk"
-	paop_in_mmhg.short_description = "PaO2 (mmHg)"
 	main_admission_reason.short_description = "Main reason for PICU admission"
 	death_in_picu.short_description = "Death In PICU"
 	death_in_hospital.short_description = "Death In Hospital"
