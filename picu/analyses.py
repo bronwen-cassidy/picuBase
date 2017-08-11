@@ -11,11 +11,14 @@ from picu.models import Admission
 def full_cusum_llr(year):
 	admissions = list(find_latest_admissions(year))
 
-	data = []
-	odds = []  # consists of doubling_odds and halving_odds
 	smr_data = []  # mortality_risk / observed deaths
 	llr_for_doubling_odds = [] #=IF(C4=1,LN(O4/E4),LN((1-O4)/(1-E4)))
 	llr_for_halving_odds = [] #=-LN(P4/mortality_risk)*mortality+-LN((1-P4)/(1-mortality_risk))*(1-mortality)  p =0.5*mortality_risk/(1-0.5*mortality_risk)
+
+	full_cusumllr_2_odds = []
+	zero_full_cusumllr_2_odds = []
+	full_cusumllr_half_odds = []
+	zero_full_cusumllr_half_odds = []
 
 	y_index = 1
 	observed_deaths = 0
@@ -32,12 +35,10 @@ def full_cusum_llr(year):
 		mortality_risk = admission.mortality_risk()
 		mortality_risk_sum.append(mortality_risk)
 
-		previous_risk = data[len(data)-1][0] if len(data) > 0 else 0
-		previous_half_risk = odds[len(odds)-1][0] if len(odds) > 0 else 0
+		previous_doubling_odds = llr_for_doubling_odds[len(llr_for_doubling_odds)-1] if len(llr_for_doubling_odds) > 0 else 0
+		previous_halving_odds = llr_for_halving_odds[len(llr_for_halving_odds)-1] if len(llr_for_halving_odds) > 0 else 0
 
-		previous_doubling_odds = llr_for_doubling_odds[len(llr_for_doubling_odds)-1][0] if len(llr_for_doubling_odds) > 0 else 0
-		previous_halving_odds = llr_for_halving_odds[len(llr_for_halving_odds)-1][0] if len(llr_for_halving_odds) > 0 else 0
-
+##  = -LN(P3/E3)*C3+-LN((1-P3)/(1-E3))*(1-C3)  p = =0.5*E3/(1-0.5*E3)
 		mortality = admission.mortality
 		if mortality == "1":
 			risk_ = math.log((2 * mortality_risk / (1 + mortality_risk)) / mortality_risk)
@@ -48,32 +49,58 @@ def full_cusum_llr(year):
 		llr_for_doubling_odds.append(risk_)
 
 		new_risk = risk_
-		if previous_risk + risk_ > 4.6:
+		if previous_doubling_odds + risk_ > 4.6:
 			new_risk = 0
-		elif previous_risk + risk_ == -4.6:
+		elif previous_doubling_odds + risk_ == -4.6:
 			new_risk = -4.6
-		elif previous_risk + risk_ < -4.6:
+		elif previous_doubling_odds + risk_ < -4.6:
 			new_risk = 0
 		else:
-			new_risk += previous_risk
+			new_risk += previous_doubling_odds
+
+		full_cusumllr_2_odds.append((new_risk, y_index))
+
+		## zero truncated 2 odds: =IF(previous_doubling_odds+Q4<0,0,IF(U3+Q4=4.6,4.6,IF(U3+Q4>4.6,0,U3+Q4)))
+		new_zero_risk = risk_
+		if previous_doubling_odds + risk_ > 4.6:
+			new_zero_risk = 0
+		elif previous_doubling_odds + risk_ < 0:
+			new_zero_risk = 0
+		else:
+			new_zero_risk += previous_doubling_odds
+
+		zero_full_cusumllr_2_odds.append((new_zero_risk, y_index))
 
 		## =IF(T3+R4=4.6,4.6,IF(T3+R4>4.6,0,IF(T3+R4=-4.6,-4.6,IF(T3+R4<-4.6,0,T3+R4))))
 		######## half llr risk
 		p = 0.5 * mortality_risk / (1 - 0.5 * mortality_risk)
-		half_risk = -math.log(p / mortality_risk) * mortality + -math.log((1 - p) / (1 - mortality_risk)) * (1 - mortality)
+		half_risk = -math.log(p / mortality_risk) * int(mortality) + -math.log((1 - p) / (1 - mortality_risk)) * (1 - int(mortality))
 		llr_for_halving_odds.append(half_risk)
 
 		new_half_risk = half_risk
-		if previous_half_risk + half_risk > 4.6:
+		if previous_halving_odds + half_risk > 4.6:
 			new_half_risk = 0
-		elif previous_half_risk + half_risk == -4.6:
+		elif previous_halving_odds + half_risk == -4.6:
 			new_half_risk = -4.6
-		elif previous_half_risk + half_risk < -4.6:
+		elif previous_halving_odds + half_risk < -4.6:
 			new_half_risk = 0
 		else:
-			new_half_risk += previous_half_risk
-		llr_for_halving_odds.append(new_half_risk)
+			new_half_risk += previous_halving_odds
 
+		full_cusumllr_half_odds.append((new_half_risk, y_index))
+
+		## zero truncated half risk =IF(V3+R4>0,0,IF(V3+R4=-4.6,-4.6,IF(V3+R4<-4.6,0,V3+R4)))
+		new_zero_half_risk = half_risk
+		if previous_halving_odds + half_risk > 0:
+			new_zero_half_risk = 0
+		elif previous_halving_odds + half_risk == -4.6:
+			new_zero_half_risk = -4.6
+		elif previous_halving_odds + half_risk < -4.6:
+			new_zero_half_risk = 0
+		else:
+			new_zero_half_risk += previous_halving_odds
+
+		zero_full_cusumllr_half_odds.append((new_zero_half_risk, y_index))
 
 		smr_low = 0
 		smr_high = 0
@@ -86,8 +113,6 @@ def full_cusum_llr(year):
 			smr_low = smr - my_norm
 			smr_high = smr + my_norm
 
-		data.append((new_risk, y_index))
-		odds.append(([zero_half_odds, zero_two_odds], y_index))
 		smr_data.append(([smr, smr_low, smr_high], y_index))
 
 		if smr_high > smr_y_high:
@@ -97,9 +122,10 @@ def full_cusum_llr(year):
 
 		y_index += 1
 
-	results_dictionary = {'half_cusum_llr':odds,'full_cusum_llr':data,'full_cusum_llr_count':y_index,'x_range': range(1,y_index),'smr_y_range': [
-		smr_y_low, smr_y_high],
-	                      'smr':smr_data}
+	results_dictionary = {'zero_half_cusum_llr':zero_full_cusumllr_half_odds,'zero_full_cusum_llr':zero_full_cusumllr_2_odds,
+	                      'half_cusum_llr':full_cusumllr_half_odds,'full_cusum_llr':full_cusumllr_2_odds,'full_cusum_llr_count':y_index,'x_range': range(1,y_index),'smr_y_range': [
+		smr_y_low, smr_y_high], 'smr':smr_data}
+
 	return results_dictionary
 
 
