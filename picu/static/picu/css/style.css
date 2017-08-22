@@ -102,5 +102,7 @@ a.admin_link {
 
 .cell-data {
     display: inline-block;
+    float:left;
     width: 50%;
+    overflow-x: auto;
 }

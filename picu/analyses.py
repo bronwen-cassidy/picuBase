@@ -12,13 +12,17 @@ def full_cusum_llr(year):
 	admissions = list(find_latest_admissions(year))
 
 	smr_data = []  # mortality_risk / observed deaths
-	llr_for_doubling_odds = [] #=IF(C4=1,LN(O4/E4),LN((1-O4)/(1-E4)))
-	llr_for_halving_odds = [] #=-LN(P4/mortality_risk)*mortality+-LN((1-P4)/(1-mortality_risk))*(1-mortality)  p =0.5*mortality_risk/(1-0.5*mortality_risk)
 
 	full_cusumllr_2_odds = []
-	zero_full_cusumllr_2_odds = []
+	zero_cusumllr_2_odds = []
 	full_cusumllr_half_odds = []
-	zero_full_cusumllr_half_odds = []
+	zero_cusumllr_half_odds = []
+	oe_y_min_range = 0
+	oe_y_max_range = 0
+
+
+	cussum_oe_deaths = []
+	deaths = []
 
 	y_index = 1
 	observed_deaths = 0
@@ -35,8 +39,9 @@ def full_cusum_llr(year):
 		mortality_risk = admission.mortality_risk()
 		mortality_risk_sum.append(mortality_risk)
 
-		previous_doubling_odds = llr_for_doubling_odds[len(llr_for_doubling_odds)-1] if len(llr_for_doubling_odds) > 0 else 0
-		previous_halving_odds = llr_for_halving_odds[len(llr_for_halving_odds)-1] if len(llr_for_halving_odds) > 0 else 0
+		previous_doubling_odds = zero_cusumllr_2_odds[len(zero_cusumllr_2_odds)-1][0] if len(zero_cusumllr_2_odds) > 0 else 0
+		previous_halving_odds = zero_cusumllr_half_odds[len(zero_cusumllr_half_odds)-1][0] if len(zero_cusumllr_half_odds) > 0 else 0
+		previous_oe_cussum = cussum_oe_deaths[len(cussum_oe_deaths)-1][0] if len(cussum_oe_deaths) > 0 else 0
 
 ##  = -LN(P3/E3)*C3+-LN((1-P3)/(1-E3))*(1-C3)  p = =0.5*E3/(1-0.5*E3)
 		mortality = admission.mortality
@@ -45,8 +50,12 @@ def full_cusum_llr(year):
 			observed_deaths += 1
 		else:
 			risk_ = math.log((1 - (2 * mortality_risk) / (1 + mortality_risk)) / (1 - mortality_risk))
-
-		llr_for_doubling_odds.append(risk_)
+#
+		oe_deaths = (previous_oe_cussum + (int(mortality) - mortality_risk))
+		cussum_oe_deaths.append((oe_deaths, y_index))
+		oe_y_min_range = math.floor(oe_deaths) if math.floor(oe_deaths) < oe_y_min_range else oe_y_min_range
+		oe_y_max_range = math.ceil(oe_deaths) if math.ceil(oe_deaths) > oe_y_max_range else oe_y_max_range
+		deaths.append((int(mortality), y_index))
 
 		new_risk = risk_
 		if previous_doubling_odds + risk_ > 4.6:
@@ -69,13 +78,12 @@ def full_cusum_llr(year):
 		else:
 			new_zero_risk += previous_doubling_odds
 
-		zero_full_cusumllr_2_odds.append((new_zero_risk, y_index))
+		zero_cusumllr_2_odds.append((new_zero_risk, y_index))
 
 		## =IF(T3+R4=4.6,4.6,IF(T3+R4>4.6,0,IF(T3+R4=-4.6,-4.6,IF(T3+R4<-4.6,0,T3+R4))))
 		######## half llr risk
 		p = 0.5 * mortality_risk / (1 - 0.5 * mortality_risk)
 		half_risk = -math.log(p / mortality_risk) * int(mortality) + -math.log((1 - p) / (1 - mortality_risk)) * (1 - int(mortality))
-		llr_for_halving_odds.append(half_risk)
 
 		new_half_risk = half_risk
 		if previous_halving_odds + half_risk > 4.6:
@@ -100,7 +108,7 @@ def full_cusum_llr(year):
 		else:
 			new_zero_half_risk += previous_halving_odds
 
-		zero_full_cusumllr_half_odds.append((new_zero_half_risk, y_index))
+		zero_cusumllr_half_odds.append((new_zero_half_risk, y_index))
 
 		smr_low = 0
 		smr_high = 0
@@ -122,9 +130,10 @@ def full_cusum_llr(year):
 
 		y_index += 1
 
-	results_dictionary = {'zero_half_cusum_llr':zero_full_cusumllr_half_odds,'zero_full_cusum_llr':zero_full_cusumllr_2_odds,
-	                      'half_cusum_llr':full_cusumllr_half_odds,'full_cusum_llr':full_cusumllr_2_odds,'full_cusum_llr_count':y_index,'x_range': range(1,y_index),'smr_y_range': [
-		smr_y_low, smr_y_high], 'smr':smr_data}
+	results_dictionary = {'oe_y_max_range': oe_y_max_range,'oe_y_min_range': oe_y_min_range, 'deaths': deaths, 'oe_deaths': cussum_oe_deaths,
+	                      'zero_half_cusum_llr':zero_cusumllr_half_odds,
+	                       'zero_full_cusum_llr':zero_cusumllr_2_odds,
+	                      'full_cusum_llr':full_cusumllr_2_odds,'full_cusum_llr_count':y_index,'x_range': range(1,y_index),'smr_y_range': [smr_y_low, smr_y_high], 'smr':smr_data}
 
 	return results_dictionary
 

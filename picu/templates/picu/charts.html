@@ -17,13 +17,24 @@
                    2.9 {% if not forloop.last %},{% endif %}
                 {% endfor %}
               ],
-              mode: 'markers',
-              marker: {symbol: 'line-ew-open'},
-              type: 'scatter'
+              mode: 'lines',
+              showlegend: false,
+              line: {
+                dash: 'dot',
+                width: 4
+              }
             };
 
-            var trace2 = { x: [0,{{full_cusum_llr_count }}], y: [-4.6, -4.6], mode: 'lines',type: 'scatter'};
-            var trace3 = {x: [0,{{full_cusum_llr_count }}], y: [4.6, 4.6], mode: 'lines', type: 'scatter'};
+            var trace2 = { x: [0,{{full_cusum_llr_count }}], y: [-4.6, -4.6], mode: 'lines',showlegend: false,
+              line: {
+                dash: 'dot',
+                width: 4
+              }};
+            var trace3 = {x: [0,{{full_cusum_llr_count }}], y: [4.6, 4.6], mode: 'lines',showlegend: false,
+              line: {
+                dash: 'dot',
+                width: 4
+              }};
 
             var trace4 = {
               x: [
@@ -36,9 +47,12 @@
                    -2.9 {% if not forloop.last %},{% endif %}
                 {% endfor %}
               ],
-              mode: 'markers',
-              marker: {symbol: 'line-ew-open'},
-              type: 'scatter'
+              mode: 'lines',
+              showlegend: false,
+              line: {
+                dash: 'dot',
+                width: 4
+              }
             };
 
             var full_cusum_llr = {
@@ -53,6 +67,7 @@
                 {% endfor %}
               ],
               mode: 'lines',
+              name: 'full cusum llr 2 odds',
               type: 'scatter'
             };
             var data = [trace1, trace2, trace3, trace4, full_cusum_llr];
@@ -68,7 +83,142 @@
               yaxis: {
                 range: [-6, 6]
               },
-              title:'Data Labels Hover'
+              legend: {"orientation": "h"},
+              title:'Full cusum LLR for 2 Odds'
+            };
+
+            // ===================== oe deaths
+
+
+            var oe_deaths = {
+              x: [
+                {% for key, value in oe_deaths %}
+                   {{ value }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              y: [
+                {% for key, value in oe_deaths %}
+                   {{ key }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              mode: 'lines',
+              name: 'Cusum O-E Deaths',
+              type: 'scatter'
+            };
+            var data00 = [oe_deaths];
+            var layout00 = {
+              xaxis: {
+                range: [ 1, {{full_cusum_llr_count }}],
+                type: 'linear',
+                rangemode: 'tozero',
+                anchor: 'free',
+                position: 0,
+                anchor: 'y0'
+              },
+              yaxis: {
+                range: [{{oe_y_min_range}}, {{oe_y_max_range}}]
+              },
+              legend: {"orientation": "h"},
+              title:'Cusum O-E Deaths'
+            };
+
+            // =============== zero based
+
+            var trace10 = {
+              x: [
+                {% for i in x_range %}
+                   {{ i }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              y: [
+              {% for key, value in zero_full_cusum_llr %}
+                   2.9 {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              mode: 'lines',
+              showlegend: false,
+              line: {
+                dash: 'dot',
+                width: 4
+              }
+            };
+
+            var trace20 = { x: [0,{{full_cusum_llr_count }}], y: [-4.6, -4.6], mode: 'lines',showlegend: false,
+              line: {
+                dash: 'dot',
+                width: 4
+              }};
+            var trace30 = {x: [0,{{full_cusum_llr_count }}], y: [4.6, 4.6], mode: 'lines',showlegend: false,
+              line: {
+                dash: 'dot',
+                width: 4
+              }};
+
+            var trace40 = {
+              x: [
+                {% for i in x_range %}
+                   {{ i }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              y: [
+              {% for key, value in zero_full_cusum_llr %}
+                   -2.9 {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              mode: 'lines',
+              showlegend: false,
+              line: {
+                dash: 'dot',
+                width: 4
+              }
+            };
+
+            var zero_full_cusum_llr = {
+              x: [
+                {% for key, value in zero_full_cusum_llr %}
+                   {{ value }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              y: [
+                {% for key, value in zero_full_cusum_llr %}
+                   {{ key }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              name: 'zero truncated cusum LLR for 2 odds',
+              mode: 'lines',
+              type: 'scatter'
+            };
+            var zero_half_cusum_llr = {
+              x: [
+                {% for key, value in zero_half_cusum_llr %}
+                   {{ value }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              y: [
+                {% for key, value in zero_half_cusum_llr %}
+                   {{ key }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              name: 'zero truncated cusum LLR for 1\/2 odds',
+              mode: 'lines',
+              type: 'scatter'
+            };
+
+            var data0 = [trace10, trace20, trace30, trace40, zero_full_cusum_llr, zero_half_cusum_llr];
+            var layout0 = {
+              xaxis: {
+                range: [ 1, {{full_cusum_llr_count }}],
+                type: 'linear',
+                rangemode: 'tozero',
+                anchor: 'free',
+                position: 0,
+                anchor: 'y0'
+              },
+              yaxis: {
+                range: [-6, 6]
+              },
+              legend: {"orientation": "h"},
+              title:'Zero Truncated'
             };
 
             //=========================== smr
@@ -141,6 +291,8 @@ var layout_smex = {
 
             Plotly.newPlot('smr_chart', data_smex, layout_smex);
             Plotly.newPlot('cusum_llr_chart', data, layout);
+            Plotly.newPlot('cusum_llr_zero_chart', data0, layout0);
+            Plotly.newPlot('oe_deaths_chart', data00, layout00);
         });
 
 	</script>
@@ -176,12 +328,15 @@ var layout_smex = {
                     </select>
                 </div>
             </div>
-            <div id=""><span class="cell-data"><div id="smr_chart"></div></span><span class="cell-data"><div id="cusum_llr_chart"></div></span></div>
+            <div id="first_chart_row">
+                <span class="cell-data"><div id="smr_chart"></div></span>
+                <span class="cell-data"><div id="cusum_llr_chart"></div></span>
+            </div>
+            <div id="second_chart_row">
+                <span class="cell-data"><div id="cusum_llr_zero_chart"></div></span>
+                <span class="cell-data"><div id="oe_deaths_chart"></div></span>
+            </div>
         </div>
-
-        <div id="cusum_chart"></div>
-
-        <div id="cusum_llr_truc_chart"></div>
 
     </div>
 {% endblock %}
