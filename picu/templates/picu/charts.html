@@ -3,7 +3,16 @@
 {% block extrahead %}
     {{ block.super }}
     <script type="text/javascript" src="/static/picu/js/plotly-latest.min.js"></script>
+
 	<script type="text/javascript">
+
+	    django.jQuery(document).ready(function($) {
+
+            $('#year-form-select').on('change', function() {
+                var selectedElem = $(this).val();
+                window.location.href = '/picu/admission/charts/' + selectedElem + '/'
+            });
+        });
 
         django.jQuery(document).ready(function($) {
             var trace1 = {
@@ -88,7 +97,20 @@
             };
 
             // ===================== oe deaths
-
+            var c_deaths = {
+              x: [
+                {% for key, value in deaths %}
+                   {{ value }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              y: [
+                {% for key, value in deaths %}
+                   {{ key }} {% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              name: 'Deaths',
+              type: 'bar'
+            };
 
             var oe_deaths = {
               x: [
@@ -105,7 +127,7 @@
               name: 'Cusum O-E Deaths',
               type: 'scatter'
             };
-            var data00 = [oe_deaths];
+            var data00 = [oe_deaths, c_deaths];
             var layout00 = {
               xaxis: {
                 range: [ 1, {{full_cusum_llr_count }}],
@@ -121,6 +143,7 @@
               legend: {"orientation": "h"},
               title:'Cusum O-E Deaths'
             };
+
 
             // =============== zero based
 
@@ -266,17 +289,9 @@
 var data_smex = [smex];
 
 var layout_smex = {
-  //dragmode: 'zoom',
-  //margin: {
-   // r: 10,
-   // t: 25,
-    //b: 40,
-    //l: 60
-  //},
   showlegend: false,
   xaxis: {
     autorange: true,
-    //domain: [0, 1],
     range: [0, {{ full_cusum_llr_count }}],
     title: 'Number',
     type: 'float'
@@ -320,7 +335,6 @@ var layout_smex = {
         <div id="year-select" class="module filtered">
             <div class="results">
                 <div>
-                    {{hospital}} {{year}}
                     <select id="year-form-select" name="year">
                         {% for op in years %}
                             <option value="{{op}}" {% if year == op %} selected {% endif %}>{{op}}</option>

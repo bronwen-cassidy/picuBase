@@ -12,7 +12,6 @@ from .forms import PatientSearchForm
 from .models import Admission, Patient, Diagnosis
 
 
-
 # Create your views here.
 def index(request):
 	# render - request, view, model
@@ -52,10 +51,12 @@ def patient_view(request, id):
 	model = {'patient': patient, 'admission_list': admission_list }
 	return render(request, 'picu/patient_details.html', model)
 
+
 def admission_add(request):
 
 	request.session['URL_HISTORY'] = []
 	return redirect(reverse('admin:picu_admission_add'))
+
 
 def diagnosis_search(request):
 	search_param = request.GET.get('criteria', '')
@@ -65,10 +66,12 @@ def diagnosis_search(request):
 		return HttpResponse(data)
 	return None
 
+
 def summary_reports(request, year=None):
 
-	if not year:
-		year = timezone.now().year
+	years = get_valid_years_list()
+
+	year = extract_year(request, year, years[0])
 	results = summaries.total_year_admissions(year)
 	monthly_admission_list = results['admissions']
 	totals_summary = results['totals']
@@ -77,9 +80,8 @@ def summary_reports(request, year=None):
 	deaths = results['deaths']
 	discharges = results['discharges']
 	ventilations = results['ventialtions']
-	years = []
-	for x in range(timezone.now().year-10, timezone.now().year+1):
-		years.extend([x])
+
+
 
 	return render(request, 'picu/summary_reports.html', {'admissions': monthly_admission_list.items(), 'totals': totals_summary.items(),
 	                                                     'year': int(year), 'boys': boys.items(), 'girls': girls.items(), 'deaths': deaths.items(),
@@ -90,14 +92,37 @@ def summary_reports(request, year=None):
 	                                                     'sum_ventilated': results['sum_ventilated'], 'sum_deaths': results['sum_deaths'],
 	                                                     'sum_patient_days': results['sum_patient_days']})
 
-# todo need to build all the data for these charts in one go
-def charts_view(request, year='2016'):
-	if not year:
-		year = timezone.now().year
-	data = analyses.full_cusum_llr(year)
 
+# todo need to build all the data for these charts in one go
+def charts_view(request, year=None):
+
+	years = get_valid_years_list()
+
+	year = extract_year(request, year, years[0])
+
+	data = analyses.full_cusum_llr(year)
+	data['years'] = years
+	data['year'] = int(year)
 	return render(request, 'picu/charts.html', data)
 
+
+def get_valid_years_list():
+	query = Admission.objects.dates('picu_admission_date', 'year', 'DESC').distinct()
+	years = list(result.year for result in query)
+	if len(years) == 0:
+		years.append(timezone.now().year)
+
+	return years
+
+
+def extract_year(request, year, newest_year):
+	if not year:
+		# check the session for a stored year
+		year = request.session.get('selected_year')
+		if not year:
+			year = newest_year
+			request.session['selected_year'] = year
+	return year
 
 
 def data_import(request):

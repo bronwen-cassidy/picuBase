@@ -37,9 +37,9 @@
 	<div id="content-main">
 
         <div id="year-select" class="module filtered">
+            <!-- todo add in the hospital obtained from the session and the year as in hospital year -->
             <div class="results">
                 <div>
-                    {{hospital}} {{year}}
                     <select id="year-form-select" name="year">
                         {% for op in years %}
                             <option value="{{op}}" {% if year == op %} selected {% endif %}>{{op}}</option>
