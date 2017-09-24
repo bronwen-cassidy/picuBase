@@ -57,7 +57,7 @@ class DiagnosticCode(models.Model):
 
 class Patient(models.Model):
 	GENDER_CHOICES = (('M','Male'),('F','Female'),)
-	HIV_CHOICES = (('0','Unknown'),('1','Positive'),('2','Negative-exposed'),('3','Negative-unexposed'),)
+	HIV_CHOICES = (('0','Unknown'),('1','Positive'),('2','Negative'),('3','Pending'),)
 
 	first_name = models.CharField(max_length=300)
 	second_name = models.CharField(max_length=300)
