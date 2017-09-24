@@ -135,7 +135,7 @@
                                 <td class="field-gender">{{ patient.gender }}</td>
                                 <td class="field-date_of_birth nowrap">{{ patient.date_of_birth }}</td>
                                 <td class="field-hiv">
-                                    <img src="/static/admin/img/icon-{% if patient.hiv %}yes.svg {% else %}no.svg {% endif %}" alt="True">
+                                    <img src="/static/admin/img/icon-{% if patient.hiv == '1' %}yes.svg {% else %}no.svg {% endif %}" alt="True">
                                 </td>
                                 <td class="field-age_in_months">{{ patient.age_in_months }}</td>
                             </tr>

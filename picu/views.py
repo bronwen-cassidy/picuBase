@@ -93,7 +93,6 @@ def summary_reports(request, year=None):
 	                                                     'sum_patient_days': results['sum_patient_days']})
 
 
-# todo need to build all the data for these charts in one go
 def charts_view(request, year=None):
 
 	years = get_valid_years_list()
