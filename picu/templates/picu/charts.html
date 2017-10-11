@@ -43,7 +43,7 @@
               line: {
                 dash: 'dot',
                 width: 4
-              }};
+            }};
 
             var trace4 = {
               x: [
@@ -284,33 +284,33 @@
               type: 'candlestick',
               xaxis: 'x',
               yaxis: 'y'
-};
+        };
 
-var data_smex = [smex];
+        var data_smex = [smex];
 
-var layout_smex = {
-  showlegend: false,
-  xaxis: {
-    autorange: true,
-    range: [0, {{ full_cusum_llr_count }}],
-    title: 'Number',
-    type: 'float'
-  },
-  yaxis: {
-    autorange: true,
-    domain: [0, 1],
-    range: [{{smr_y_range.0}}, {{ smr_y_range.1 }}],
-    type: 'linear'
-  }
-};
+        var layout_smex = {
+          showlegend: false,
+          xaxis: {
+            autorange: true,
+            range: [0, {{ full_cusum_llr_count }}],
+            title: 'Number',
+            type: 'float'
+          },
+          yaxis: {
+            autorange: true,
+            domain: [0, 1],
+            range: [{{smr_y_range.0}}, {{ smr_y_range.1 }}],
+            type: 'linear'
+          }
+        };
 
-            Plotly.newPlot('smr_chart', data_smex, layout_smex);
-            Plotly.newPlot('cusum_llr_chart', data, layout);
-            Plotly.newPlot('cusum_llr_zero_chart', data0, layout0);
-            Plotly.newPlot('oe_deaths_chart', data00, layout00);
-        });
+        Plotly.newPlot('smr_chart', data_smex, layout_smex);
+        Plotly.newPlot('cusum_llr_chart', data, layout);
+        Plotly.newPlot('cusum_llr_zero_chart', data0, layout0);
+        Plotly.newPlot('oe_deaths_chart', data00, layout00);
+    });
 
-	</script>
+</script>
 
 {% endblock %}
 
@@ -325,7 +325,8 @@ var layout_smex = {
         </div>
     </header>
     <div class="breadcrumbs">
-        <a href="{% url 'picu:home' %}">{% trans 'Home' %}</a> &rsaquo;&rsaquo; {% trans 'Summary Reports' %}
+        <a href="{% url 'picu:home' %}">{% trans 'Home' %}</a> &rsaquo;&rsaquo; <a href="{% url 'picu:summary_reports' %}">{% trans 'Summary Reports' %}</a> &rsaquo;&rsaquo;
+        {% trans 'Charts' %}
     </div>
 {% endblock %}
 
